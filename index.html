@@ -82,13 +82,13 @@ body {
 /* ── Custom Cursor ── */
 #cursor {
   position: fixed;
-  width: 14px; height: 14px;
+  width: 10px; height: 10px;
   background: var(--primary);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 99999;
   transform: translate(-50%, -50%);
-  transition: width 0.3s cubic-bezier(0.16,1,0.3,1), height 0.3s cubic-bezier(0.16,1,0.3,1), background 0.3s;
+  transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1), height 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s;
   mix-blend-mode: difference;
 }
 
@@ -143,7 +143,7 @@ nav {
 nav.scrolled {
   background: var(--nav-bg-scrolled);
   border-bottom-color: rgba(255,143,111,0.12);
-  box-shadow: 0 1px 40px rgba(0,0,0,0.15);
+  box-shadow: 0 1px 40px rgba(0,0,0,0.4);
 }
 .nav-logo {
   display: flex; flex-direction: column;
@@ -192,7 +192,7 @@ nav.scrolled {
 .nav-links a:hover { color: var(--primary); }
 .nav-links a:hover::after { width: 100%; }
 .nav-cta {
-  display: flex; align-items: center; gap: 10px;
+  display: flex; gap: 10px; align-items: center;
 }
 .btn {
   font-family: var(--font-label);
@@ -349,8 +349,9 @@ nav.scrolled {
   border-radius: 14px;
   padding: 20px 24px;
   position: relative;
+  overflow: hidden;
   max-width: 480px;
-  transition: all 0.3s;
+  transition: border-color 0.3s;
 }
 .pipeline-card::before {
   content: '';
@@ -358,9 +359,8 @@ nav.scrolled {
   inset: 0;
   background: linear-gradient(135deg, rgba(255,143,111,0.04), rgba(255,197,99,0.03));
   pointer-events: none;
-  border-radius: inherit;
 }
-.pipeline-card:hover { border-color: rgba(255,143,111,0.25); transform: translateY(-2px); }
+.pipeline-card:hover { border-color: rgba(255,143,111,0.25); }
 .pipeline-icon {
   width: 44px; height: 44px;
   background: rgba(255,143,111,0.1);
@@ -442,12 +442,12 @@ nav.scrolled {
 .hero-photo-gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(var(--surface-rgb), 0.8) 0%, transparent 50%);
+  background: linear-gradient(to top, rgba(8,8,8,0.8) 0%, transparent 50%);
 }
 .hero-photo-badge {
   position: absolute;
   bottom: 20px; left: 20px;
-  background: var(--nav-bg);
+  background: rgba(8,8,8,0.75);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(0,229,255,0.2);
   border-radius: 10px;
@@ -1133,7 +1133,7 @@ code {
 .glow-border {
   position: relative;
 }
-.glow-border::after {
+.glow-border::before {
   content: '';
   position: absolute;
   inset: -1px;
@@ -1145,7 +1145,7 @@ code {
   animation: border-dance 4s linear infinite;
   transition: opacity 0.4s;
 }
-.glow-border:hover::after { opacity: 0.5; }
+.glow-border:hover::before { opacity: 0.5; }
 </style>
 </head>
 <body>
@@ -1248,7 +1248,7 @@ code {
     <!-- Photo -->
     <div class="hero-photo-wrap reveal reveal-delay-2">
       <div class="hero-photo-frame">
-        <img src="profile-rectangle.jpg" alt="Nandeeswar Reddy Polu"/>
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMj3F70sFeKw98z4nAQLzCeGGnX6C7ZFuQ78u8lZElc9R9JkF_iYvUGQA8jp80k17AO2qvAfcJzpS5Id6VcFQzlA4ZNDoBWbExampqunC3GaXe3kV62ekIuPEdCuaaNKsW3iSHW91qhOO4_rRTGg_-2u8yEhvoQa_Jnb6GJ-8Yl4zOB8Ed7t3HAQ8xKJc3yLuvshMnTgOx-iYWe8s1XwlTKAXwbLc0BAutlOJxtu3R2T1MaDBU_Osk8aJy-6hUiW8TjeXOsPwuy4g" alt="Nandeeswar Reddy Polu"/>
         <div class="hero-photo-gradient"></div>
         <div class="hero-photo-badge">
           <span class="hero-badge-dot"></span>
@@ -1590,35 +1590,6 @@ code {
 </footer>
 
 <script>
-// ── Theme Toggle ──────────────────────────────────────────
-const themeBtn = document.getElementById('theme-toggle');
-const htmlEl = document.documentElement;
-const iconDark = document.getElementById('theme-icon-dark');
-const iconLight = document.getElementById('theme-icon-light');
-
-if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-  htmlEl.classList.remove('dark');
-  htmlEl.classList.add('light');
-}
-
-function updateThemeIcon() {
-  if (htmlEl.classList.contains('light')) {
-    iconLight.style.display = 'none';
-    iconDark.style.display = 'block';
-  } else {
-    iconLight.style.display = 'block';
-    iconDark.style.display = 'none';
-  }
-}
-updateThemeIcon();
-
-themeBtn.addEventListener('click', () => {
-  htmlEl.classList.toggle('light');
-  htmlEl.classList.toggle('dark');
-  localStorage.setItem('theme', htmlEl.classList.contains('light') ? 'light' : 'dark');
-  updateThemeIcon();
-});
-
 // ── Custom Cursor ──────────────────────────────────────────
 const cursor = document.getElementById('cursor');
 document.addEventListener('mousemove', e => { 
@@ -1627,15 +1598,42 @@ document.addEventListener('mousemove', e => {
 });
 document.querySelectorAll('a, button, .cat-header, .impact-chip, .bento-card, .contact-link, .role-list li, .theme-toggle').forEach(el => {
   el.addEventListener('mouseenter', () => { 
-    cursor.style.width = '44px'; 
-    cursor.style.height = '44px'; 
-    cursor.style.background = 'rgba(255,143,111,0.2)'; 
+    cursor.style.width = '32px'; 
+    cursor.style.height = '32px'; 
+    cursor.style.background = 'rgba(255,143,111,0.85)';
   });
   el.addEventListener('mouseleave', () => { 
-    cursor.style.width = '14px'; 
-    cursor.style.height = '14px'; 
-    cursor.style.background = 'var(--primary)'; 
+    cursor.style.width = '10px'; 
+    cursor.style.height = '10px'; 
+    cursor.style.background = 'var(--primary)';
   });
+});
+
+// ── Theme Toggle ───────────────────────────────────────────
+const themeBtn = document.getElementById('theme-toggle');
+const htmlEl = document.documentElement;
+const iconDark = document.getElementById('theme-icon-dark');
+const iconLight = document.getElementById('theme-icon-light');
+
+if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+  htmlEl.classList.remove('dark');
+  htmlEl.classList.add('light');
+  iconDark.style.display = 'block';
+  iconLight.style.display = 'none';
+}
+
+themeBtn.addEventListener('click', () => {
+  htmlEl.classList.toggle('light');
+  htmlEl.classList.toggle('dark');
+  localStorage.setItem('theme', htmlEl.classList.contains('light') ? 'light' : 'dark');
+  
+  if (htmlEl.classList.contains('light')) {
+    iconDark.style.display = 'block';
+    iconLight.style.display = 'none';
+  } else {
+    iconDark.style.display = 'none';
+    iconLight.style.display = 'block';
+  }
 });
 
 // ── Nav scroll ────────────────────────────────────────────
@@ -1648,48 +1646,63 @@ const revealObserver = new IntersectionObserver(entries => {
 }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// ── Dot-grid canvas ───────────────────────────────────────
+// ── Particle Field Background ─────────────────────────────
 const canvas = document.getElementById('bg-canvas');
 const ctx = canvas.getContext('2d');
-let W, H, dots = [];
-const DOT_SPACING = 38;
-const MAX_DIST = 140;
+let W, H, pts = [];
+const COUNT = 80;
+const REP = 110;
 let mouseX = -999, mouseY = -999;
 
 function initCanvas() {
   W = canvas.width = window.innerWidth;
   H = canvas.height = window.innerHeight;
-  dots = [];
-  for (let x = 0; x < W; x += DOT_SPACING) {
-    for (let y = 0; y < H; y += DOT_SPACING) {
-      dots.push({ x, y, ox: x, oy: y, vx: 0, vy: 0 });
-    }
+  pts = [];
+  for (let i = 0; i < COUNT; i++) {
+    pts.push({
+      x: Math.random() * W, y: Math.random() * H,
+      vx: (Math.random() - 0.5) * 0.4, vy: (Math.random() - 0.5) * 0.4,
+      r: Math.random() * 2 + 0.8, a: Math.random() * 0.4 + 0.1
+    });
   }
 }
 window.addEventListener('resize', initCanvas);
 document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
 initCanvas();
 
-function drawDots() {
+function drawParticles() {
   ctx.clearRect(0, 0, W, H);
-  for (const d of dots) {
-    const dx2 = d.ox - mouseX, dy2 = d.oy - mouseY;
-    const dist = Math.sqrt(dx2 * dx2 + dy2 * dy2);
-    let alpha = 0.18;
-    let r = 1.2;
-    if (dist < MAX_DIST) {
-      const t = 1 - dist / MAX_DIST;
-      alpha = 0.18 + t * 0.55;
-      r = 1.2 + t * 2.2;
+  
+  for (const p of pts) {
+    // repel
+    const dx = p.x - mouseX, dy = p.y - mouseY;
+    const d = Math.sqrt(dx * dx + dy * dy);
+    if (d < REP && d > 1) { 
+      const f = (1 - d / REP) * 0.8; 
+      p.vx += (dx / d) * f; 
+      p.vy += (dy / d) * f; 
     }
-    ctx.beginPath();
-    ctx.arc(d.ox, d.oy, r, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(255,143,111,${alpha})`;
+    p.vx *= 0.97; p.vy *= 0.97;
+    p.x += p.vx; p.y += p.vy;
+    
+    // wrap
+    if (p.x < 0) p.x = W; 
+    if (p.x > W) p.x = 0;
+    if (p.y < 0) p.y = H; 
+    if (p.y > H) p.y = 0;
+    
+    const prox = d < REP ? Math.max(0, 1 - d / REP) : 0;
+    const alpha = p.a + prox * 0.5;
+    const size = p.r + prox * 1.5;
+    
+    ctx.beginPath(); 
+    ctx.arc(p.x, p.y, size, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255,143,111,${alpha})`; 
     ctx.fill();
   }
-  requestAnimationFrame(drawDots);
+  requestAnimationFrame(drawParticles);
 }
-drawDots();
+drawParticles();
 
 // ── Counter animation ─────────────────────────────────────
 function animateCounter(el) {
@@ -1699,21 +1712,11 @@ function animateCounter(el) {
   const suffix = text.replace(/[0-9.]/g, '');
   const duration = 1200;
   const start = performance.now();
-  const isFloat = num % 1 !== 0;
   function step(ts) {
     const p = Math.min((ts - start) / duration, 1);
     const ease = 1 - Math.pow(1 - p, 3);
-    const currentVal = ease * num;
-    if (isFloat) {
-      el.textContent = currentVal.toFixed(1) + suffix;
-    } else {
-      el.textContent = Math.round(currentVal) + suffix;
-    }
-    if (p < 1) {
-      requestAnimationFrame(step);
-    } else {
-      el.textContent = text;
-    }
+    el.textContent = (num < 10 ? (ease * num).toFixed(1).replace('.0','') : Math.round(ease * num)) + suffix;
+    if (p < 1) requestAnimationFrame(step);
   }
   requestAnimationFrame(step);
 }

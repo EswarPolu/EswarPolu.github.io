@@ -28,6 +28,25 @@
   --font-display: 'Plus Jakarta Sans', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --font-label: 'Space Grotesk', sans-serif;
+  --surface-rgb: 8, 8, 8;
+  --nav-bg: rgba(8,8,8,0.75);
+  --nav-bg-scrolled: rgba(8,8,8,0.95);
+}
+
+:root.light {
+  --surface: #ffffff;
+  --surface-rgb: 255, 255, 255;
+  --surface-1: #fbfbfb;
+  --surface-2: #f2f2f2;
+  --surface-3: #e8e8e8;
+  --surface-4: #e0e0e0;
+  --nav-bg: rgba(255,255,255,0.75);
+  --nav-bg-scrolled: rgba(255,255,255,0.95);
+  --border: rgba(0,0,0,0.08);
+  --border-hover: rgba(255,143,111,0.5);
+  --text: #111111;
+  --text-muted: #555;
+  --text-dim: #888;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -40,31 +59,38 @@ body {
   color: var(--text);
   overflow-x: hidden;
   cursor: none;
+  transition: background 0.3s, color 0.3s;
 }
+
+/* ── Theme Toggle Button ── */
+.theme-toggle {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all 0.2s;
+}
+.theme-toggle:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--primary-glow);
+}
+.theme-toggle svg { width: 18px; height: 18px; }
 
 /* ── Custom Cursor ── */
 #cursor {
   position: fixed;
-  width: 12px; height: 12px;
+  width: 10px; height: 10px;
   background: var(--primary);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 99999;
   transform: translate(-50%, -50%);
-  transition: transform 0.05s, width 0.2s, height 0.2s, background 0.2s;
+  transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1), height 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s;
   mix-blend-mode: difference;
 }
-#cursor-ring {
-  position: fixed;
-  width: 36px; height: 36px;
-  border: 1.5px solid rgba(255,143,111,0.5);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: transform 0.12s ease-out, width 0.25s, height 0.25s, opacity 0.2s;
-}
-body:hover #cursor-ring { opacity: 1; }
 
 /* ── Canvas Background ── */
 #bg-canvas {
@@ -109,13 +135,13 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(8,8,8,0.75);
+  background: var(--nav-bg);
   backdrop-filter: blur(24px) saturate(180%);
   border-bottom: 1px solid var(--border);
   transition: all 0.4s;
 }
 nav.scrolled {
-  background: rgba(8,8,8,0.95);
+  background: var(--nav-bg-scrolled);
   border-bottom-color: rgba(255,143,111,0.12);
   box-shadow: 0 1px 40px rgba(0,0,0,0.4);
 }
@@ -166,7 +192,7 @@ nav.scrolled {
 .nav-links a:hover { color: var(--primary); }
 .nav-links a:hover::after { width: 100%; }
 .nav-cta {
-  display: flex; gap: 10px;
+  display: flex; gap: 10px; align-items: center;
 }
 .btn {
   font-family: var(--font-label);
@@ -1126,7 +1152,6 @@ code {
 
 <!-- Cursor -->
 <div id="cursor"></div>
-<div id="cursor-ring"></div>
 
 <!-- Animated dot-grid background -->
 <canvas id="bg-canvas"></canvas>
@@ -1144,6 +1169,10 @@ code {
     <li><a href="#Contact">Contact</a></li>
   </ul>
   <div class="nav-cta">
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+      <svg id="theme-icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      <svg id="theme-icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+    </button>
     <a class="btn btn-outline" href="#">
       <svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       Resume
@@ -1563,13 +1592,48 @@ code {
 <script>
 // ── Custom Cursor ──────────────────────────────────────────
 const cursor = document.getElementById('cursor');
-const ring = document.getElementById('cursor-ring');
-let mx = 0, my = 0, rx = 0, ry = 0;
-document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; });
-(function animateRing() { rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(animateRing); })();
-document.querySelectorAll('a, button, .cat-header, .impact-chip, .bento-card, .contact-link, .role-list li').forEach(el => {
-  el.addEventListener('mouseenter', () => { cursor.style.width = '6px'; cursor.style.height = '6px'; ring.style.width = '52px'; ring.style.height = '52px'; ring.style.borderColor = 'rgba(255,143,111,0.7)'; });
-  el.addEventListener('mouseleave', () => { cursor.style.width = '12px'; cursor.style.height = '12px'; ring.style.width = '36px'; ring.style.height = '36px'; ring.style.borderColor = 'rgba(255,143,111,0.5)'; });
+document.addEventListener('mousemove', e => { 
+  cursor.style.left = e.clientX + 'px'; 
+  cursor.style.top = e.clientY + 'px'; 
+});
+document.querySelectorAll('a, button, .cat-header, .impact-chip, .bento-card, .contact-link, .role-list li, .theme-toggle').forEach(el => {
+  el.addEventListener('mouseenter', () => { 
+    cursor.style.width = '32px'; 
+    cursor.style.height = '32px'; 
+    cursor.style.background = 'rgba(255,143,111,0.85)';
+  });
+  el.addEventListener('mouseleave', () => { 
+    cursor.style.width = '10px'; 
+    cursor.style.height = '10px'; 
+    cursor.style.background = 'var(--primary)';
+  });
+});
+
+// ── Theme Toggle ───────────────────────────────────────────
+const themeBtn = document.getElementById('theme-toggle');
+const htmlEl = document.documentElement;
+const iconDark = document.getElementById('theme-icon-dark');
+const iconLight = document.getElementById('theme-icon-light');
+
+if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+  htmlEl.classList.remove('dark');
+  htmlEl.classList.add('light');
+  iconDark.style.display = 'block';
+  iconLight.style.display = 'none';
+}
+
+themeBtn.addEventListener('click', () => {
+  htmlEl.classList.toggle('light');
+  htmlEl.classList.toggle('dark');
+  localStorage.setItem('theme', htmlEl.classList.contains('light') ? 'light' : 'dark');
+  
+  if (htmlEl.classList.contains('light')) {
+    iconDark.style.display = 'block';
+    iconLight.style.display = 'none';
+  } else {
+    iconDark.style.display = 'none';
+    iconLight.style.display = 'block';
+  }
 });
 
 // ── Nav scroll ────────────────────────────────────────────
@@ -1582,50 +1646,63 @@ const revealObserver = new IntersectionObserver(entries => {
 }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// ── Dot-grid canvas ───────────────────────────────────────
+// ── Particle Field Background ─────────────────────────────
 const canvas = document.getElementById('bg-canvas');
 const ctx = canvas.getContext('2d');
-let W, H, dots = [];
-const DOT_SPACING = 38;
-const MAX_DIST = 140;
+let W, H, pts = [];
+const COUNT = 80;
+const REP = 110;
 let mouseX = -999, mouseY = -999;
 
 function initCanvas() {
   W = canvas.width = window.innerWidth;
   H = canvas.height = window.innerHeight;
-  dots = [];
-  for (let x = 0; x < W; x += DOT_SPACING) {
-    for (let y = 0; y < H; y += DOT_SPACING) {
-      dots.push({ x, y, ox: x, oy: y, vx: 0, vy: 0 });
-    }
+  pts = [];
+  for (let i = 0; i < COUNT; i++) {
+    pts.push({
+      x: Math.random() * W, y: Math.random() * H,
+      vx: (Math.random() - 0.5) * 0.4, vy: (Math.random() - 0.5) * 0.4,
+      r: Math.random() * 2 + 0.8, a: Math.random() * 0.4 + 0.1
+    });
   }
 }
 window.addEventListener('resize', initCanvas);
-document.addEventListener('mousemove', e => { mouseX = e.clientX + window.scrollX; mouseY = e.clientY + window.scrollY; });
+document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
 initCanvas();
 
-function drawDots() {
+function drawParticles() {
   ctx.clearRect(0, 0, W, H);
-  const sy = window.scrollY;
-  for (const d of dots) {
-    const dy = d.oy - sy;
-    const dx2 = d.ox - mouseX, dy2 = dy - mouseY + sy;
-    const dist = Math.sqrt(dx2 * dx2 + dy2 * dy2);
-    let alpha = 0.18;
-    let r = 1.2;
-    if (dist < MAX_DIST) {
-      const t = 1 - dist / MAX_DIST;
-      alpha = 0.18 + t * 0.55;
-      r = 1.2 + t * 2.2;
+  
+  for (const p of pts) {
+    // repel
+    const dx = p.x - mouseX, dy = p.y - mouseY;
+    const d = Math.sqrt(dx * dx + dy * dy);
+    if (d < REP && d > 1) { 
+      const f = (1 - d / REP) * 0.8; 
+      p.vx += (dx / d) * f; 
+      p.vy += (dy / d) * f; 
     }
-    ctx.beginPath();
-    ctx.arc(d.ox, dy, r, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(255,143,111,${alpha})`;
+    p.vx *= 0.97; p.vy *= 0.97;
+    p.x += p.vx; p.y += p.vy;
+    
+    // wrap
+    if (p.x < 0) p.x = W; 
+    if (p.x > W) p.x = 0;
+    if (p.y < 0) p.y = H; 
+    if (p.y > H) p.y = 0;
+    
+    const prox = d < REP ? Math.max(0, 1 - d / REP) : 0;
+    const alpha = p.a + prox * 0.5;
+    const size = p.r + prox * 1.5;
+    
+    ctx.beginPath(); 
+    ctx.arc(p.x, p.y, size, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255,143,111,${alpha})`; 
     ctx.fill();
   }
-  requestAnimationFrame(drawDots);
+  requestAnimationFrame(drawParticles);
 }
-drawDots();
+drawParticles();
 
 // ── Counter animation ─────────────────────────────────────
 function animateCounter(el) {
