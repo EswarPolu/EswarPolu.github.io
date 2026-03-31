@@ -1242,13 +1242,13 @@ code {
         </div>
         <div class="metric-div"></div>
         <div class="metric-item">
-          <div class="metric-value">99.9%</div>
+          <div class="metric-value">99.9 %</div>
           <div class="metric-label">Uptime Mindset</div>
         </div>
         <div class="metric-div"></div>
         <div class="metric-item">
           <div class="metric-value">AWS</div>
-          <div class="metric-label">Certified Expert</div>
+          <div class="metric-label">Expert</div>
         </div>
       </div>
     </div>
@@ -1335,7 +1335,7 @@ code {
 <section id="Experience">
   <div class="section-inner">
     <div style="margin-bottom:60px">
-      <div class="section-eyebrow reveal">Career Timeline</div>
+      <div class="section-eyebrow reveal">Experience</div>
       <h2 class="section-title reveal reveal-delay-1">Where I've <em>Shipped</em> Real Impact</h2>
       <p class="section-sub reveal reveal-delay-2" style="font-family:var(--font-mono);font-size:13px;line-height:1.7">
         <span style="color:var(--cyan)">2 years. 5 live production systems. 3 dev teams. Zero dedicated infra team.</span><br/>
@@ -1355,7 +1355,7 @@ code {
               <span class="badge-current-dot"></span>Current
             </span>
           </div>
-          <div class="role-title">DevOps Engineer</div>
+          <div class="role-title">Cloud & DevOps Engineer</div>
           <div class="role-company">Yotta Tech Ports · <span>Hyderabad, IN</span></div>
         </div>
         <div class="impact-chips">
@@ -1395,7 +1395,7 @@ code {
               </ul>
             </div>
           </div>
-          <div class="cat-block">
+          <div class="cat-block open">
             <div class="cat-header" onclick="this.parentElement.classList.toggle('open')">
               <span class="cat-emoji"><svg role="img" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
               <span class="cat-title">Cost Optimization & FinOps</span>
@@ -1403,8 +1403,37 @@ code {
             </div>
             <div class="cat-body">
               <ul>
-                <li>Built a <strong>multi-account Lambda automation</strong> enforcing <code>stop=true</code> tagging to shut down idle EC2 instances daily — reducing idle compute spend by <span class="mono">~40%/month</span> across 3 AWS accounts</li>
-                <li>Conduct <strong>monthly AWS billing reviews</strong> across 3+ accounts, producing per-service cost reports that flag abnormal spend spikes</li>
+                <li>Built a <strong>multi-account Lambda automation</strong> enforcing <code>stop=true</code> tagging to shut down idle EC2 instances daily — reducing idle compute spend by <span class="mono">~40%/month</span> across 10+ AWS accounts</li>
+                <li>Conduct <strong>monthly AWS billing reviews</strong> across 10+ accounts, producing per-service cost reports that flag abnormal spend spikes</li>
+                <li>Automated EC2 and RDS shutdown for <strong>untagged resources</strong> via Lambda — enforcing compliance and eliminating costs from orphaned infrastructure</li>
+              </ul>
+            </div>
+          </div>
+          <div class="cat-block">
+            <div class="cat-header" onclick="this.parentElement.classList.toggle('open')">
+              <span class="cat-emoji"><svg role="img" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+              <span class="cat-title">Security & Governance</span>
+              <span class="cat-toggle">+</span>
+            </div>
+            <div class="cat-body">
+              <ul>
+                <li>Built a <strong>Lambda auto-remediation function</strong> that detects and removes overly permissive security groups (0.0.0.0/0) — reducing manual audit effort by <span class="mono">~90%</span></li>
+                <li>Managed <strong>AWS IAM Identity Center</strong> for 3+ project teams — created roles, groups, and least-privilege policies ensuring zero over-permissioned access</li>
+                <li>Secured all application secrets across <strong>5 applications in AWS Secrets Manager</strong>, eliminating 100% of hardcoded credentials</li>
+              </ul>
+            </div>
+          </div>
+          <div class="cat-block">
+            <div class="cat-header" onclick="this.parentElement.classList.toggle('open')">
+              <span class="cat-emoji"><svg role="img" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"/><path d="M12 14V6"/><path d="M12 18h.01"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.93 19.07l1.41-1.41"/><path d="M17.66 6.34l1.41-1.41"/></svg></span>
+              <span class="cat-title">Automation & IaC</span>
+              <span class="cat-toggle">+</span>
+            </div>
+            <div class="cat-body">
+              <ul>
+                <li>Used <strong>Terraform</strong> to manage Lambda runtime upgrades across multiple functions — reducing manual update effort by <span class="mono">~75%</span> per release cycle</li>
+                <li>Reduced AWS access provisioning turnaround from days to <span class="mono">&lt;30 minutes</span> per engineer by standardizing IAM user creation workflows</li>
+                <li>Hosted <strong>Frappe/FlexHR</strong> on EC2 as a fully configured HR tool for internal teams, handling end-to-end setup and domain routing</li>
               </ul>
             </div>
           </div>
@@ -1414,7 +1443,7 @@ code {
           <span class="wip-text">In Progress — Deploying microservices on AWS EKS via GitHub Actions · Integrating Prometheus + Grafana for full observability</span>
         </div>
         <div class="stack-chips">
-          <span class="stack-chip">AWS ECS</span><span class="stack-chip">AWS EKS</span><span class="stack-chip">Docker</span><span class="stack-chip">Lambda</span><span class="stack-chip">Terraform</span><span class="stack-chip">Prometheus</span><span class="stack-chip">CloudWatch</span>
+          <span class="stack-chip">AWS ECS</span><span class="stack-chip">AWS EKS</span><span class="stack-chip">Docker</span><span class="stack-chip">ECR</span><span class="stack-chip">CodePipeline</span><span class="stack-chip">Lambda</span><span class="stack-chip">Terraform</span><span class="stack-chip">CloudWatch</span><span class="stack-chip">SNS</span><span class="stack-chip">Route 53</span><span class="stack-chip">IAM Identity Center</span><span class="stack-chip">Secrets Manager</span><span class="stack-chip">GitHub Actions</span><span class="stack-chip">Prometheus</span><span class="stack-chip">Grafana</span>
         </div>
       </div>
 
@@ -1426,13 +1455,14 @@ code {
             <span class="badge badge-primary">Jun 2024 — Dec 2024</span>
             <span class="badge badge-foundation">Foundation</span>
           </div>
-          <div class="role-title">Junior DevOps Engineer</div>
+          <div class="role-title">Junior Cloud Engineer</div>
           <div class="role-company">Yotta Tech Ports · <span>Hyderabad, IN</span></div>
         </div>
         <div class="impact-chips">
           <div class="impact-chip"><div class="impact-chip-val">~80%</div><div class="impact-chip-label">Deploy Time<br/>Saved</div></div>
           <div class="impact-chip"><div class="impact-chip-val">$3–5K</div><div class="impact-chip-label">Annual License<br/>Savings</div></div>
           <div class="impact-chip"><div class="impact-chip-val">4 wks</div><div class="impact-chip-label">Solo Full-Stack<br/>Build</div></div>
+          <div class="impact-chip"><div class="impact-chip-val">RPO 7d</div><div class="impact-chip-label">Backup<br/>Established</div></div>
           <div class="impact-chip"><div class="impact-chip-val">100%</div><div class="impact-chip-label">Secrets<br/>Removed</div></div>
         </div>
         <div style="display:flex;flex-direction:column;gap:10px">
@@ -1446,10 +1476,11 @@ code {
               <ul>
                 <li>Designed and delivered a <strong>production-grade self-managed GitLab</strong> on AWS ECS using Docker — saving an estimated <span class="mono">~$3,000–$5,000/year</span> in SaaS licensing costs</li>
                 <li>Engineered a full <strong>AWS CodePipeline</strong> reducing deployment effort from multi-step manual process to a <span class="mono">single approval click</span> — cutting deployment time by <span class="mono">~80%</span></li>
+                <li>Provisioned complete AWS infrastructure from scratch in <span class="mono">under 4 weeks</span>: <strong>ECS, VPC, EFS, RDS, and ALB</strong> — with SSH and HTTPS fully working</li>
               </ul>
             </div>
           </div>
-          <div class="cat-block">
+          <div class="cat-block open">
             <div class="cat-header" onclick="this.parentElement.classList.toggle('open')">
               <span class="cat-emoji"><svg role="img" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.6-.401-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187"/></svg></span>
               <span class="cat-title">CI/CD Automation & Custom Scripts</span>
@@ -1459,12 +1490,26 @@ code {
               <ul>
                 <li>Built a custom <strong>Dockerfile and buildspec.yml</strong> automating image build and ECR push — reducing configuration effort by <span class="mono">~65%</span></li>
                 <li>Wrote a <strong><code>fetchsecrets.sh</code> script</strong> removing <span class="mono">100%</span> of hardcoded secrets from the pipeline</li>
+                <li>Developed a <strong>custom webhook config file</strong> that fires automatically on repository creation — saving developers <span class="mono">5–10 minutes</span> of manual setup</li>
+              </ul>
+            </div>
+          </div>
+          <div class="cat-block">
+            <div class="cat-header" onclick="this.parentElement.classList.toggle('open')">
+              <span class="cat-emoji"><svg role="img" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+              <span class="cat-title">Observability, Backup & Recovery</span>
+              <span class="cat-toggle">+</span>
+            </div>
+            <div class="cat-body">
+              <ul>
+                <li>Configured <strong>weekly AWS Backup on EFS</strong> protecting all GitLab repository data — establishing an RPO of <span class="mono">7 days</span></li>
+                <li>Built a <strong>CloudWatch + EventBridge metrics dashboard</strong> with alerts across <span class="mono">10+ infra metrics</span>, providing real-time visibility into GitLab health</li>
               </ul>
             </div>
           </div>
         </div>
         <div class="stack-chips">
-          <span class="stack-chip">AWS ECS</span><span class="stack-chip">Docker</span><span class="stack-chip">CodePipeline</span><span class="stack-chip">GitLab Self-Hosted</span><span class="stack-chip">ECR</span>
+          <span class="stack-chip">AWS ECS</span><span class="stack-chip">Docker</span><span class="stack-chip">CodePipeline</span><span class="stack-chip">GitLab Self-Hosted</span><span class="stack-chip">ECR</span><span class="stack-chip">EFS</span><span class="stack-chip">RDS</span><span class="stack-chip">VPC</span><span class="stack-chip">CloudWatch</span><span class="stack-chip">EventBridge</span><span class="stack-chip">AWS Backup</span><span class="stack-chip">Secrets Manager</span><span class="stack-chip">Bash</span>
         </div>
       </div>
     </div>
