@@ -135,13 +135,13 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--nav-bg);
-  backdrop-filter: blur(24px) saturate(180%);
-  border-bottom: 1px solid var(--border);
+  background: transparent;
+  border-bottom: 1px solid transparent;
   transition: all 0.4s;
 }
 nav.scrolled {
   background: var(--nav-bg-scrolled);
+  backdrop-filter: blur(24px) saturate(180%);
   border-bottom-color: rgba(255,143,111,0.12);
   box-shadow: 0 1px 40px rgba(0,0,0,0.4);
 }
