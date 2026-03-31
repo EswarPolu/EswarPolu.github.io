@@ -99,7 +99,7 @@ body {
   width: 100%; height: 100%;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.35;
+  opacity: 1;
 }
 
 /* ── Noise overlay ── */
@@ -497,8 +497,10 @@ section { position: relative; z-index: 2; }
   gap: 8px;
 }
 .section-eyebrow::before {
-  content: '//';
-  opacity: 0.4;
+  content: '';
+  width: 16px; height: 1.5px;
+  background: var(--cyan);
+  opacity: 0.7;
 }
 .section-title {
   font-family: var(--font-display);
@@ -535,10 +537,16 @@ section { position: relative; z-index: 2; }
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text-dim);
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  padding: 7px 14px;
-  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.skills-tag::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--cyan);
+  border-radius: 50%;
+  animation: pulse-cyan 2s infinite;
 }
 .skills-table-wrap {
   background: var(--surface-1);
@@ -1267,9 +1275,9 @@ code {
       <div>
         <div class="section-eyebrow reveal">Technical Proficiency Matrix</div>
         <h2 class="section-title reveal reveal-delay-1">Engineering <em>Ecosystem</em></h2>
-        <p class="section-sub reveal reveal-delay-2">A high-density audit categorized by domain, sub-groupings, and documented years of production-grade experience.</p>
+        <p class="section-sub reveal reveal-delay-2">A high-density audit categorized by domain and documented core skillsets for production-grade environments.</p>
       </div>
-      <span class="skills-tag reveal">Updated Q4 2024</span>
+      <span class="skills-tag reveal">Last updated Q1 2026</span>
     </div>
     <div class="skills-table-wrap reveal reveal-delay-2">
       <table>
@@ -1277,7 +1285,6 @@ code {
           <tr>
             <th style="width:44px"></th>
             <th>Domain</th>
-            <th>Sub-group</th>
             <th>Core Skillset</th>
             <th>Experience</th>
           </tr>
@@ -1286,44 +1293,38 @@ code {
           <tr>
             <td><div class="td-icon" style="background:rgba(255,153,0,0.1)">☁️</div></td>
             <td><div class="td-domain">Cloud Platform</div></td>
-            <td><div class="td-sub">AWS Ecosystem</div></td>
             <td><div class="td-chips"><span class="chip">EC2/EKS</span><span class="chip">Lambda</span><span class="chip">IAM/VPC</span><span class="chip">RDS/Aurora</span></div></td>
-            <td><div class="td-years">8+</div></td>
+            <td><div class="td-years">2+</div></td>
           </tr>
           <tr>
             <td><div class="td-icon" style="background:rgba(100,220,180,0.1)">🏗️</div></td>
             <td><div class="td-domain">IaC & Automation</div></td>
-            <td><div class="td-sub">Provisioning</div></td>
             <td><div class="td-chips"><span class="chip">Terraform</span><span class="chip">CloudFormation</span><span class="chip">CDK</span><span class="chip">Pulumi</span></div></td>
-            <td><div class="td-years">6+</div></td>
+            <td><div class="td-years">2+</div></td>
           </tr>
           <tr>
             <td><div class="td-icon" style="background:rgba(0,180,220,0.1)">🐳</div></td>
             <td><div class="td-domain">Orchestration</div></td>
-            <td><div class="td-sub">Containerization</div></td>
             <td><div class="td-chips"><span class="chip">Kubernetes</span><span class="chip">Docker</span><span class="chip">Helm</span><span class="chip">ArgoCD</span></div></td>
-            <td><div class="td-years">5+</div></td>
+            <td><div class="td-years">2+</div></td>
           </tr>
           <tr>
             <td><div class="td-icon" style="background:rgba(255,143,111,0.1)">⚡</div></td>
             <td><div class="td-domain">Pipeline Engineering</div></td>
-            <td><div class="td-sub">Continuous Flow</div></td>
             <td><div class="td-chips"><span class="chip">GitHub Actions</span><span class="chip">GitLab CI</span><span class="chip">Jenkins</span></div></td>
-            <td><div class="td-years">7+</div></td>
+            <td><div class="td-years">2+</div></td>
           </tr>
           <tr>
             <td><div class="td-icon" style="background:rgba(255,197,99,0.1)">📊</div></td>
             <td><div class="td-domain">Observability</div></td>
-            <td><div class="td-sub">Monitoring/Logs</div></td>
             <td><div class="td-chips"><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">Datadog</span><span class="chip">CloudWatch</span></div></td>
-            <td><div class="td-years">5+</div></td>
+            <td><div class="td-years">2+</div></td>
           </tr>
           <tr>
             <td><div class="td-icon" style="background:rgba(220,100,100,0.1)">🔒</div></td>
             <td><div class="td-domain">Security & Compliance</div></td>
-            <td><div class="td-sub">DevSecOps</div></td>
             <td><div class="td-chips"><span class="chip">Snyk</span><span class="chip">Vault</span><span class="chip">Aqua</span><span class="chip">Odin</span></div></td>
-            <td><div class="td-years">4+</div></td>
+            <td><div class="td-years">2+</div></td>
           </tr>
         </tbody>
       </table>
@@ -1542,11 +1543,12 @@ code {
           <div class="contact-text"><h4>Email</h4><p>polunandeeswar2002@gmail.com</p></div>
           <span class="contact-arrow">→</span>
         </a>
-        <div class="contact-link" style="cursor:default">
+        <div class="contact-link" style="cursor:pointer; touch-action:manipulation;" onclick="let d=this.dataset;let t=Date.now();if(t-(d.lt||0)>1500)d.taps=0;d.lt=t;let c=(parseInt(d.taps)||0)+1;d.taps=c;let p=this.querySelector('p');if(c>=4){p.textContent=atob('KzkxIDYzMDIzMDgxOTc=');p.style.color='';this.style.cursor='text';this.onclick=null;this.querySelector('.contact-arrow').style.display='none';}else{p.textContent='Auth: Tap '+(4-c)+' more times';p.style.color='var(--primary)';clearTimeout(d.to);d.to=setTimeout(()=>{if(this.onclick){d.taps=0;p.textContent='[Encrypted] Tap to decode';p.style.color='';}},1500);}">
           <div class="contact-icon" style="background:rgba(255,143,111,0.08)">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.09h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17z"/></svg>
           </div>
-          <div class="contact-text"><h4>Phone</h4><p>+91 6302308197</p></div>
+          <div class="contact-text"><h4>Phone</h4><p>[Encrypted] Tap to decode</p></div>
+          <span class="contact-arrow">→</span>
         </div>
         <a class="contact-link" href="https://linkedin.com/in/polu-nandeeswar" target="_blank">
           <div class="contact-icon" style="background:rgba(255,143,111,0.08)">
