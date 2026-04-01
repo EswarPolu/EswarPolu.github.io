@@ -1,1775 +1,2575 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Nandeeswar Reddy Polu</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@300;400;600;700&display=swap" rel="stylesheet"/>
-<style>
-:root {
-  --primary: #ff8f6f;
-  --primary-dim: #ff6b42;
-  --primary-glow: rgba(255,143,111,0.25);
-  --cyan: #00e5ff;
-  --cyan-dim: #00bcd4;
-  --cyan-glow: rgba(0,229,255,0.2);
-  --gold: #ffc563;
-  --surface: #080808;
-  --surface-1: #111111;
-  --surface-2: #181818;
-  --surface-3: #222222;
-  --surface-4: #2c2c2c;
-  --border: rgba(255,255,255,0.07);
-  --border-hover: rgba(255,143,111,0.3);
-  --text: #f0f0f0;
-  --text-muted: #888;
-  --text-dim: #555;
-  --radius: 14px;
-  --font-display: 'Plus Jakarta Sans', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-  --font-label: 'Space Grotesk', sans-serif;
-  --surface-rgb: 8, 8, 8;
-  --nav-bg: rgba(8,8,8,0.75);
-  --nav-bg-scrolled: rgba(8,8,8,0.95);
-}
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Nandeeswar Reddy Polu</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@300;400;600;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #ff8f6f;
+      --primary-dim: #ff6b42;
+      --primary-faint: rgba(255, 143, 111, 0.08); /* Dark mode faint overlay */
+      --primary-subtle: rgba(255, 143, 111, 0.2); /* Dark mode subtle border */
+      --primary-glow: rgba(255, 143, 111, 0.25);
+      --cyan: #00e5ff;
+      --cyan-dim: #00bcd4;
+      --cyan-faint: rgba(0, 229, 255, 0.08);
+      --cyan-subtle: rgba(0, 229, 255, 0.2);
+      --cyan-glow: rgba(0, 229, 255, 0.2);
+      --gold: #ffb085;  /* Pale warm orange */
+      --gold-faint: rgba(255, 176, 133, 0.1);
+      --surface: #080808;
+      --surface-1: #111111;
+      --surface-2: #181818;
+      --surface-3: #222222;
+      --surface-4: #2c2c2c;
+      --border: rgba(255, 255, 255, 0.07);
+      --border-hover: var(--primary-subtle);
+      --text: #f0f0f0;
+      --text-muted: #888;
+      --text-dim: #555;
+      --radius: 14px;
+      --font-display: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --font-label: 'Space Grotesk', sans-serif;
+      --surface-rgb: 8, 8, 8;
+      --nav-bg: rgba(8, 8, 8, 0.75);
+      --nav-bg-scrolled: rgba(8, 8, 8, 0.95);
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      --surface-0: rgba(255, 255, 255, 0.02);
+    }
 
-:root.light {
-  --surface: #ffffff;
-  --surface-rgb: 255, 255, 255;
-  --surface-1: #fbfbfb;
-  --surface-2: #f2f2f2;
-  --surface-3: #e8e8e8;
-  --surface-4: #e0e0e0;
-  --nav-bg: rgba(255,255,255,0.75);
-  --nav-bg-scrolled: rgba(255,255,255,0.95);
-  --border: rgba(0,0,0,0.08);
-  --border-hover: rgba(255,143,111,0.5);
-  --text: #111111;
-  --text-muted: #555;
-  --text-dim: #888;
-}
+    :root.light {
+      --surface: #ffffff;
+      --surface-rgb: 255, 255, 255;
+      --surface-1: #fbfbfb;
+      --surface-2: #f2f2f2;
+      --surface-3: #e8e8e8;
+      --surface-4: #e0e0e0;
+      --nav-bg: rgba(255, 255, 255, 0.75);
+      --nav-bg-scrolled: rgba(255, 255, 255, 0.95);
+      --border: rgba(0, 0, 0, 0.08);
+      --border-hover: var(--primary-subtle);
+      --text: #0a0a0a; /* Slightly deeper black */
+      --text-muted: #444444; /* Improved contrast for light mode */
+      --text-dim: #666666; /* Improved contrast for light mode */
+      --primary: #e64a19; /* Deeper orange for contrast on white background */
+      --primary-dim: #d84315;
+      --primary-faint: rgba(230, 74, 25, 0.06); /* Lighter tint for light mode */
+      --primary-subtle: rgba(230, 74, 25, 0.15); 
+      --primary-glow: rgba(230, 74, 25, 0.12);
+      --cyan: #00838f; /* Deeper cyan for contrast */
+      --cyan-dim: #006064;
+      --cyan-faint: rgba(0, 131, 143, 0.06);
+      --cyan-subtle: rgba(0, 131, 143, 0.15);
+      --cyan-glow: rgba(0, 131, 143, 0.12);
+      --gold: #f4511e; /* Swapped to vibrant orange tint for visibility */
+      --gold-faint: rgba(244, 81, 30, 0.06);
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Softer shadows in light mode */
+      --surface-0: rgba(0, 0, 0, 0.02);
+    }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-body {
-  font-family: var(--font-display);
-  background: var(--surface);
-  color: var(--text);
-  overflow-x: hidden;
-  cursor: none;
-  transition: background 0.3s, color 0.3s;
-}
+    body {
+      font-family: var(--font-display);
+      background: var(--surface);
+      color: var(--text);
+      overflow-x: hidden;
+      cursor: none;
+      transition: background 0.3s, color 0.3s;
+    }
 
-/* ── Theme Toggle Button ── */
-.theme-toggle {
-  background: transparent;
-  border: 1px solid var(--border);
-  color: var(--text-muted);
-  width: 38px; height: 38px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer; transition: all 0.2s;
-}
-.theme-toggle:hover {
-  border-color: var(--primary);
-  color: var(--primary);
-  background: var(--primary-glow);
-}
-.theme-toggle svg { width: 18px; height: 18px; }
+    /* ── Theme Toggle Button ── */
+    .theme-toggle {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
 
-/* ── Custom Cursor ── */
-#cursor {
-  position: fixed;
-  width: 10px; height: 10px;
-  background: var(--primary);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99999;
-  transform: translate(-50%, -50%);
-  transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1), height 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s;
-  mix-blend-mode: difference;
-}
+    .theme-toggle:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--primary-glow);
+    }
 
-/* ── Canvas Background ── */
-#bg-canvas {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 1;
-}
+    .theme-toggle svg {
+      width: 18px;
+      height: 18px;
+    }
 
-/* ── Noise overlay ── */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-  opacity: 0.025;
-  pointer-events: none;
-  z-index: 1;
-}
+    /* ── Custom Cursor ── */
+    #cursor {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background: var(--primary);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+      transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1), height 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s;
+      mix-blend-mode: difference;
+    }
 
-/* ── Scroll Reveal ── */
-.reveal {
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
-}
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
-.reveal-delay-5 { transition-delay: 0.5s; }
+    /* ── Canvas Background ── */
+    #bg-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 1;
+    }
 
-/* ── Nav ── */
-nav {
-  position: fixed;
-  top: 0; width: 100%;
-  z-index: 100;
-  padding: 18px 48px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: transparent;
-  border-bottom: 1px solid transparent;
-  transition: all 0.4s;
-}
-nav.scrolled {
-  background: var(--nav-bg-scrolled);
-  backdrop-filter: blur(24px) saturate(180%);
-  border-bottom-color: rgba(255,143,111,0.12);
-  box-shadow: 0 1px 40px rgba(0,0,0,0.4);
-}
-.nav-logo {
-  display: flex; flex-direction: column;
-  text-decoration: none;
-}
-.nav-logo-name {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 17px;
-  color: var(--primary);
-  letter-spacing: -0.5px;
-  line-height: 1;
-}
-.nav-logo-title {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  color: var(--cyan);
-  letter-spacing: 0.2em;
-  margin-top: 3px;
-  text-transform: uppercase;
-}
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  list-style: none;
-}
-.nav-links a {
-  font-family: var(--font-label);
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-muted);
-  text-decoration: none;
-  letter-spacing: 0.03em;
-  transition: color 0.2s;
-  position: relative;
-}
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px; left: 0;
-  width: 0; height: 1px;
-  background: var(--primary);
-  transition: width 0.25s;
-}
-.nav-links a:hover { color: var(--primary); }
-.nav-links a:hover::after { width: 100%; }
-.nav-cta {
-  display: flex; gap: 10px; align-items: center;
-}
-.btn {
-  font-family: var(--font-label);
-  font-size: 13px;
-  font-weight: 700;
-  padding: 9px 22px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s;
-  letter-spacing: 0.03em;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-.btn-outline {
-  background: transparent;
-  border: 1px solid var(--border);
-  color: var(--text-muted);
-}
-.btn-outline:hover {
-  border-color: var(--primary);
-  color: var(--primary);
-  background: var(--primary-glow);
-}
-.btn-primary {
-  background: var(--primary);
-  color: #2a0a00;
-}
-.btn-primary:hover {
-  background: #ff6b42;
-  transform: translateY(-1px);
-  box-shadow: 0 8px 24px var(--primary-glow);
-}
+    /* ── Noise overlay ── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.025;
+      pointer-events: none;
+      z-index: 1;
+    }
 
-/* ── Hero ── */
-#Hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 120px 80px 80px;
-  max-width: 1400px;
-  margin: 0 auto;
-  z-index: 2;
-}
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 80px;
-  align-items: center;
-}
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  background: rgba(0,229,255,0.06);
-  border: 1px solid rgba(0,229,255,0.2);
-  border-radius: 100px;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--cyan);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  margin-bottom: 28px;
-}
-.hero-badge-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--cyan);
-  animation: pulse-cyan 2s infinite;
-}
-@keyframes pulse-cyan {
-  0%,100% { opacity:1; box-shadow: 0 0 0 0 rgba(0,229,255,0.4); }
-  50% { opacity:0.7; box-shadow: 0 0 0 6px rgba(0,229,255,0); }
-}
-.hero-h1 {
-  font-family: var(--font-display);
-  font-size: clamp(44px, 6vw, 76px);
-  font-weight: 900;
-  line-height: 1.04;
-  letter-spacing: -2.5px;
-  margin-bottom: 24px;
-}
-.hero-h1 em {
-  font-style: italic;
-  color: var(--primary);
-  -webkit-text-stroke: 0px;
-  position: relative;
-}
-.hero-h1 em::after {
-  content: '';
-  position: absolute;
-  bottom: 2px; left: 0;
-  width: 100%; height: 3px;
-  background: linear-gradient(90deg, var(--primary), transparent);
-  border-radius: 2px;
-}
-.hero-sub {
-  font-size: 18px;
-  color: var(--text-muted);
-  line-height: 1.7;
-  max-width: 520px;
-  margin-bottom: 40px;
-}
-.hero-actions {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  margin-bottom: 64px;
-}
-.hero-actions a {
-  font-family: var(--font-label);
-  font-weight: 700;
-  font-size: 14px;
-  padding: 13px 28px;
-  border-radius: 10px;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.25s;
-  letter-spacing: 0.02em;
-}
-.hero-btn-primary {
-  background: var(--primary);
-  color: #1a0500;
-  box-shadow: 0 0 40px var(--primary-glow);
-}
-.hero-btn-primary:hover {
-  background: #ff6b42;
-  box-shadow: 0 0 60px rgba(255,107,66,0.4);
-  transform: translateY(-2px);
-}
-.hero-btn-secondary {
-  background: transparent;
-  color: var(--primary);
-  border: 1px solid rgba(255,143,111,0.3);
-}
-.hero-btn-secondary:hover {
-  background: rgba(255,143,111,0.07);
-  border-color: var(--primary);
-}
-/* Pipeline metric */
-.pipeline-card {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 20px 24px;
-  position: relative;
-  overflow: hidden;
-  max-width: 480px;
-  transition: border-color 0.3s;
-}
-.pipeline-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255,143,111,0.04), rgba(255,197,99,0.03));
-  pointer-events: none;
-}
-.pipeline-card:hover { border-color: rgba(255,143,111,0.25); }
-.pipeline-icon {
-  width: 44px; height: 44px;
-  background: rgba(255,143,111,0.1);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-.pipeline-data {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-.pipeline-item { text-align: left; }
-.pipeline-label {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--text-dim);
-  margin-bottom: 4px;
-}
-.pipeline-value {
-  font-family: var(--font-display);
-  font-size: 18px;
-  font-weight: 800;
-}
-.pipeline-value.old { color: #555; text-decoration: line-through; }
-.pipeline-value.new { color: #fff; }
-.pipeline-arrow { color: var(--primary); opacity: 0.5; }
-/* Metrics row */
-.hero-metrics {
-  display: flex;
-  gap: 48px;
-  padding-top: 40px;
-  border-top: 1px solid var(--border);
-  flex-wrap: wrap;
-}
-.metric-item { display: flex; flex-direction: column; gap: 4px; }
-.metric-value {
-  font-family: var(--font-display);
-  font-size: 32px;
-  font-weight: 900;
-  color: var(--gold);
-  letter-spacing: -1px;
-  line-height: 1;
-}
-.metric-label {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--text-dim);
-}
-.metric-div {
-  width: 1px;
-  background: var(--border);
-  align-self: stretch;
-}
-/* Hero photo */
-.hero-photo-wrap {
-  position: relative;
-}
-.hero-photo-frame {
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  aspect-ratio: 4/5;
-  border: 1px solid var(--border);
-}
-.hero-photo-frame img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  filter: grayscale(0.3);
-  transition: filter 0.6s;
-}
-.hero-photo-frame:hover img { filter: grayscale(0); }
-.hero-photo-gradient {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(8,8,8,0.8) 0%, transparent 50%);
-}
-.hero-photo-badge {
-  position: absolute;
-  bottom: 20px; left: 20px;
-  background: rgba(8,8,8,0.75);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(0,229,255,0.2);
-  border-radius: 10px;
-  padding: 10px 16px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.hero-photo-badge span {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text);
-}
-/* Decorative ring */
-.hero-ring {
-  position: absolute;
-  right: -40px; bottom: -40px;
-  width: 180px; height: 180px;
-  border: 1px solid rgba(255,143,111,0.08);
-  border-radius: 50%;
-  pointer-events: none;
-}
-.hero-ring::after {
-  content: '';
-  position: absolute;
-  inset: 20px;
-  border: 1px solid rgba(255,143,111,0.05);
-  border-radius: 50%;
-}
+    /* ── Scroll Reveal ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
-/* ── Section base ── */
-section { position: relative; z-index: 2; }
-.section-inner { max-width: 1300px; margin: 0 auto; padding: 0 80px; }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-/* ── Section Label ── */
-.section-eyebrow {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--primary);
-  margin-bottom: 14px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.section-eyebrow::before {
-  content: '';
-  width: 16px; height: 1.5px;
-  background: var(--cyan);
-  opacity: 0.7;
-}
-.section-title {
-  font-family: var(--font-display);
-  font-size: clamp(36px, 5vw, 60px);
-  font-weight: 900;
-  letter-spacing: -2px;
-  line-height: 1.05;
-  margin-bottom: 16px;
-}
-.section-title em { color: var(--primary); font-style: italic; }
-.section-sub {
-  color: var(--text-muted);
-  font-size: 17px;
-  line-height: 1.7;
-  max-width: 600px;
-}
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
 
-/* ── Skills ── */
-#Skills {
-  padding: 120px 0;
-  background: linear-gradient(180deg, var(--surface) 0%, var(--surface-1) 100%);
-}
-.skills-header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: 48px;
-  gap: 32px;
-  flex-wrap: wrap;
-}
-.skills-tag {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text-dim);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-.skills-tag::before {
-  content: '';
-  width: 6px; height: 6px;
-  background: var(--cyan);
-  border-radius: 50%;
-  animation: pulse-cyan 2s infinite;
-}
-.skills-table-wrap {
-  background: var(--surface-1);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  overflow: hidden;
-}
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-thead tr {
-  background: var(--surface-2);
-  border-bottom: 1px solid var(--border);
-}
-thead th {
-  padding: 16px 28px;
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--primary);
-  text-align: left;
-  font-weight: 400;
-}
-thead th:last-child { text-align: right; }
-tbody tr {
-  border-bottom: 1px solid rgba(255,255,255,0.03);
-  transition: background 0.2s;
-}
-tbody tr:last-child { border-bottom: none; }
-tbody tr:hover { background: rgba(255,255,255,0.02); }
-tbody td {
-  padding: 20px 28px;
-  vertical-align: middle;
-}
-.td-domain {
-  font-family: var(--font-display);
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--text);
-  white-space: nowrap;
-}
-.td-sub {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--text-dim);
-  font-style: italic;
-}
-.td-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-.chip {
-  padding: 4px 10px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 6px;
-  font-family: var(--font-mono);
-  font-size: 9px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-  transition: all 0.2s;
-  white-space: nowrap;
-}
-tbody tr:hover .chip {
-  border-color: rgba(255,143,111,0.2);
-  color: var(--text);
-}
-.td-years {
-  font-family: var(--font-mono);
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--gold);
-  text-align: right;
-  letter-spacing: 0.05em;
-}
-/* Skill row icon */
-.td-icon {
-  width: 36px; height: 36px;
-  border-radius: 9px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  flex-shrink: 0;
-}
+    /* ── Hero CSS-only entrance animations (no JS observer needed) ── */
+    @keyframes hero-in {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
 
-/* ── Experience ── */
-#Experience {
-  padding: 120px 0;
-  background: var(--surface-1);
-}
-.timeline {
-  position: relative;
-  padding-left: 0;
-}
-.timeline-line {
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 1px;
-  background: linear-gradient(to bottom, transparent, var(--border) 10%, var(--border) 90%, transparent);
-}
-.role-card {
-  position: relative;
-  padding-left: 48px;
-  padding-bottom: 80px;
-}
-.role-card:last-child { padding-bottom: 0; }
-.role-dot {
-  position: absolute;
-  left: -5px; top: 32px;
-  width: 11px; height: 11px;
-  border-radius: 50%;
-  background: var(--primary);
-  box-shadow: 0 0 0 3px var(--surface-1), 0 0 20px var(--primary);
-}
-.role-header { margin-bottom: 28px; }
-.role-time-badges {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 12px;
-  flex-wrap: wrap;
-}
-.badge {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  padding: 5px 12px;
-  border-radius: 6px;
-}
-.badge-primary { background: rgba(255,143,111,0.08); border: 1px solid rgba(255,143,111,0.2); color: var(--primary); }
-.badge-current {
-  background: rgba(0,229,255,0.07);
-  border: 1px solid rgba(0,229,255,0.2);
-  color: var(--cyan);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.badge-current-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--cyan);
-  animation: pulse-cyan 1.8s infinite;
-}
-.badge-foundation { background: rgba(255,197,99,0.08); border: 1px solid rgba(255,197,99,0.2); color: var(--gold); }
-.role-title {
-  font-family: var(--font-display);
-  font-size: 34px;
-  font-weight: 900;
-  letter-spacing: -1.5px;
-  line-height: 1;
-  margin-bottom: 8px;
-}
-.role-company {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  color: var(--text-muted);
-}
-.role-company span { color: var(--cyan); }
-/* Impact chips */
-.impact-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 32px;
-}
-.impact-chip {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 10px 16px;
-  transition: all 0.2s;
-  cursor: default;
-}
-.impact-chip:hover {
-  border-color: rgba(255,143,111,0.3);
-  background: rgba(255,143,111,0.04);
-  transform: translateY(-2px);
-}
-.impact-chip-val {
-  font-family: var(--font-mono);
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--primary);
-  line-height: 1;
-}
-.impact-chip-label {
-  font-family: var(--font-label);
-  font-size: 9px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text-muted);
-  line-height: 1.3;
-}
-/* Category accordion */
-.cat-block {
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  overflow: hidden;
-  margin-bottom: 12px;
-  transition: border-color 0.2s;
-}
-.cat-block:hover { border-color: rgba(255,143,111,0.15); }
-.cat-block.open { border-color: rgba(255,143,111,0.2); }
-.cat-header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 14px 20px;
-  cursor: pointer;
-  user-select: none;
-  background: rgba(255,255,255,0.01);
-  transition: background 0.2s;
-}
-.cat-header:hover { background: rgba(255,255,255,0.03); }
-.cat-emoji { font-size: 18px; }
-.cat-title {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  flex: 1;
-}
-.cat-toggle {
-  font-family: var(--font-mono);
-  font-size: 18px;
-  color: var(--text-dim);
-  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), color 0.2s;
-  line-height: 1;
-}
-.cat-block.open .cat-toggle { transform: rotate(45deg); color: var(--primary); }
-.cat-body {
-  max-height: 0;
-  overflow: hidden;
-  padding: 0 20px;
-  transition: max-height 0.45s cubic-bezier(0.16,1,0.3,1), padding 0.3s;
-}
-.cat-block.open .cat-body { max-height: 800px; padding: 4px 20px 20px; }
-.cat-body ul { list-style: none; display: flex; flex-direction: column; gap: 14px; }
-.cat-body li {
-  position: relative;
-  padding-left: 20px;
-  font-size: 14px;
-  line-height: 1.7;
-  color: var(--text-muted);
-}
-.cat-body li::before {
-  content: '▸';
-  position: absolute;
-  left: 0; top: 0;
-  color: var(--primary);
-  font-size: 11px;
-}
-.cat-body li strong { color: var(--text); font-weight: 600; }
-.cat-body li .mono {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--primary);
-  font-weight: 700;
-}
-.cat-body li .tag-cyan {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--cyan);
-  background: rgba(0,229,255,0.06);
-  padding: 2px 8px;
-  border-radius: 4px;
-}
-/* WIP bar */
-.wip-bar {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 24px;
-  padding: 12px 18px;
-  background: rgba(0,229,255,0.03);
-  border: 1px dashed rgba(0,229,255,0.2);
-  border-radius: 10px;
-}
-.wip-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--cyan);
-  flex-shrink: 0;
-  animation: pulse-cyan 1.8s infinite;
-}
-.wip-text {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--cyan-dim);
-}
-/* Stack chips */
-.stack-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 24px;
-}
-.stack-chip {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text-dim);
-  border: 1px solid rgba(255,255,255,0.06);
-  padding: 5px 11px;
-  border-radius: 6px;
-  transition: all 0.2s;
-}
-.stack-chip:hover { color: var(--primary); border-color: rgba(255,143,111,0.3); }
+    /* Override reveal for hero elements — fade in only, no position shift */
+    #Hero .reveal {
+      opacity: 0;
+      transform: none; /* Cancel the base .reveal translateY so no upward jump */
+      transition: none; /* Cancel transition to avoid conflict with animation */
+      animation: hero-in 0.9s ease both;
+    }
+    /* Stagger each delay class */
+    #Hero .reveal:not([class*='reveal-delay']) { animation-delay: 0.05s; }
+    #Hero .reveal-delay-1 { animation-delay: 0.15s; }
+    #Hero .reveal-delay-2 { animation-delay: 0.25s; }
+    #Hero .reveal-delay-3 { animation-delay: 0.35s; }
+    #Hero .reveal-delay-4 { animation-delay: 0.45s; }
+    #Hero .reveal-delay-5 { animation-delay: 0.55s; }
 
-/* ── Projects / Blog ── */
-#Projects {
-  padding: 120px 0;
-  background: var(--surface);
-}
-.bento-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-.bento-card {
-  background: var(--surface-1);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
-}
-.bento-card:hover {
-  border-color: rgba(255,143,111,0.2);
-  transform: translateY(-6px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,143,111,0.1);
-}
-.bento-img {
-  position: relative;
-  aspect-ratio: 16/9;
-  overflow: hidden;
-}
-.bento-img img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  opacity: 0.75;
-  transition: opacity 0.4s, transform 0.5s;
-}
-.bento-card:hover .bento-img img {
-  opacity: 0.95;
-  transform: scale(1.04);
-}
-.bento-badge {
-  position: absolute;
-  top: 14px; left: 14px;
-  font-family: var(--font-mono);
-  font-size: 9px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: 5px 12px;
-  border-radius: 100px;
-}
-.badge-orange { background: var(--primary); color: #1a0500; }
-.badge-gold { background: var(--gold); color: #2a1800; }
-.badge-cyan { background: var(--cyan); color: #001a22; }
-.bento-body {
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-.bento-title {
-  font-family: var(--font-display);
-  font-size: 18px;
-  font-weight: 800;
-  line-height: 1.3;
-  letter-spacing: -0.5px;
-  margin-bottom: 10px;
-}
-.bento-desc {
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.65;
-  flex: 1;
-  margin-bottom: 20px;
-}
-.bento-link {
-  font-family: var(--font-label);
-  font-size: 12px;
-  font-weight: 700;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 9px 18px;
-  border-radius: 8px;
-  width: fit-content;
-  transition: all 0.2s;
-  letter-spacing: 0.03em;
-  margin-top: auto;
-}
-.bento-link-orange { color: var(--primary); background: rgba(255,143,111,0.08); border: 1px solid rgba(255,143,111,0.15); }
-.bento-link-orange:hover { background: rgba(255,143,111,0.15); transform: translateX(3px); }
-.bento-link-gold { color: var(--gold); background: rgba(255,197,99,0.08); border: 1px solid rgba(255,197,99,0.15); }
-.bento-link-gold:hover { background: rgba(255,197,99,0.15); transform: translateX(3px); }
-.bento-link-cyan { color: var(--cyan); background: rgba(0,229,255,0.08); border: 1px solid rgba(0,229,255,0.15); }
-.bento-link-cyan:hover { background: rgba(0,229,255,0.15); transform: translateX(3px); }
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 18px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      transition: all 0.4s;
+    }
 
-/* ── Contact ── */
-#Contact {
-  padding: 120px 0;
-  background: var(--surface-1);
-}
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: start;
-}
-.contact-links { display: flex; flex-direction: column; gap: 12px; }
-.contact-link {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  padding: 20px 22px;
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  text-decoration: none;
-  transition: all 0.25s;
-  position: relative;
-  overflow: hidden;
-}
-.contact-link::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(0,229,255,0.04), transparent);
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-.contact-link:hover {
-  border-color: rgba(0,229,255,0.25);
-  transform: translateX(4px);
-}
-.contact-link:hover::before { opacity: 1; }
-.contact-icon {
-  width: 44px; height: 44px;
-  border-radius: 11px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  font-size: 20px;
-  transition: transform 0.3s;
-}
-.contact-link:hover .contact-icon { transform: scale(1.1) rotate(-5deg); }
-.contact-text h4 {
-  font-family: var(--font-display);
-  font-size: 15px;
-  font-weight: 700;
-  margin-bottom: 3px;
-}
-.contact-text p {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--text-dim);
-}
-.contact-arrow {
-  margin-left: auto;
-  color: var(--text-dim);
-  font-size: 18px;
-  opacity: 0;
-  transform: translateX(-6px);
-  transition: all 0.2s;
-}
-.contact-link:hover .contact-arrow { opacity: 1; transform: translateX(0); }
-/* Open to panel */
-.open-to-panel {
-  background: linear-gradient(135deg, var(--surface-2), var(--surface-1));
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 40px;
-  height: 100%;
-}
-.open-to-panel h3 {
-  font-family: var(--font-display);
-  font-size: 28px;
-  font-weight: 900;
-  letter-spacing: -1px;
-  margin-bottom: 6px;
-}
-.open-to-panel p {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--text-dim);
-  margin-bottom: 28px;
-  letter-spacing: 0.05em;
-}
-.role-list { display: flex; flex-direction: column; gap: 10px; list-style: none; }
-.role-list li {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 14px 18px;
-  background: rgba(255,255,255,0.02);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  font-family: var(--font-display);
-  font-size: 14px;
-  font-weight: 600;
-  transition: all 0.2s;
-  cursor: default;
-}
-.role-list li:hover {
-  background: rgba(0,229,255,0.04);
-  border-color: rgba(0,229,255,0.2);
-  transform: translateX(4px);
-}
-.role-dot-small {
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: var(--cyan);
-  flex-shrink: 0;
-  transition: box-shadow 0.2s;
-}
-.role-list li:hover .role-dot-small { box-shadow: 0 0 10px var(--cyan); }
+    nav.scrolled {
+      background: var(--nav-bg-scrolled);
+      backdrop-filter: blur(24px) saturate(180%);
+      border-bottom-color: var(--primary-subtle);
+      box-shadow: var(--shadow);
+    }
 
-/* ── Footer ── */
-footer {
-  position: relative;
-  z-index: 2;
-  background: var(--surface);
-  border-top: 1px solid var(--border);
-  padding: 40px 80px;
-  text-align: center;
-}
-footer p {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-}
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+    }
 
-/* ── SVG Icon helpers ── */
-.ico { display:inline-block; vertical-align:middle; }
+    .nav-logo-name {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 17px;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
 
-/* ── Responsive quick fixes ── */
-@media (max-width: 1024px) {
-  .hero-grid { grid-template-columns: 1fr; }
-  .hero-photo-wrap { display: none; }
-  nav { padding: 16px 24px; }
-  .nav-links { display: none; }
-  .section-inner { padding: 0 24px; }
-  #Hero { padding: 100px 24px 60px; }
-  .bento-grid { grid-template-columns: 1fr; }
-  .contact-grid { grid-template-columns: 1fr; }
-}
-@media (max-width: 768px) {
-  .skills-header { flex-direction: column; align-items: flex-start; }
-  .impact-chips { gap: 8px; }
-}
+    .nav-logo-title {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--cyan);
+      letter-spacing: 0.2em;
+      margin-top: 3px;
+      text-transform: uppercase;
+    }
 
-/* ── Highlight code-like spans in experience ── */
-code {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  background: rgba(255,143,111,0.08);
-  color: var(--primary);
-  padding: 1px 6px;
-  border-radius: 4px;
-}
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
 
-/* ── Animated gradient border on hero card ── */
-@keyframes border-dance {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-.glow-border {
-  position: relative;
-}
-.glow-border::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  background: linear-gradient(90deg, var(--primary), var(--gold), var(--cyan), var(--primary));
-  background-size: 300% 300%;
-  border-radius: 15px;
-  z-index: -1;
-  opacity: 0;
-  animation: border-dance 4s linear infinite;
-  transition: opacity 0.4s;
-}
-.glow-border:hover::before { opacity: 0.5; }
-</style>
+    .nav-links a {
+      font-family: var(--font-label);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--primary);
+      transition: width 0.25s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn {
+      font-family: var(--font-label);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 9px 22px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--primary-glow);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #2a0a00;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dim);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px var(--primary-glow);
+    }
+
+    /* ── Hero ── */
+    #Hero {
+      position: relative;
+      min-height: calc(100vh - 80px);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 110px 80px 40px; /* Tighter top padding so pipeline card stays visible */
+      max-width: 1400px;
+      margin: 0 auto;
+      z-index: 2;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: var(--cyan-faint);
+      border: 1px solid var(--cyan-subtle);
+      border-radius: 100px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--cyan);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .hero-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+      animation: pulse-cyan 1.5s infinite ease-in-out;
+    }
+
+    @keyframes pulse-cyan {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.7);
+      }
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 12px rgba(0, 229, 255, 0);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 229, 255, 0);
+      }
+    }
+
+    .hero-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(44px, 6vw, 76px);
+      font-weight: 900;
+      line-height: 1.04;
+      letter-spacing: -2.5px;
+      margin-bottom: 20px;
+    }
+
+    .hero-h1 em {
+      font-style: normal;
+      color: var(--primary);
+      -webkit-text-stroke: 0px;
+      position: relative;
+    }
+
+
+    .hero-sub {
+      font-size: 18px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 40px; /* Reduced from 64px to bring card up */
+    }
+
+    .hero-actions a {
+      font-family: var(--font-label);
+      font-weight: 700;
+      font-size: 14px;
+      padding: 13px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-btn-primary {
+      background: var(--primary);
+      color: #1a0500;
+      box-shadow: 0 0 40px var(--primary-glow);
+    }
+
+    .hero-btn-primary:hover {
+      background: var(--primary-dim);
+      box-shadow: 0 0 60px rgba(255, 107, 66, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .hero-btn-secondary {
+      background: transparent;
+      color: var(--primary);
+      border: 1px solid var(--primary-subtle);
+    }
+
+    .hero-btn-secondary:hover {
+      background: var(--primary-faint);
+      border-color: var(--primary);
+    }
+
+    /* Pipeline metric */
+    .pipeline-card {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 12px 28px;
+      position: relative;
+      overflow: hidden;
+      max-width: fit-content;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .pipeline-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--primary-faint), var(--gold-faint));
+      pointer-events: none;
+    }
+
+    .pipeline-card:hover {
+      border-color: rgba(255, 143, 111, 0.4);
+      background: rgba(255, 143, 111, 0.05);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 143, 111, 0.05);
+    }
+
+    .pipeline-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(255, 143, 111, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .pipeline-data {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .pipeline-item {
+      text-align: left;
+    }
+
+    .pipeline-label {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-dim);
+      margin-bottom: 4px;
+    }
+
+    .pipeline-value {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .pipeline-value.old {
+      color: var(--text-dim);
+      text-decoration: line-through;
+    }
+
+    .pipeline-value.new {
+      color: #fff;
+    }
+
+    .pipeline-arrow {
+      color: var(--primary);
+      opacity: 0.5;
+    }
+
+    /* Metrics row */
+    .hero-metrics {
+      display: flex;
+      gap: 48px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+
+    .metric-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .metric-value {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: -1px;
+      line-height: 1;
+    }
+
+    .metric-label {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--text-dim);
+    }
+
+    .metric-div {
+      width: 1px;
+      background: var(--border);
+      align-self: stretch;
+    }
+
+    /* Hero photo */
+    .hero-photo-wrap {
+      position: relative;
+    }
+
+    .hero-photo-frame {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      border: 1px solid var(--border);
+    }
+
+    .hero-photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(0.3);
+      transition: filter 0.6s;
+    }
+
+    .hero-photo-frame:hover img {
+      filter: grayscale(0);
+    }
+
+    .hero-photo-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(8, 8, 8, 0.8) 0%, transparent 50%);
+    }
+
+    .hero-photo-badge {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(8, 8, 8, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(0, 229, 255, 0.2);
+      border-radius: 10px;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-photo-badge span {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text);
+    }
+
+    /* Decorative ring */
+    .hero-ring {
+      position: absolute;
+      right: -40px;
+      bottom: -40px;
+      width: 180px;
+      height: 180px;
+      border: 1px solid rgba(255, 143, 111, 0.08);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-ring::after {
+      content: '';
+      position: absolute;
+      inset: 20px;
+      border: 1px solid rgba(255, 143, 111, 0.05);
+      border-radius: 50%;
+    }
+
+    /* ── Section base ── */
+    section {
+      position: relative;
+      z-index: 2;
+    }
+
+    .section-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 80px;
+    }
+
+    /* ── Section Label ── */
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-eyebrow::before {
+      content: '';
+      width: 16px;
+      height: 1.5px;
+      background: var(--cyan);
+      opacity: 0.7;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+
+    .section-title em {
+      font-style: normal;
+      color: var(--primary);
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 17px;
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    /* ── Skills ── */
+    #Skills {
+      padding: 120px 0;
+      background: linear-gradient(180deg, var(--surface) 0%, var(--surface-1) 100%);
+    }
+
+    .skills-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 48px;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .skills-tag {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .skills-tag::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--cyan);
+      border-radius: 50%;
+      animation: pulse-cyan 1.5s infinite ease-in-out;
+    }
+
+    .skills-table-wrap {
+      background: var(--surface-1);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    thead tr {
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--border);
+    }
+
+    thead th {
+      padding: 16px 28px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--primary);
+      text-align: left;
+      font-weight: 400;
+    }
+
+    thead th:last-child {
+      text-align: right;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.2s;
+    }
+
+    tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    tbody tr:hover {
+      background: var(--surface-0);
+    }
+
+    tbody td {
+      padding: 20px 28px;
+      vertical-align: middle;
+    }
+
+    .td-domain {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .td-sub {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-dim);
+      font-style: italic;
+    }
+
+    .td-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .chip {
+      padding: 4px 10px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .chip:hover {
+      color: var(--primary);
+      border-color: var(--primary-subtle);
+      background: var(--primary-faint);
+      box-shadow: 0 4px 12px rgba(255, 143, 111, 0.1);
+    }
+
+    tbody tr:hover .chip {
+      border-color: rgba(255, 143, 111, 0.2);
+      color: var(--text);
+    }
+
+    .td-years {
+      font-family: var(--font-mono);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--gold);
+      text-align: right;
+      letter-spacing: 0.05em;
+    }
+
+    /* Skill row icon */
+    .td-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    /* ── Experience ── */
+    #Experience {
+      padding: 120px 0;
+      background: var(--surface-1);
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 0;
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--border) 10%, var(--border) 90%, transparent);
+    }
+
+    .role-card {
+      position: relative;
+      padding-left: 48px;
+      padding-bottom: 80px;
+    }
+
+    .role-card:last-child {
+      padding-bottom: 0;
+    }
+
+    .role-dot {
+      position: absolute;
+      left: -5px;
+      top: 32px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 0 3px var(--surface-1), 0 0 20px var(--primary);
+    }
+
+    .role-header {
+      margin-bottom: 28px;
+    }
+
+    .role-time-badges {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 6px;
+    }
+
+    .badge-primary {
+      background: var(--primary-faint);
+      border: 1px solid var(--primary-subtle);
+      color: var(--primary);
+    }
+
+    .badge-current {
+      background: var(--cyan-faint);
+      border: 1px solid var(--cyan-subtle);
+      color: var(--cyan);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge-current-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+      animation: pulse-cyan 1.5s infinite ease-in-out;
+    }
+
+    .badge-foundation {
+      background: var(--primary-faint);
+      border: 1px solid var(--primary-subtle);
+      color: var(--primary);
+    }
+
+    .role-title {
+      font-family: var(--font-display);
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .role-company {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .role-company span {
+      color: var(--cyan);
+    }
+
+    /* Impact chips */
+    .impact-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    .impact-chip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 16px;
+      transition: all 0.2s;
+      cursor: default;
+    }
+
+    .impact-chip:hover {
+      border-color: rgba(255, 143, 111, 0.3);
+      background: var(--primary-faint);
+      transform: translateY(-2px);
+    }
+
+    .impact-chip-val {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    .impact-chip-label {
+      font-family: var(--font-label);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+
+    /* Category accordion */
+    .cat-block {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 12px;
+      transition: border-color 0.2s;
+    }
+
+    .cat-block:hover {
+      border-color: rgba(255, 143, 111, 0.15);
+    }
+
+    .cat-block.open {
+      border-color: rgba(255, 143, 111, 0.2);
+    }
+
+    .cat-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 20px;
+      cursor: pointer;
+      user-select: none;
+      background: rgba(255, 255, 255, 0.01);
+      transition: background 0.2s;
+    }
+
+    .cat-header:hover {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .cat-emoji {
+      font-size: 18px;
+    }
+
+    .cat-title {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      flex: 1;
+    }
+
+    .cat-toggle {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      color: var(--text-dim);
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.2s;
+      line-height: 1;
+    }
+
+    .cat-block.open .cat-toggle {
+      transform: rotate(45deg);
+      color: var(--primary);
+    }
+
+    .cat-body {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 20px;
+      transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s;
+    }
+
+    .cat-block.open .cat-body {
+      max-height: 800px;
+      padding: 4px 20px 20px;
+    }
+
+    .cat-body ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .cat-body li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    .cat-body li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--primary);
+      font-size: 13px;
+    }
+
+    .cat-body li strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .cat-body li .mono {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .cat-body li .tag-cyan {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--cyan);
+      background: rgba(0, 229, 255, 0.06);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    /* WIP bar */
+    .wip-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 24px;
+      padding: 12px 18px;
+      background: rgba(0, 229, 255, 0.03);
+      border: 1px dashed rgba(0, 229, 255, 0.2);
+      border-radius: 10px;
+    }
+
+    .wip-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--cyan);
+      flex-shrink: 0;
+      animation: pulse-cyan 1.5s infinite ease-in-out;
+    }
+
+    .wip-text {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--cyan-dim);
+    }
+
+    /* Stack chips */
+    .stack-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 24px;
+    }
+
+    .stack-chip {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 5px 11px;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .stack-chip:hover {
+      color: var(--primary);
+      border-color: rgba(255, 143, 111, 0.3);
+    }
+
+    /* ── Projects / Blog ── */
+    #Projects {
+      padding: 120px 0;
+      background: var(--surface);
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .bento-card {
+      background: var(--surface-1);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    .stretched-link::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 10;
+      content: "";
+    }
+
+    .bento-card:hover {
+      border-color: rgba(255, 143, 111, 0.2);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 143, 111, 0.1);
+    }
+
+    .bento-img {
+      position: relative;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+    }
+
+    .bento-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.75;
+      transition: opacity 0.4s, transform 0.5s;
+    }
+
+    .bento-card:hover .bento-img img {
+      opacity: 0.95;
+      transform: scale(1.04);
+    }
+
+    .bento-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 5px 12px;
+      border-radius: 100px;
+    }
+
+    .badge-orange {
+      background: var(--primary);
+      color: #1a0500;
+    }
+
+    .badge-gold {
+      background: var(--cyan);
+      color: #001a22;
+    }
+
+    .badge-cyan {
+      background: var(--cyan);
+      color: #001a22;
+    }
+
+    .bento-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .bento-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.3;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+
+    .bento-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 20px;
+    }
+
+    .bento-link {
+      font-family: var(--font-label);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 18px;
+      border-radius: 8px;
+      width: fit-content;
+      transition: all 0.2s;
+      letter-spacing: 0.03em;
+      margin-top: auto;
+    }
+
+    .bento-link-orange {
+      color: var(--primary);
+      background: var(--primary-faint);
+      border: 1px solid var(--primary-subtle);
+    }
+
+    .bento-link:hover svg {
+      transform: translateX(3px);
+    }
+
+    .bento-link-orange:hover {
+      background: rgba(255, 143, 111, 0.15);
+    }
+
+    .bento-link-gold {
+      color: var(--cyan);
+      background: var(--cyan-faint);
+      border: 1px solid var(--cyan-subtle);
+    }
+
+    .bento-link-gold:hover {
+      background: rgba(0, 229, 255, 0.15);
+    }
+
+    .bento-link-cyan {
+      color: var(--cyan);
+      background: var(--cyan-faint);
+      border: 1px solid var(--cyan-subtle);
+    }
+
+    .bento-link-cyan:hover {
+      background: rgba(0, 229, 255, 0.15);
+    }
+
+
+    .pulse-highlight {
+      animation: highlight-pulse 2s ease-out;
+    }
+
+    @keyframes highlight-pulse {
+      0% { box-shadow: 0 0 0 0 var(--primary-subtle); background: var(--surface-1); }
+      30% { box-shadow: 0 0 0 15px rgba(255, 143, 111, 0); background: var(--primary-faint); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 143, 111, 0); background: var(--surface-1); }
+    }
+
+    /* ── Contact ── */
+    #Contact {
+      padding: 120px 0;
+      background: var(--surface-1);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 20px 22px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      text-decoration: none;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-link::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(0, 229, 255, 0.04), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .contact-link:hover {
+      border-color: rgba(0, 229, 255, 0.25);
+      transform: translateX(4px);
+    }
+
+    .contact-link:hover::before {
+      opacity: 1;
+    }
+
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 20px;
+      transition: transform 0.3s;
+    }
+
+    .contact-link:hover .contact-icon {
+      transform: scale(1.1) rotate(-5deg);
+    }
+
+    .contact-text h4 {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 3px;
+      color: var(--text);
+    }
+
+    .contact-text p {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: var(--text-dim);
+    }
+
+    .contact-arrow {
+      margin-left: auto;
+      color: var(--text-dim);
+      font-size: 18px;
+      opacity: 0;
+      transform: translateX(-6px);
+      transition: all 0.2s;
+    }
+
+    .contact-link:hover .contact-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Open to panel */
+    .open-to-panel {
+      background: linear-gradient(135deg, var(--surface-2), var(--surface-1));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 40px;
+      height: 100%;
+    }
+
+    .open-to-panel h3 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      margin-bottom: 6px;
+    }
+
+    .open-to-panel p {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: var(--text-dim);
+      margin-bottom: 28px;
+      letter-spacing: 0.05em;
+    }
+
+    .role-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      list-style: none;
+    }
+
+    .role-list li {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      background: var(--surface-0);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.2s;
+      cursor: default;
+    }
+
+    .role-list li:hover {
+      background: rgba(0, 229, 255, 0.04);
+      border-color: rgba(0, 229, 255, 0.2);
+      transform: translateX(4px);
+    }
+
+    .role-dot-small {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--cyan);
+      flex-shrink: 0;
+      transition: box-shadow 0.2s;
+    }
+
+    .role-list li:hover .role-dot-small {
+      box-shadow: 0 0 10px var(--cyan);
+    }
+
+    /* ── Footer ── */
+    footer {
+      position: relative;
+      z-index: 2;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 40px 80px;
+      text-align: center;
+    }
+
+    footer p {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    /* ── SVG Icon helpers ── */
+    .ico {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    /* ── Responsive quick fixes ── */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-photo-wrap {
+        display: none;
+      }
+
+      nav {
+        padding: 16px 24px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .section-inner {
+        padding: 0 24px;
+      }
+
+      #Hero {
+        padding: 100px 24px 60px;
+      }
+
+      .bento-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 12px 16px;
+      }
+
+      .nav-logo-name {
+        font-size: 15px;
+      }
+
+      .skills-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .impact-chips {
+        gap: 8px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .nav-logo-title {
+        display: none;
+      }
+
+      .nav-cta {
+        gap: 6px;
+      }
+
+      .btn-label {
+        display: none;
+      }
+
+      .btn {
+        padding: 8px 12px;
+      }
+
+      .btn-primary {
+        padding: 8px 16px;
+      }
+
+      .theme-toggle {
+        margin-right: 4px;
+      }
+    }
+
+    /* ── Highlight code-like spans in experience ── */
+    code {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      background: rgba(255, 143, 111, 0.08);
+      color: var(--primary);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+
+    /* ── Animated gradient border on hero card ── */
+    @keyframes border-dance {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .glow-border {
+      position: relative;
+    }
+
+    .glow-border::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-dim), var(--cyan), var(--primary));
+      background-size: 300% 300%;
+      border-radius: 15px;
+      z-index: -1;
+      opacity: 0;
+      animation: border-dance 4s linear infinite;
+      transition: opacity 0.4s;
+    }
+
+    .glow-border:hover::before {
+      opacity: 0.5;
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- Cursor -->
-<div id="cursor"></div>
+  <!-- Cursor -->
+  <div id="cursor"></div>
 
-<!-- Animated dot-grid background -->
-<canvas id="bg-canvas"></canvas>
+  <!-- Animated dot-grid background -->
+  <canvas id="bg-canvas"></canvas>
 
-<!-- NAV -->
-<nav id="navbar">
-  <a class="nav-logo" href="#">
-    <span class="nav-logo-name">Nandeeswar Reddy Polu</span>
-    <span class="nav-logo-title">DevOps · Cloud Engineer</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#Skills">Skills</a></li>
-    <li><a href="#Experience">Experience</a></li>
-    <li><a href="#Projects">Projects</a></li>
-    <li><a href="#Contact">Contact</a></li>
-  </ul>
-  <div class="nav-cta">
-    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
-      <svg id="theme-icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-      <svg id="theme-icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-    </button>
-    <a class="btn btn-outline" href="#">
-      <svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      Resume
+  <!-- NAV -->
+  <nav id="navbar">
+    <a class="nav-logo" href="#">
+      <span class="nav-logo-name">Nandeeswar Reddy Polu</span>
+      <span class="nav-logo-title">DevOps · Cloud Engineer</span>
     </a>
-    <a class="btn btn-primary" href="#Contact">Hire Me →</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section id="Hero">
-  <div class="hero-grid">
-    <!-- Left -->
-    <div>
-      <div class="hero-badge reveal">
-        <span class="hero-badge-dot"></span>
-        Available for High-Impact Roles
-      </div>
-      <h1 class="hero-h1 reveal reveal-delay-1">
-        Results-Driven<br/>
-        <em>Cloud Problem</em><br/>
-        Solver
-      </h1>
-      <p class="hero-sub reveal reveal-delay-2">
-        Specializing in container orchestration (AWS ECS, EKS) and GitOps-driven deployment pipelines using Terraform.
-      </p>
-      <div class="hero-actions reveal reveal-delay-3">
-        <a class="hero-btn-primary" href="#Contact">
-          Contact Me
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-        </a>
-        <a class="hero-btn-secondary" href="#Experience">
-          Experience
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-        </a>
-      </div>
-      <!-- Pipeline card -->
-      <div class="pipeline-card glow-border reveal reveal-delay-4">
-        <div class="pipeline-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        </div>
-        <div class="pipeline-data">
-          <div class="pipeline-item">
-            <div class="pipeline-label">Before</div>
-            <div class="pipeline-value old">2hr Deploy</div>
-          </div>
-          <div class="pipeline-arrow">
-            <svg width="24" height="16" viewBox="0 0 24 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M0 8h22M16 2l6 6-6 6"/></svg>
-          </div>
-          <div class="pipeline-item">
-            <div class="pipeline-label" style="color:var(--primary)">GitOps Win</div>
-            <div class="pipeline-value new">12min Pipeline</div>
-          </div>
-        </div>
-      </div>
-      <!-- Metrics -->
-      <div class="hero-metrics reveal reveal-delay-5">
-        <div class="metric-item">
-          <div class="metric-value">2+</div>
-          <div class="metric-label">Years Obsessed</div>
-        </div>
-        <div class="metric-div"></div>
-        <div class="metric-item">
-          <div class="metric-value">99.9 %</div>
-          <div class="metric-label">Uptime Mindset</div>
-        </div>
-        <div class="metric-div"></div>
-        <div class="metric-item">
-          <div class="metric-value">AWS</div>
-          <div class="metric-label">Expert</div>
-        </div>
-      </div>
+    <ul class="nav-links">
+      <li><a href="#Skills">Skills</a></li>
+      <li><a href="#Experience">Experience</a></li>
+      <li><a href="#Projects">Blogs</a></li>
+      <li><a href="#Contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+        <svg id="theme-icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          style="display:none;">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <svg id="theme-icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+      </button>
+      <a class="btn btn-outline" href="assets/resume.pdf" download="Polu_Nandeeswar_Resume.pdf">
+        <svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+          <polyline points="7,10 12,15 17,10" />
+          <line x1="12" y1="15" x2="12" y2="3" />
+        </svg>
+        <span class="btn-label">Resume</span>
+      </a>
+      <a class="btn btn-primary" href="mailto:polunandeeswar2002@gmail.com?subject=Inquiry: Cloud/DevOps Engineering Role">Hire Me →</a>
     </div>
-    <!-- Photo -->
-    <div class="hero-photo-wrap reveal reveal-delay-2">
-      <div class="hero-photo-frame">
-        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMj3F70sFeKw98z4nAQLzCeGGnX6C7ZFuQ78u8lZElc9R9JkF_iYvUGQA8jp80k17AO2qvAfcJzpS5Id6VcFQzlA4ZNDoBWbExampqunC3GaXe3kV62ekIuPEdCuaaNKsW3iSHW91qhOO4_rRTGg_-2u8yEhvoQa_Jnb6GJ-8Yl4zOB8Ed7t3HAQ8xKJc3yLuvshMnTgOx-iYWe8s1XwlTKAXwbLc0BAutlOJxtu3R2T1MaDBU_Osk8aJy-6hUiW8TjeXOsPwuy4g" alt="Nandeeswar Reddy Polu"/>
-        <div class="hero-photo-gradient"></div>
-        <div class="hero-photo-badge">
-          <span class="hero-badge-dot"></span>
-          <span>System Health: Optimal</span>
-        </div>
-      </div>
-      <div class="hero-ring"></div>
-    </div>
-  </div>
-</section>
+  </nav>
 
-<!-- SKILLS -->
-<section id="Skills">
-  <div class="section-inner">
-    <div class="skills-header">
+  <!-- HERO -->
+  <section id="Hero">
+    <div class="hero-grid">
+      <!-- Left -->
       <div>
-        <div class="section-eyebrow reveal">Technical Proficiency Matrix</div>
-        <h2 class="section-title reveal reveal-delay-1">Engineering <em>Ecosystem</em></h2>
-        <p class="section-sub reveal reveal-delay-2">A high-density audit categorized by domain and documented core skillsets for production-grade environments.</p>
-      </div>
-      <span class="skills-tag reveal">Last updated Q1 2026</span>
-    </div>
-    <div class="skills-table-wrap reveal reveal-delay-2">
-      <table>
-        <thead>
-          <tr>
-            <th style="width:44px"></th>
-            <th>Domain</th>
-            <th>Core Skillset</th>
-            <th>Experience</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><div class="td-icon" style="background:rgba(255,153,0,0.1)"><svg role="img" viewBox="0 0 24 24" width="20" height="20" fill="#FF9900" xmlns="http://www.w3.org/2000/svg"><path d="M6.763 10.036c0 .296.032.535.088.71.064.176.144.368.256.576.04.063.056.127.056.183 0 .08-.048.16-.152.24l-.503.335a.383.383 0 0 1-.208.072c-.08 0-.16-.04-.239-.112a2.47 2.47 0 0 1-.287-.375 6.18 6.18 0 0 1-.248-.471c-.622.734-1.405 1.101-2.347 1.101-.67 0-1.205-.191-1.596-.574-.391-.384-.59-.894-.59-1.533 0-.678.239-1.23.726-1.644.487-.415 1.133-.623 1.955-.623.272 0 .551.024.846.064.296.04.6.104.918.176v-.583c0-.607-.127-1.03-.375-1.277-.255-.248-.686-.367-1.3-.367-.28 0-.568.031-.863.103-.295.072-.583.16-.862.272a2.287 2.287 0 0 1-.28.104.488.488 0 0 1-.127.023c-.112 0-.168-.08-.168-.247v-.391c0-.128.016-.224.056-.28a.597.597 0 0 1 .224-.167c.279-.144.614-.264 1.005-.36a4.84 4.84 0 0 1 1.246-.151c.95 0 1.644.216 2.091.647.439.43.662 1.085.662 1.963v2.586zm-3.24 1.214c.263 0 .534-.048.822-.144.287-.096.543-.271.758-.51.128-.152.224-.32.272-.512.047-.191.08-.423.08-.694v-.335a6.66 6.66 0 0 0-.735-.136 6.02 6.02 0 0 0-.75-.048c-.535 0-.926.104-1.19.32-.263.215-.39.518-.39.917 0 .375.095.655.295.846.191.2.47.296.838.296zm6.41.862c-.144 0-.24-.024-.304-.08-.064-.048-.12-.16-.168-.311L7.586 5.55a1.398 1.398 0 0 1-.072-.32c0-.128.064-.2.191-.2h.783c.151 0 .255.025.31.08.065.048.113.16.16.312l1.342 5.284 1.245-5.284c.04-.16.088-.264.151-.312a.549.549 0 0 1 .32-.08h.638c.152 0 .256.025.32.08.063.048.12.16.151.312l1.261 5.348 1.381-5.348c.048-.16.104-.264.16-.312a.52.52 0 0 1 .311-.08h.743c.127 0 .2.065.2.2 0 .04-.009.08-.017.128a1.137 1.137 0 0 1-.056.2l-1.923 6.17c-.048.16-.104.263-.168.311a.51.51 0 0 1-.303.08h-.687c-.151 0-.255-.024-.32-.08-.063-.056-.119-.16-.15-.32l-1.238-5.148-1.23 5.14c-.04.16-.087.264-.15.32-.065.056-.177.08-.32.08zm10.256.215c-.415 0-.83-.048-1.229-.143-.399-.096-.71-.2-.918-.32-.128-.071-.215-.151-.247-.223a.563.563 0 0 1-.048-.224v-.407c0-.167.064-.247.183-.247.048 0 .096.008.144.024.048.016.12.048.2.08.271.12.566.215.878.279.319.064.63.096.95.096.502 0 .894-.088 1.165-.264a.86.86 0 0 0 .415-.758.777.777 0 0 0-.215-.559c-.144-.151-.416-.287-.807-.415l-1.157-.36c-.583-.183-1.014-.454-1.277-.813a1.902 1.902 0 0 1-.4-1.158c0-.335.073-.63.216-.886.144-.255.335-.479.575-.654.24-.184.51-.32.83-.415.32-.096.655-.136 1.006-.136.175 0 .359.008.535.032.183.024.35.056.518.088.16.04.312.08.455.127.144.048.256.096.336.144a.69.69 0 0 1 .24.2.43.43 0 0 1 .071.263v.375c0 .168-.064.256-.184.256a.83.83 0 0 1-.303-.096 3.652 3.652 0 0 0-1.532-.311c-.455 0-.815.071-1.062.223-.248.152-.375.383-.375.71 0 .224.08.416.24.567.159.152.454.304.877.44l1.134.358c.574.184.99.44 1.237.767.247.327.367.702.367 1.117 0 .343-.072.655-.207.926-.144.272-.336.511-.583.703-.248.2-.543.343-.886.447-.36.111-.734.167-1.142.167zM21.698 16.207c-2.626 1.94-6.442 2.969-9.722 2.969-4.598 0-8.74-1.7-11.87-4.526-.247-.223-.024-.527.272-.351 3.384 1.963 7.559 3.153 11.877 3.153 2.914 0 6.114-.607 9.06-1.852.439-.2.814.287.383.607zM22.792 14.961c-.336-.43-2.22-.207-3.074-.103-.255.032-.295-.192-.063-.36 1.5-1.053 3.967-.75 4.254-.399.287.36-.08 2.826-1.485 4.007-.215.184-.423.088-.327-.151.32-.79 1.03-2.57.695-2.994z"/></svg></div></td>
-            <td><div class="td-domain">Cloud Platform</div></td>
-            <td><div class="td-chips"><span class="chip">EC2/EKS</span><span class="chip">Lambda</span><span class="chip">IAM/VPC</span><span class="chip">RDS/Aurora</span></div></td>
-            <td><div class="td-years">2+</div></td>
-          </tr>
-          <tr>
-            <td><div class="td-icon" style="background:rgba(100,220,180,0.1)"><svg role="img" viewBox="0 0 24 24" width="20" height="20" fill="#844FBA" xmlns="http://www.w3.org/2000/svg"><path d="M1.44 0v7.575l6.561 3.79V3.787zm21.12 4.227l-6.561 3.791v7.574l6.56-3.787zM8.72 4.23v7.575l6.561 3.787V8.018zm0 8.405v7.575L15.28 24v-7.578z"/></svg></div></td>
-            <td><div class="td-domain">IaC & Automation</div></td>
-            <td><div class="td-chips"><span class="chip">Terraform</span><span class="chip">CloudFormation</span><span class="chip">CDK</span><span class="chip">Pulumi</span></div></td>
-            <td><div class="td-years">2+</div></td>
-          </tr>
-          <tr>
-            <td><div class="td-icon" style="background:rgba(0,180,220,0.1)"><svg role="img" viewBox="0 0 24 24" width="20" height="20" fill="#2496ED" xmlns="http://www.w3.org/2000/svg"><path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.184-.186h-2.12a.186.186 0 00-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 00-.75.748 11.376 11.376 0 00.692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 003.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288Z"/></svg></div></td>
-            <td><div class="td-domain">Orchestration</div></td>
-            <td><div class="td-chips"><span class="chip">Kubernetes</span><span class="chip">Docker</span><span class="chip">Helm</span><span class="chip">ArgoCD</span></div></td>
-            <td><div class="td-years">2+</div></td>
-          </tr>
-          <tr>
-            <td><div class="td-icon" style="background:rgba(255,143,111,0.1)"><svg role="img" viewBox="0 0 24 24" width="20" height="20" fill="#FC6D26" xmlns="http://www.w3.org/2000/svg"><path d="m23.6004 9.5927-.0337-.0862L20.3.9814a.851.851 0 0 0-.3362-.405.8748.8748 0 0 0-.9997.0539.8748.8748 0 0 0-.29.4399l-2.2055 6.748H7.5375l-2.2057-6.748a.8573.8573 0 0 0-.29-.4412.8748.8748 0 0 0-.9997-.0537.8585.8585 0 0 0-.3362.4049L.4332 9.5015l-.0325.0862a6.0657 6.0657 0 0 0 2.0119 7.0105l.0113.0087.03.0213 4.976 3.7264 2.462 1.8633 1.4995 1.1321a1.0085 1.0085 0 0 0 1.2197 0l1.4995-1.1321 2.4619-1.8633 5.006-3.7489.0125-.01a6.0682 6.0682 0 0 0 2.0094-7.003z"/></svg></div></td>
-            <td><div class="td-domain">Pipeline Engineering</div></td>
-            <td><div class="td-chips"><span class="chip">GitHub Actions</span><span class="chip">GitLab CI</span><span class="chip">Jenkins</span></div></td>
-            <td><div class="td-years">2+</div></td>
-          </tr>
-          <tr>
-            <td><div class="td-icon" style="background:rgba(255,197,99,0.1)"><svg role="img" viewBox="0 0 24 24" width="20" height="20" fill="#F46800" xmlns="http://www.w3.org/2000/svg"><path d="M23.02 10.59a8.578 8.578 0 0 0-.862-3.034 8.911 8.911 0 0 0-1.789-2.445c.337-1.342-.413-2.505-.413-2.505-1.292-.08-2.113.4-2.416.62-.052-.02-.102-.044-.154-.064-.22-.089-.446-.172-.677-.247-.231-.073-.47-.14-.711-.197a9.867 9.867 0 0 0-.875-.161C14.557.753 12.94 0 12.94 0c-1.804 1.145-2.147 2.744-2.147 2.744l-.018.093c-.098.029-.2.057-.298.088-.138.042-.275.094-.413.143-.138.055-.275.107-.41.166a8.869 8.869 0 0 0-1.557.87l-.063-.029c-2.497-.955-4.716.195-4.716.195-.203 2.658.996 4.33 1.235 4.636a11.608 11.608 0 0 0-.607 2.635C1.636 12.677.953 15.014.953 15.014c1.926 2.214 4.171 2.351 4.171 2.351.003-.002.006-.002.006-.005.285.509.615.994.986 1.446.156.19.32.371.488.548-.704 2.009.099 3.68.099 3.68 2.144.08 3.553-.937 3.849-1.173a9.784 9.784 0 0 0 3.164.501h.08l.055-.003.107-.002.103-.005.003.002c1.01 1.44 2.788 1.646 2.788 1.646 1.264-1.332 1.337-2.653 1.337-2.94v-.058c0-.02-.003-.039-.003-.06.265-.187.52-.387.758-.6a7.875 7.875 0 0 0 1.415-1.7c1.43.083 2.437-.885 2.437-.885-.236-1.49-1.085-2.216-1.264-2.354l-.018-.013-.016-.013a.217.217 0 0 1-.031-.02c.008-.092.016-.18.02-.27.011-.162.016-.323.016-.48v-.253l-.005-.098-.008-.135a1.891 1.891 0 0 0-.01-.13c-.003-.042-.008-.083-.013-.125l-.016-.124-.018-.122a6.215 6.215 0 0 0-2.032-3.73 6.015 6.015 0 0 0-3.222-1.46 6.292 6.292 0 0 0-.85-.048l-.107.002h-.063l-.044.003-.104.008a4.777 4.777 0 0 0-3.335 1.695c-.332.4-.592.84-.768 1.297a4.594 4.594 0 0 0-.312 1.817l.003.091c.005.055.007.11.013.164a3.615 3.615 0 0 0 .698 1.82 3.53 3.53 0 0 0 1.827 1.282c.33.098.66.14.971.137.039 0 .078 0 .114-.002l.063-.003c.02 0 .041-.003.062-.003.034-.002.065-.007.099-.01.007 0 .018-.003.028-.003l.031-.005.06-.008a1.18 1.18 0 0 0 .112-.02c.036-.008.072-.013.109-.024a2.634 2.634 0 0 0 .914-.415c.028-.02.056-.041.085-.065a.248.248 0 0 0 .039-.35.244.244 0 0 0-.309-.06l-.078.042c-.09.044-.184.083-.283.116a2.476 2.476 0 0 1-.475.096c-.028.003-.054.006-.083.006l-.083.002c-.026 0-.054 0-.08-.002l-.102-.006h-.012l-.024.006c-.016-.003-.031-.003-.044-.006-.031-.002-.06-.007-.091-.01a2.59 2.59 0 0 1-.724-.213 2.557 2.557 0 0 1-.667-.438 2.52 2.52 0 0 1-.805-1.475 2.306 2.306 0 0 1-.029-.444l.006-.122v-.023l.002-.031c.003-.021.003-.04.005-.06a3.163 3.163 0 0 1 1.352-2.29 3.12 3.12 0 0 1 .937-.43 2.946 2.946 0 0 1 .776-.101h.06l.07.002.045.003h.026l.07.005a4.041 4.041 0 0 1 1.635.49 3.94 3.94 0 0 1 1.602 1.662 3.77 3.77 0 0 1 .397 1.414l.005.076.003.075c.002.026.002.05.002.075 0 .024.003.052 0 .07v.065l-.002.073-.008.174a6.195 6.195 0 0 1-.08.639 5.1 5.1 0 0 1-.267.927 5.31 5.31 0 0 1-.624 1.13 5.052 5.052 0 0 1-3.237 2.014 4.82 4.82 0 0 1-.649.066l-.039.003h-.287a6.607 6.607 0 0 1-1.716-.265 6.776 6.776 0 0 1-3.4-2.274 6.75 6.75 0 0 1-.746-1.15 6.616 6.616 0 0 1-.714-2.596l-.005-.083-.002-.02v-.056l-.003-.073v-.096l-.003-.104v-.07l.003-.163c.008-.22.026-.45.054-.678a8.707 8.707 0 0 1 .28-1.355c.128-.444.286-.872.473-1.277a7.04 7.04 0 0 1 1.456-2.1 5.925 5.925 0 0 1 .953-.763c.169-.111.343-.213.524-.306.089-.05.182-.091.273-.135.047-.02.093-.042.138-.062a7.177 7.177 0 0 1 .714-.267l.145-.045c.049-.015.098-.026.148-.041.098-.029.197-.052.296-.076.049-.013.1-.02.15-.033l.15-.032.151-.028.076-.013.075-.01.153-.024c.057-.01.114-.013.171-.023l.169-.021c.036-.003.073-.008.106-.01l.073-.008.036-.003.042-.002c.057-.003.114-.008.171-.01l.086-.006h.023l.037-.003.145-.007a7.999 7.999 0 0 1 1.708.125 7.917 7.917 0 0 1 2.048.68 8.253 8.253 0 0 1 1.672 1.09l.09.077.089.078c.06.052.114.107.171.159.057.052.112.106.166.16.052.055.107.107.159.164a8.671 8.671 0 0 1 1.41 1.978c.012.026.028.052.04.078l.04.078.075.156c.023.051.05.1.07.153l.065.15a8.848 8.848 0 0 1 .45 1.34.19.19 0 0 0 .201.142.186.186 0 0 0 .172-.184c.01-.246.002-.532-.024-.856z"/></svg></div></td>
-            <td><div class="td-domain">Observability</div></td>
-            <td><div class="td-chips"><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">Datadog</span><span class="chip">CloudWatch</span></div></td>
-            <td><div class="td-years">2+</div></td>
-          </tr>
-          <tr>
-            <td><div class="td-icon" style="background:rgba(220,100,100,0.1)"><svg role="img" viewBox="0 0 24 24" width="20" height="20" fill="#FFEC6E" xmlns="http://www.w3.org/2000/svg"><path d="M0 0l11.955 24L24 0zm13.366 4.827h1.393v1.38h-1.393zm-2.77 5.569H9.22V8.993h1.389zm0-2.087H9.22V6.906h1.389zm0-2.086H9.22V4.819h1.389zm2.087 6.263h-1.377V11.08h1.388zm0-2.09h-1.377V8.993h1.388zm0-2.087h-1.377V6.906h1.388zm0-2.086h-1.377V4.819h1.388zm.683.683h1.393v1.389h-1.393zm0 3.475V8.993h1.389v1.388Z"/></svg></div></td>
-            <td><div class="td-domain">Security & Compliance</div></td>
-            <td><div class="td-chips"><span class="chip">Snyk</span><span class="chip">Vault</span><span class="chip">Aqua</span><span class="chip">Odin</span></div></td>
-            <td><div class="td-years">2+</div></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="Experience">
-  <div class="section-inner">
-    <div style="margin-bottom:60px">
-      <div class="section-eyebrow reveal">Experience</div>
-      <h2 class="section-title reveal reveal-delay-1">Where I've <em>Shipped</em> Real Impact</h2>
-      <p class="section-sub reveal reveal-delay-2" style="font-family:var(--font-mono);font-size:13px;line-height:1.7">
-        <span style="color:var(--cyan)">2 years. 5 live production systems. 3 dev teams. Zero dedicated infra team.</span><br/>
-        Every number here is something I built, broke, fixed, and automated myself.
-      </p>
-    </div>
-    <div class="timeline" style="position:relative">
-      <div class="timeline-line"></div>
-
-      <!-- Role 1 -->
-      <div class="role-card reveal">
-        <div class="role-dot"></div>
-        <div class="role-header">
-          <div class="role-time-badges">
-            <span class="badge badge-primary">Dec 2024 — Present</span>
-            <span class="badge badge-current">
-              <span class="badge-current-dot"></span>Current
-            </span>
-          </div>
-          <div class="role-title">Cloud & DevOps Engineer</div>
-          <div class="role-company">Yotta Tech Ports · <span>Hyderabad, IN</span></div>
+        <div class="hero-badge reveal">
+          <span class="hero-badge-dot"></span>
+          Available for High-Impact Roles
         </div>
-        <div class="impact-chips">
-          <div class="impact-chip"><div class="impact-chip-val">5</div><div class="impact-chip-label">Live Production<br/>Apps</div></div>
-          <div class="impact-chip"><div class="impact-chip-val">3</div><div class="impact-chip-label">Dev Teams<br/>Supported</div></div>
-          <div class="impact-chip"><div class="impact-chip-val">20+</div><div class="impact-chip-label">Engineers<br/>on AWS</div></div>
-          <div class="impact-chip"><div class="impact-chip-val">&lt;20min</div><div class="impact-chip-label">Avg MTTR</div></div>
-          <div class="impact-chip"><div class="impact-chip-val">~60%</div><div class="impact-chip-label">SaaS Cost<br/>Saved</div></div>
-          <div class="impact-chip"><div class="impact-chip-val">~40%</div><div class="impact-chip-label">Compute<br/>Cost Cut</div></div>
-        </div>
-        <div class="space" style="display:flex;flex-direction:column;gap:10px">
-          <div class="cat-block open">
-            <div class="cat-header" onclick="this.parentElement.classList.toggle('open')">
-              <span class="cat-emoji"><svg role="img" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6.429 17.571h10.714V6.857H6.429v10.714ZM18 6.857h1.714v.857H18V9.43h1.714v.857H18v1.285h1.714v.858H18v1.714h1.714V15H18v1.714h1.714v.857H18v.059a.8.8 0 0 1-.799.799h-.058v1.714h-.857v-1.714H14.57v1.714h-.857v-1.714H12.43v1.714h-.858v-1.714H9.857v1.714H9v-1.714H7.286v1.714h-.857v-1.714H6.37a.8.8 0 0 1-.799-.8v-.058H4.286v-.857H5.57V15H4.286v-.857H5.57v-1.714H4.286v-.858H5.57v-1.285H4.286v-.857H5.57V7.714H4.286v-.857H5.57V6.8a.8.8 0 0 1 .8-.799h.058V4.286h.857V6H9V4.286h.857V6h1.714V4.286h.858V6h1.285V4.286h.857V6h1.715V4.286h.857V6h.058a.8.8 0 0 1 .799.799v.058ZM12.429 23.09a.054.054 0 0 1-.054.053H.91a.053.053 0 0 1-.053-.053V11.625c0-.03.024-.054.053-.054h2.52v-.857H.91a.911.911 0 0 0-.91.91V23.09c0 .502.408.91.91.91h11.465a.91.91 0 0 0 .91-.91V21h-.856ZM24 .91v11.465a.91.91 0 0 1-.91.91h-2.52v-.856h2.519a.054.054 0 0 0 .053-.054V.91a.053.053 0 0 0-.053-.053H11.625a.053.053 0 0 0-.054.053v2.52h-.857V.91c0-.502.409-.91.91-.91H23.09a.91.91 0 0 1 .91.91Z"/></svg></span>
-              <span class="cat-title">Infrastructure Ownership</span>
-              <span class="cat-toggle">+</span>
-            </div>
-            <div class="cat-body">
-              <ul>
-                <li>Sole DevOps owner for <strong>5 live production applications</strong> — GitLab, SonarQube, OpenProject, FlexHR, and a custom internal tool — hosted on AWS ECS and EC2, supporting <span class="tag-cyan">3 teams · 20+ engineers</span> with no dedicated infra team</li>
-                <li>Provisioned and maintained full AWS stack per application: <strong>VPC, subnets, EFS, RDS, ALB, security groups</strong> — eliminating external vendor dependency and cutting estimated SaaS licensing costs by <span class="mono">~60% annually</span></li>
-                <li>Managed <strong>5 custom subdomain configurations</strong> on Route 53 (CNAME and A records) across all production apps with zero unplanned DNS downtime</li>
-              </ul>
-            </div>
-          </div>
-          <div class="cat-block open">
-            <div class="cat-header" onclick="this.parentElement.classList.toggle('open')">
-              <span class="cat-emoji"><svg role="img" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span>
-              <span class="cat-title">Incident Response & Reliability</span>
-              <span class="cat-toggle">+</span>
-            </div>
-            <div class="cat-body">
-              <ul>
-                <li>Maintained <strong>MTTR under 20 minutes</strong> across all production incidents, with avg initial response of <span class="mono">&lt;5 minutes</span> from alert to active triage</li>
-                <li>Authored <strong>RCA playbooks for every major incident</strong>, reducing repeat resolution time by an estimated <span class="mono">~70%</span> for similar failure patterns</li>
-                <li>Built a <strong>CloudWatch + SNS alerting system</strong> with custom dashboards covering 10+ metrics per application</li>
-              </ul>
-            </div>
-          </div>
-          <div class="cat-block open">
-            <div class="cat-header" onclick="this.parentElement.classList.toggle('open')">
-              <span class="cat-emoji"><svg role="img" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
-              <span class="cat-title">Cost Optimization & FinOps</span>
-              <span class="cat-toggle">+</span>
-            </div>
-            <div class="cat-body">
-              <ul>
-                <li>Built a <strong>multi-account Lambda automation</strong> enforcing <code>stop=true</code> tagging to shut down idle EC2 instances daily — reducing idle compute spend by <span class="mono">~40%/month</span> across 10+ AWS accounts</li>
-                <li>Conduct <strong>monthly AWS billing reviews</strong> across 10+ accounts, producing per-service cost reports that flag abnormal spend spikes</li>
-                <li>Automated EC2 and RDS shutdown for <strong>untagged resources</strong> via Lambda — enforcing compliance and eliminating costs from orphaned infrastructure</li>
-              </ul>
-            </div>
-          </div>
-          <div class="cat-block">
-            <div class="cat-header" onclick="this.parentElement.classList.toggle('open')">
-              <span class="cat-emoji"><svg role="img" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
-              <span class="cat-title">Security & Governance</span>
-              <span class="cat-toggle">+</span>
-            </div>
-            <div class="cat-body">
-              <ul>
-                <li>Built a <strong>Lambda auto-remediation function</strong> that detects and removes overly permissive security groups (0.0.0.0/0) — reducing manual audit effort by <span class="mono">~90%</span></li>
-                <li>Managed <strong>AWS IAM Identity Center</strong> for 3+ project teams — created roles, groups, and least-privilege policies ensuring zero over-permissioned access</li>
-                <li>Secured all application secrets across <strong>5 applications in AWS Secrets Manager</strong>, eliminating 100% of hardcoded credentials</li>
-              </ul>
-            </div>
-          </div>
-          <div class="cat-block">
-            <div class="cat-header" onclick="this.parentElement.classList.toggle('open')">
-              <span class="cat-emoji"><svg role="img" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"/><path d="M12 14V6"/><path d="M12 18h.01"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.93 19.07l1.41-1.41"/><path d="M17.66 6.34l1.41-1.41"/></svg></span>
-              <span class="cat-title">Automation & IaC</span>
-              <span class="cat-toggle">+</span>
-            </div>
-            <div class="cat-body">
-              <ul>
-                <li>Used <strong>Terraform</strong> to manage Lambda runtime upgrades across multiple functions — reducing manual update effort by <span class="mono">~75%</span> per release cycle</li>
-                <li>Reduced AWS access provisioning turnaround from days to <span class="mono">&lt;30 minutes</span> per engineer by standardizing IAM user creation workflows</li>
-                <li>Hosted <strong>Frappe/FlexHR</strong> on EC2 as a fully configured HR tool for internal teams, handling end-to-end setup and domain routing</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="wip-bar">
-          <div class="wip-dot"></div>
-          <span class="wip-text">In Progress — Deploying microservices on AWS EKS via GitHub Actions · Integrating Prometheus + Grafana for full observability</span>
-        </div>
-        <div class="stack-chips">
-          <span class="stack-chip">AWS ECS</span><span class="stack-chip">AWS EKS</span><span class="stack-chip">Docker</span><span class="stack-chip">ECR</span><span class="stack-chip">CodePipeline</span><span class="stack-chip">Lambda</span><span class="stack-chip">Terraform</span><span class="stack-chip">CloudWatch</span><span class="stack-chip">SNS</span><span class="stack-chip">Route 53</span><span class="stack-chip">IAM Identity Center</span><span class="stack-chip">Secrets Manager</span><span class="stack-chip">GitHub Actions</span><span class="stack-chip">Prometheus</span><span class="stack-chip">Grafana</span>
-        </div>
-      </div>
-
-      <!-- Role 2 -->
-      <div class="role-card reveal reveal-delay-1">
-        <div class="role-dot" style="background:var(--gold);box-shadow:0 0 0 3px var(--surface-1),0 0 20px var(--gold)"></div>
-        <div class="role-header">
-          <div class="role-time-badges">
-            <span class="badge badge-primary">Jun 2024 — Dec 2024</span>
-            <span class="badge badge-foundation">Foundation</span>
-          </div>
-          <div class="role-title">Junior Cloud Engineer</div>
-          <div class="role-company">Yotta Tech Ports · <span>Hyderabad, IN</span></div>
-        </div>
-        <div class="impact-chips">
-          <div class="impact-chip"><div class="impact-chip-val">~80%</div><div class="impact-chip-label">Deploy Time<br/>Saved</div></div>
-          <div class="impact-chip"><div class="impact-chip-val">$3–5K</div><div class="impact-chip-label">Annual License<br/>Savings</div></div>
-          <div class="impact-chip"><div class="impact-chip-val">4 wks</div><div class="impact-chip-label">Solo Full-Stack<br/>Build</div></div>
-          <div class="impact-chip"><div class="impact-chip-val">RPO 7d</div><div class="impact-chip-label">Backup<br/>Established</div></div>
-          <div class="impact-chip"><div class="impact-chip-val">100%</div><div class="impact-chip-label">Secrets<br/>Removed</div></div>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:10px">
-          <div class="cat-block open">
-            <div class="cat-header" onclick="this.parentElement.classList.toggle('open')">
-              <span class="cat-emoji"><svg role="img" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="m23.6004 9.5927-.0337-.0862L20.3.9814a.851.851 0 0 0-.3362-.405.8748.8748 0 0 0-.9997.0539.8748.8748 0 0 0-.29.4399l-2.2055 6.748H7.5375l-2.2057-6.748a.8573.8573 0 0 0-.29-.4412.8748.8748 0 0 0-.9997-.0537.8585.8585 0 0 0-.3362.4049L.4332 9.5015l-.0325.0862a6.0657 6.0657 0 0 0 2.0119 7.0105l.0113.0087.03.0213 4.976 3.7264 2.462 1.8633 1.4995 1.1321a1.0085 1.0085 0 0 0 1.2197 0l1.4995-1.1321 2.4619-1.8633 5.006-3.7489.0125-.01a6.0682 6.0682 0 0 0 2.0094-7.003z"/></svg></span>
-              <span class="cat-title">GitLab Self-Hosting — Built From Zero</span>
-              <span class="cat-toggle">+</span>
-            </div>
-            <div class="cat-body">
-              <ul>
-                <li>Designed and delivered a <strong>production-grade self-managed GitLab</strong> on AWS ECS using Docker — saving an estimated <span class="mono">~$3,000–$5,000/year</span> in SaaS licensing costs</li>
-                <li>Engineered a full <strong>AWS CodePipeline</strong> reducing deployment effort from multi-step manual process to a <span class="mono">single approval click</span> — cutting deployment time by <span class="mono">~80%</span></li>
-                <li>Provisioned complete AWS infrastructure from scratch in <span class="mono">under 4 weeks</span>: <strong>ECS, VPC, EFS, RDS, and ALB</strong> — with SSH and HTTPS fully working</li>
-              </ul>
-            </div>
-          </div>
-          <div class="cat-block open">
-            <div class="cat-header" onclick="this.parentElement.classList.toggle('open')">
-              <span class="cat-emoji"><svg role="img" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.6-.401-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187"/></svg></span>
-              <span class="cat-title">CI/CD Automation & Custom Scripts</span>
-              <span class="cat-toggle">+</span>
-            </div>
-            <div class="cat-body">
-              <ul>
-                <li>Built a custom <strong>Dockerfile and buildspec.yml</strong> automating image build and ECR push — reducing configuration effort by <span class="mono">~65%</span></li>
-                <li>Wrote a <strong><code>fetchsecrets.sh</code> script</strong> removing <span class="mono">100%</span> of hardcoded secrets from the pipeline</li>
-                <li>Developed a <strong>custom webhook config file</strong> that fires automatically on repository creation — saving developers <span class="mono">5–10 minutes</span> of manual setup</li>
-              </ul>
-            </div>
-          </div>
-          <div class="cat-block">
-            <div class="cat-header" onclick="this.parentElement.classList.toggle('open')">
-              <span class="cat-emoji"><svg role="img" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
-              <span class="cat-title">Observability, Backup & Recovery</span>
-              <span class="cat-toggle">+</span>
-            </div>
-            <div class="cat-body">
-              <ul>
-                <li>Configured <strong>weekly AWS Backup on EFS</strong> protecting all GitLab repository data — establishing an RPO of <span class="mono">7 days</span></li>
-                <li>Built a <strong>CloudWatch + EventBridge metrics dashboard</strong> with alerts across <span class="mono">10+ infra metrics</span>, providing real-time visibility into GitLab health</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="stack-chips">
-          <span class="stack-chip">AWS ECS</span><span class="stack-chip">Docker</span><span class="stack-chip">CodePipeline</span><span class="stack-chip">GitLab Self-Hosted</span><span class="stack-chip">ECR</span><span class="stack-chip">EFS</span><span class="stack-chip">RDS</span><span class="stack-chip">VPC</span><span class="stack-chip">CloudWatch</span><span class="stack-chip">EventBridge</span><span class="stack-chip">AWS Backup</span><span class="stack-chip">Secrets Manager</span><span class="stack-chip">Bash</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS / BLOG -->
-<section id="Projects">
-  <div class="section-inner">
-    <div style="margin-bottom:56px">
-      <div class="section-eyebrow reveal">Work & Writing</div>
-      <h2 class="section-title reveal reveal-delay-1">Insights & Blog</h2>
-      <p class="section-sub reveal reveal-delay-2">A selection of high-impact technical demonstrations and foundational industry insights.</p>
-    </div>
-    <div class="bento-grid">
-      <div class="bento-card reveal">
-        <div class="bento-img">
-          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoOijQjnm5V8hCJ1QImC_EL8spqdXBZ2pgeSm6icjg46J7d5XNYyB-lKQ-CKmXNawu6jkXuisshB9q-wXZGII2dSqG-Yps-ipXlQTFqaQlxYR13VaQI7OHbCVS-EqnFq3AqFDWFUS1-2FRHpcJ6d6pBaNg_jgsSMwQVof-QuJPQhe8v0xfsEMptbEw0LrR9E05pPlJmzfe5rm5SGlootrnJc0B-apL89jdNFEfq7ds4zYDttWP_r_KJvXIQdhiJfpIGSHTQEc4VRQ" alt="Terraform"/>
-          <span class="bento-badge badge-orange">Technical Breakdown</span>
-        </div>
-        <div class="bento-body">
-          <div class="bento-title">Terraform Basics: Modular AWS Infrastructure</div>
-          <p class="bento-desc">A production-ready collection of modular HCL patterns designed for high-availability AWS environments, focusing on networking and ECS orchestration.</p>
-          <a class="bento-link bento-link-orange" href="https://github.com/EeswarSunny/Terraform-basics" target="_blank">
-            Explore Repository
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <h1 class="hero-h1 reveal reveal-delay-1">
+          Results-Driven<br />
+          <em>Cloud Problem</em><br />
+          Solver
+        </h1>
+        <p class="hero-sub reveal reveal-delay-2">
+          Specializing in container orchestration (AWS ECS, EKS) and GitOps-driven deployment pipelines using Terraform.
+        </p>
+        <div class="hero-actions reveal reveal-delay-3">
+          <a class="hero-btn-primary" href="#Contact">
+            Contact Me
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+          </a>
+          <a class="hero-btn-secondary" href="#Experience">
+            Experience
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="7" width="20" height="14" rx="2" />
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+            </svg>
           </a>
         </div>
-      </div>
-      <div class="bento-card reveal reveal-delay-1">
-        <div class="bento-img">
-          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4FBg5ePcoJ8uM8gkZm1GVieBbLI86_ubYTA24Aa4bqC1jSG3kGuH5bsG06XKLWFE_pjHbiEJzAzkepXK5V9Cl5noRfgsaaAa0ZBa392W63B9Ja4vCTFn7ggocmjqU3mDdtzfIUCOXvRXGgKlDRZhtUNZQVM84yzMlgtYtEZlXSadfU1uULKTwVxuypmWq_PlLXJB5ovx3lZHZZ72WidOdumyEjqtw_DLh5-q3tS_5nNQpqpMayDOaBDag" alt="IAM"/>
-          <span class="bento-badge badge-gold">Medium Article</span>
+        <!-- Pipeline card -->
+        <div class="pipeline-card reveal reveal-delay-4">
+          <div class="pipeline-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+            </svg>
+          </div>
+          <div class="pipeline-data">
+            <div class="pipeline-item">
+              <div class="pipeline-label">Before</div>
+              <div class="pipeline-value old">2hr Deploy</div>
+            </div>
+            <div class="pipeline-arrow">
+              <svg width="24" height="16" viewBox="0 0 24 16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M0 8h22M16 2l6 6-6 6" />
+              </svg>
+            </div>
+            <div class="pipeline-item">
+              <div class="pipeline-label" style="color:var(--primary)">GitOps Win</div>
+              <div class="pipeline-value new">12min Pipeline</div>
+            </div>
+          </div>
         </div>
-        <div class="bento-body">
-          <div class="bento-title">4 AWS IAM Truths for Cloud Security</div>
-          <p class="bento-desc">An exploration of the Principle of Least Privilege and why standard IAM configurations often fail basic security audits in enterprise environments.</p>
-          <a class="bento-link bento-link-gold" href="#">
-            Read Article
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <!-- Metrics -->
+        <div class="hero-metrics reveal reveal-delay-5">
+          <div class="metric-item">
+            <div class="metric-value">2+</div>
+            <div class="metric-label">Years Obsessed</div>
+          </div>
+          <div class="metric-div"></div>
+          <div class="metric-item">
+            <div class="metric-value">99.9 %</div>
+            <div class="metric-label">Uptime Mindset</div>
+          </div>
+          <div class="metric-div"></div>
+          <div class="metric-item">
+            <div class="metric-value">AWS</div>
+            <div class="metric-label">Expert</div>
+          </div>
+        </div>
+      </div>
+      <!-- Photo -->
+      <div class="hero-photo-wrap reveal reveal-delay-2">
+        <div class="hero-photo-frame">
+          <img
+            src="assets/profile-rectangle.jpg"
+            alt="Nandeeswar Reddy Polu" />
+          <div class="hero-photo-gradient"></div>
+          <div class="hero-photo-badge">
+            <span class="hero-badge-dot"></span>
+            <span>System Health: Optimal</span>
+          </div>
+        </div>
+        <div class="hero-ring"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="Skills">
+    <div class="section-inner">
+      <div class="skills-header">
+        <div>
+          <div class="section-eyebrow reveal">Skills</div>
+          <h2 class="section-title reveal reveal-delay-1">Stack & <em>Tooling</em></h2>
+          <p class="section-sub reveal reveal-delay-2">Production-verified tools across cloud infrastructure, IaC, CI/CD, orchestration, observability, and security.</p>
+        </div>
+        <span class="skills-tag reveal">Last updated Q1 2026</span>
+      </div>
+      <div class="skills-table-wrap reveal reveal-delay-2">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:44px"></th>
+              <th>Domain</th>
+              <th>Core Skillset</th>
+              <th>Experience</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="td-icon" style="background:var(--primary-faint)"><svg role="img" viewBox="0 0 24 24"
+                    width="20" height="20" fill="#FF9900" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M6.763 10.036c0 .296.032.535.088.71.064.176.144.368.256.576.04.063.056.127.056.183 0 .08-.048.16-.152.24l-.503.335a.383.383 0 0 1-.208.072c-.08 0-.16-.04-.239-.112a2.47 2.47 0 0 1-.287-.375 6.18 6.18 0 0 1-.248-.471c-.622.734-1.405 1.101-2.347 1.101-.67 0-1.205-.191-1.596-.574-.391-.384-.59-.894-.59-1.533 0-.678.239-1.23.726-1.644.487-.415 1.133-.623 1.955-.623.272 0 .551.024.846.064.296.04.6.104.918.176v-.583c0-.607-.127-1.03-.375-1.277-.255-.248-.686-.367-1.3-.367-.28 0-.568.031-.863.103-.295.072-.583.16-.862.272a2.287 2.287 0 0 1-.28.104.488.488 0 0 1-.127.023c-.112 0-.168-.08-.168-.247v-.391c0-.128.016-.224.056-.28a.597.597 0 0 1 .224-.167c.279-.144.614-.264 1.005-.36a4.84 4.84 0 0 1 1.246-.151c.95 0 1.644.216 2.091.647.439.43.662 1.085.662 1.963v2.586zm-3.24 1.214c.263 0 .534-.048.822-.144.287-.096.543-.271.758-.51.128-.152.224-.32.272-.512.047-.191.08-.423.08-.694v-.335a6.66 6.66 0 0 0-.735-.136 6.02 6.02 0 0 0-.75-.048c-.535 0-.926.104-1.19.32-.263.215-.39.518-.39.917 0 .375.095.655.295.846.191.2.47.296.838.296zm6.41.862c-.144 0-.24-.024-.304-.08-.064-.048-.12-.16-.168-.311L7.586 5.55a1.398 1.398 0 0 1-.072-.32c0-.128.064-.2.191-.2h.783c.151 0 .255.025.31.08.065.048.113.16.16.312l1.342 5.284 1.245-5.284c.04-.16.088-.264.151-.312a.549.549 0 0 1 .32-.08h.638c.152 0 .256.025.32.08.063.048.12.16.151.312l1.261 5.348 1.381-5.348c.048-.16.104-.264.16-.312a.52.52 0 0 1 .311-.08h.743c.127 0 .2.065.2.2 0 .04-.009.08-.017.128a1.137 1.137 0 0 1-.056.2l-1.923 6.17c-.048.16-.104.263-.168.311a.51.51 0 0 1-.303.08h-.687c-.151 0-.255-.024-.32-.08-.063-.056-.119-.16-.15-.32l-1.238-5.148-1.23 5.14c-.04.16-.087.264-.15.32-.065.056-.177.08-.32.08zm10.256.215c-.415 0-.83-.048-1.229-.143-.399-.096-.71-.2-.918-.32-.128-.071-.215-.151-.247-.223a.563.563 0 0 1-.048-.224v-.407c0-.167.064-.247.183-.247.048 0 .096.008.144.024.048.016.12.048.2.08.271.12.566.215.878.279.319.064.63.096.95.096.502 0 .894-.088 1.165-.264a.86.86 0 0 0 .415-.758.777.777 0 0 0-.215-.559c-.144-.151-.416-.287-.807-.415l-1.157-.36c-.583-.183-1.014-.454-1.277-.813a1.902 1.902 0 0 1-.4-1.158c0-.335.073-.63.216-.886.144-.255.335-.479.575-.654.24-.184.51-.32.83-.415.32-.096.655-.136 1.006-.136.175 0 .359.008.535.032.183.024.35.056.518.088.16.04.312.08.455.127.144.048.256.096.336.144a.69.69 0 0 1 .24.2.43.43 0 0 1 .071.263v.375c0 .168-.064.256-.184.256a.83.83 0 0 1-.303-.096 3.652 3.652 0 0 0-1.532-.311c-.455 0-.815.071-1.062.223-.248.152-.375.383-.375.71 0 .224.08.416.24.567.159.152.454.304.877.44l1.134.358c.574.184.99.44 1.237.767.247.327.367.702.367 1.117 0 .343-.072.655-.207.926-.144.272-.336.511-.583.703-.248.2-.543.343-.886.447-.36.111-.734.167-1.142.167zM21.698 16.207c-2.626 1.94-6.442 2.969-9.722 2.969-4.598 0-8.74-1.7-11.87-4.526-.247-.223-.024-.527.272-.351 3.384 1.963 7.559 3.153 11.877 3.153 2.914 0 6.114-.607 9.06-1.852.439-.2.814.287.383.607zM22.792 14.961c-.336-.43-2.22-.207-3.074-.103-.255.032-.295-.192-.063-.36 1.5-1.053 3.967-.75 4.254-.399.287.36-.08 2.826-1.485 4.007-.215.184-.423.088-.327-.151.32-.79 1.03-2.57.695-2.994z" />
+                  </svg></div>
+              </td>
+              <td>
+                <div class="td-domain">Cloud Platform</div>
+              </td>
+              <td>
+                <div class="td-chips"><span class="chip">EC2</span><span class="chip">ECS</span><span class="chip">VPC</span><span class="chip">S3</span><span class="chip">EKS</span><span class="chip">CloudWatch</span><span class="chip">ECR</span><span class="chip">RDS</span><span class="chip">Lambda</span><span class="chip">Route 53</span><span class="chip">EventBridge</span><span class="chip">Identity Center</span><span class="chip">EFS</span><span class="chip">Bedrock</span></div>
+              </td>
+              <td>
+                <div class="td-years">2+</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="td-icon" style="background:var(--cyan-faint)"><svg role="img" viewBox="0 0 24 24"
+                    width="20" height="20" fill="#844FBA" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M1.44 0v7.575l6.561 3.79V3.787zm21.12 4.227l-6.561 3.791v7.574l6.56-3.787zM8.72 4.23v7.575l6.561 3.787V8.018zm0 8.405v7.575L15.28 24v-7.578z" />
+                  </svg></div>
+              </td>
+              <td>
+                <div class="td-domain">IaC & Automation</div>
+              </td>
+              <td>
+                <div class="td-chips"><span class="chip">Terraform</span><span class="chip">CloudFormation</span><span
+                    class="chip">CDK</span></div>
+              </td>
+              <td>
+                <div class="td-years">2+</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="td-icon" style="background:rgba(0,180,220,0.1)"><svg role="img" viewBox="0 0 24 24"
+                    width="20" height="20" fill="#2496ED" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.184-.186h-2.12a.186.186 0 00-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 00-.75.748 11.376 11.376 0 00.692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 003.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288Z" />
+                  </svg></div>
+              </td>
+              <td>
+                <div class="td-domain">Orchestration</div>
+              </td>
+              <td>
+                <div class="td-chips"><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">Helm</span></div>
+              </td>
+              <td>
+                <div class="td-years">2+</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="td-icon" style="background:var(--primary-faint)"><svg role="img" viewBox="0 0 24 24"
+                    width="20" height="20" fill="#FC6D26" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="m23.6004 9.5927-.0337-.0862L20.3.9814a.851.851 0 0 0-.3362-.405.8748.8748 0 0 0-.9997.0539.8748.8748 0 0 0-.29.4399l-2.2055 6.748H7.5375l-2.2057-6.748a.8573.8573 0 0 0-.29-.4412.8748.8748 0 0 0-.9997-.0537.8585.8585 0 0 0-.3362.4049L.4332 9.5015l-.0325.0862a6.0657 6.0657 0 0 0 2.0119 7.0105l.0113.0087.03.0213 4.976 3.7264 2.462 1.8633 1.4995 1.1321a1.0085 1.0085 0 0 0 1.2197 0l1.4995-1.1321 2.4619-1.8633 5.006-3.7489.0125-.01a6.0682 6.0682 0 0 0 2.0094-7.003z" />
+                  </svg></div>
+              </td>
+              <td>
+                <div class="td-domain">CI/CD Pipeline</div>
+              </td>
+              <td>
+                <div class="td-chips"><span class="chip">GitHub Actions</span><span class="chip">GitLab CI</span><span class="chip">CodePipeline</span><span class="chip">Jenkins</span></div>
+              </td>
+              <td>
+                <div class="td-years">2+</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="td-icon" style="background:rgba(255,197,99,0.1)"><svg role="img" viewBox="0 0 24 24"
+                    width="20" height="20" fill="#F46800" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M23.02 10.59a8.578 8.578 0 0 0-.862-3.034 8.911 8.911 0 0 0-1.789-2.445c.337-1.342-.413-2.505-.413-2.505-1.292-.08-2.113.4-2.416.62-.052-.02-.102-.044-.154-.064-.22-.089-.446-.172-.677-.247-.231-.073-.47-.14-.711-.197a9.867 9.867 0 0 0-.875-.161C14.557.753 12.94 0 12.94 0c-1.804 1.145-2.147 2.744-2.147 2.744l-.018.093c-.098.029-.2.057-.298.088-.138.042-.275.094-.413.143-.138.055-.275.107-.41.166a8.869 8.869 0 0 0-1.557.87l-.063-.029c-2.497-.955-4.716.195-4.716.195-.203 2.658.996 4.33 1.235 4.636a11.608 11.608 0 0 0-.607 2.635C1.636 12.677.953 15.014.953 15.014c1.926 2.214 4.171 2.351 4.171 2.351.003-.002.006-.002.006-.005.285.509.615.994.986 1.446.156.19.32.371.488.548-.704 2.009.099 3.68.099 3.68 2.144.08 3.553-.937 3.849-1.173a9.784 9.784 0 0 0 3.164.501h.08l.055-.003.107-.002.103-.005.003.002c1.01 1.44 2.788 1.646 2.788 1.646 1.264-1.332 1.337-2.653 1.337-2.94v-.058c0-.02-.003-.039-.003-.06.265-.187.52-.387.758-.6a7.875 7.875 0 0 0 1.415-1.7c1.43.083 2.437-.885 2.437-.885-.236-1.49-1.085-2.216-1.264-2.354l-.018-.013-.016-.013a.217.217 0 0 1-.031-.02c.008-.092.016-.18.02-.27.011-.162.016-.323.016-.48v-.253l-.005-.098-.008-.135a1.891 1.891 0 0 0-.01-.13c-.003-.042-.008-.083-.013-.125l-.016-.124-.018-.122a6.215 6.215 0 0 0-2.032-3.73 6.015 6.015 0 0 0-3.222-1.46 6.292 6.292 0 0 0-.85-.048l-.107.002h-.063l-.044.003-.104.008a4.777 4.777 0 0 0-3.335 1.695c-.332.4-.592.84-.768 1.297a4.594 4.594 0 0 0-.312 1.817l.003.091c.005.055.007.11.013.164a3.615 3.615 0 0 0 .698 1.82 3.53 3.53 0 0 0 1.827 1.282c.33.098.66.14.971.137.039 0 .078 0 .114-.002l.063-.003c.02 0 .041-.003.062-.003.034-.002.065-.007.099-.01.007 0 .018-.003.028-.003l.031-.005.06-.008a1.18 1.18 0 0 0 .112-.02c.036-.008.072-.013.109-.024a2.634 2.634 0 0 0 .914-.415c.028-.02.056-.041.085-.065a.248.248 0 0 0 .039-.35.244.244 0 0 0-.309-.06l-.078.042c-.09.044-.184.083-.283.116a2.476 2.476 0 0 1-.475.096c-.028.003-.054.006-.083.006l-.083.002c-.026 0-.054 0-.08-.002l-.102-.006h-.012l-.024.006c-.016-.003-.031-.003-.044-.006-.031-.002-.06-.007-.091-.01a2.59 2.59 0 0 1-.724-.213 2.557 2.557 0 0 1-.667-.438 2.52 2.52 0 0 1-.805-1.475 2.306 2.306 0 0 1-.029-.444l.006-.122v-.023l.002-.031c.003-.021.003-.04.005-.06a3.163 3.163 0 0 1 1.352-2.29 3.12 3.12 0 0 1 .937-.43 2.946 2.946 0 0 1 .776-.101h.06l.07.002.045.003h.026l.07.005a4.041 4.041 0 0 1 1.635.49 3.94 3.94 0 0 1 1.602 1.662 3.77 3.77 0 0 1 .397 1.414l.005.076.003.075c.002.026.002.05.002.075 0 .024.003.052 0 .07v.065l-.002.073-.008.174a6.195 6.195 0 0 1-.08.639 5.1 5.1 0 0 1-.267.927 5.31 5.31 0 0 1-.624 1.13 5.052 5.052 0 0 1-3.237 2.014 4.82 4.82 0 0 1-.649.066l-.039.003h-.287a6.607 6.607 0 0 1-1.716-.265 6.776 6.776 0 0 1-3.4-2.274 6.75 6.75 0 0 1-.746-1.15 6.616 6.616 0 0 1-.714-2.596l-.005-.083-.002-.02v-.056l-.003-.073v-.096l-.003-.104v-.07l.003-.163c.008-.22.026-.45.054-.678a8.707 8.707 0 0 1 .28-1.355c.128-.444.286-.872.473-1.277a7.04 7.04 0 0 1 1.456-2.1 5.925 5.925 0 0 1 .953-.763c.169-.111.343-.213.524-.306.089-.05.182-.091.273-.135.047-.02.093-.042.138-.062a7.177 7.177 0 0 1 .714-.267l.145-.045c.049-.015.098-.026.148-.041.098-.029.197-.052.296-.076.049-.013.1-.02.15-.033l.15-.032.151-.028.076-.013.075-.01.153-.024c.057-.01.114-.013.171-.023l.169-.021c.036-.003.073-.008.106-.01l.073-.008.036-.003.042-.002c.057-.003.114-.008.171-.01l.086-.006h.023l.037-.003.145-.007a7.999 7.999 0 0 1 1.708.125 7.917 7.917 0 0 1 2.048.68 8.253 8.253 0 0 1 1.672 1.09l.09.077.089.078c.06.052.114.107.171.159.057.052.112.106.166.16.052.055.107.107.159.164a8.671 8.671 0 0 1 1.41 1.978c.012.026.028.052.04.078l.04.078.075.156c.023.051.05.1.07.153l.065.15a8.848 8.848 0 0 1 .45 1.34.19.19 0 0 0 .201.142.186.186 0 0 0 .172-.184c.01-.246.002-.532-.024-.856z" />
+                  </svg></div>
+              </td>
+              <td>
+                <div class="td-domain">Observability</div>
+              </td>
+              <td>
+                <div class="td-chips"><span class="chip">CloudWatch</span><span class="chip">Prometheus</span><span class="chip">Grafana</span></div>
+              </td>
+              <td>
+                <div class="td-years">2+</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="td-icon" style="background:var(--primary-faint)"><svg role="img" viewBox="0 0 24 24"
+                    width="20" height="20" fill="var(--primary)" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 0l11.955 24L24 0zm13.366 4.827h1.393v1.38h-1.393zm-2.77 5.569H9.22V8.993h1.389zm0-2.087H9.22V6.906h1.389zm0-2.086H9.22V4.819h1.389zm2.087 6.263h-1.377V11.08h1.388zm0-2.09h-1.377V8.993h1.388zm0-2.087h-1.377V6.906h1.388zm0-2.086h-1.377V4.819h1.388zm.683.683h1.393v1.389h-1.393zm0 3.475V8.993h1.389v1.388Z" />
+                  </svg></div>
+              </td>
+              <td>
+                <div class="td-domain">Security & Compliance</div>
+              </td>
+              <td>
+                <div class="td-chips"><span class="chip">IAM</span><span class="chip">GuardDuty</span><span class="chip">WAF</span><span class="chip">Vault</span><span class="chip">AWS SCP</span><span class="chip">Identity Center</span></div>
+              </td>
+              <td>
+                <div class="td-years">2+</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="Experience">
+    <div class="section-inner">
+      <div style="margin-bottom:60px">
+        <div class="section-eyebrow reveal">Experience</div>
+        <h2 class="section-title reveal reveal-delay-1">Where I've <em>Shipped</em> Real Impact</h2>
+        <p class="section-sub reveal reveal-delay-2"
+          style="font-family:var(--font-mono);font-size:13px;line-height:1.7">
+          <span style="color:var(--cyan)">2 years. 5 live production systems. 3 dev teams. Zero dedicated infra
+            team.</span><br />
+          Every number here is something I built, broke, fixed, and automated myself.
+        </p>
+      </div>
+      <div class="timeline" style="position:relative">
+        <div class="timeline-line"></div>
+
+        <!-- Role 1 -->
+        <div class="role-card reveal">
+          <div class="role-dot"></div>
+          <div class="role-header">
+            <div class="role-time-badges">
+              <span class="badge badge-primary">Dec 2024 — Present</span>
+              <span class="badge badge-current">
+                <span class="badge-current-dot"></span>Current
+              </span>
+            </div>
+            <div class="role-title">Cloud & DevOps Engineer</div>
+            <div class="role-company"><a href="https://www.linkedin.com/company/yottaflexai" target="_blank" style="color:inherit;text-decoration:none">Yotta Tech Ports</a> · <span>Hyderabad, IN</span></div>
+          </div>
+          <div class="impact-chips">
+            <div class="impact-chip">
+              <div class="impact-chip-val">5</div>
+              <div class="impact-chip-label">Live Production<br />Apps</div>
+            </div>
+            <div class="impact-chip">
+              <div class="impact-chip-val">3</div>
+              <div class="impact-chip-label">Dev Teams<br />Supported</div>
+            </div>
+            <div class="impact-chip">
+              <div class="impact-chip-val">20+</div>
+              <div class="impact-chip-label">Engineers<br />on AWS</div>
+            </div>
+            <div class="impact-chip">
+              <div class="impact-chip-val">&lt;20min</div>
+              <div class="impact-chip-label">Avg MTTR</div>
+            </div>
+            <div class="impact-chip">
+              <div class="impact-chip-val">~60%</div>
+              <div class="impact-chip-label">SaaS Cost<br />Saved</div>
+            </div>
+            <div class="impact-chip">
+              <div class="impact-chip-val">~40%</div>
+              <div class="impact-chip-label">Compute<br />Cost Cut</div>
+            </div>
+          </div>
+          <div class="space" style="display:flex;flex-direction:column;gap:10px">
+            <div class="cat-block open">
+              <div class="cat-header" onclick="this.parentElement.classList.toggle('open')">
+                <span class="cat-emoji"><svg role="img" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M6.429 17.571h10.714V6.857H6.429v10.714ZM18 6.857h1.714v.857H18V9.43h1.714v.857H18v1.285h1.714v.858H18v1.714h1.714V15H18v1.714h1.714v.857H18v.059a.8.8 0 0 1-.799.799h-.058v1.714h-.857v-1.714H14.57v1.714h-.857v-1.714H12.43v1.714h-.858v-1.714H9.857v1.714H9v-1.714H7.286v1.714h-.857v-1.714H6.37a.8.8 0 0 1-.799-.8v-.058H4.286v-.857H5.57V15H4.286v-.857H5.57v-1.714H4.286v-.858H5.57v-1.285H4.286v-.857H5.57V7.714H4.286v-.857H5.57V6.8a.8.8 0 0 1 .8-.799h.058V4.286h.857V6H9V4.286h.857V6h1.714V4.286h.858V6h1.285V4.286h.857V6h1.715V4.286h.857V6h.058a.8.8 0 0 1 .799.799v.058ZM12.429 23.09a.054.054 0 0 1-.054.053H.91a.053.053 0 0 1-.053-.053V11.625c0-.03.024-.054.053-.054h2.52v-.857H.91a.911.911 0 0 0-.91.91V23.09c0 .502.408.91.91.91h11.465a.91.91 0 0 0 .91-.91V21h-.856ZM24 .91v11.465a.91.91 0 0 1-.91.91h-2.52v-.856h2.519a.054.054 0 0 0 .053-.054V.91a.053.053 0 0 0-.053-.053H11.625a.053.053 0 0 0-.054.053v2.52h-.857V.91c0-.502.409-.91.91-.91H23.09a.91.91 0 0 1 .91.91Z" />
+                  </svg></span>
+                <span class="cat-title">Infrastructure Ownership</span>
+                <span class="cat-toggle">+</span>
+              </div>
+              <div class="cat-body">
+                <ul>
+                  <li>Sole DevOps owner for <strong>5 live production applications</strong> — GitLab, SonarQube,
+                    OpenProject, FlexHR, and a custom internal tool — hosted on AWS ECS and EC2, supporting <span
+                      class="tag-cyan">3 teams · 20+ engineers</span> with no dedicated infra team</li>
+                  <li>Provisioned and maintained full AWS stack per application: <strong>VPC, subnets, EFS, RDS, ALB,
+                      security groups</strong> — eliminating external vendor dependency and cutting estimated SaaS
+                    licensing costs by <span class="mono">~60% annually</span></li>
+                  <li>Managed <strong>5 custom subdomain configurations</strong> on Route 53 (CNAME and A records)
+                    across all production apps with zero unplanned DNS downtime</li>
+                </ul>
+              </div>
+            </div>
+            <div class="cat-block open">
+              <div class="cat-header" onclick="this.parentElement.classList.toggle('open')">
+                <span class="cat-emoji"><svg role="img" viewBox="0 0 24 24" width="18" height="18" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
+                    <path d="M12 9v4" />
+                    <path d="M12 17h.01" />
+                  </svg></span>
+                <span class="cat-title">Incident Response & Reliability</span>
+                <span class="cat-toggle">+</span>
+              </div>
+              <div class="cat-body">
+                <ul>
+                  <li>Maintained <strong>MTTR under 20 minutes</strong> across all production incidents, with avg
+                    initial response of <span class="mono">&lt;5 minutes</span> from alert to active triage</li>
+                  <li>Authored <strong>RCA playbooks for every major incident</strong>, reducing repeat resolution time
+                    by an estimated <span class="mono">~70%</span> for similar failure patterns</li>
+                  <li>Built a <strong>CloudWatch + SNS alerting system</strong> with custom dashboards covering 10+
+                    metrics per application</li>
+                </ul>
+              </div>
+            </div>
+            <div class="cat-block open">
+              <div class="cat-header" onclick="this.parentElement.classList.toggle('open')">
+                <span class="cat-emoji"><svg role="img" viewBox="0 0 24 24" width="18" height="18" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                    <polyline points="17 6 23 6 23 12" />
+                  </svg></span>
+                <span class="cat-title">Cost Optimization & FinOps</span>
+                <span class="cat-toggle">+</span>
+              </div>
+              <div class="cat-body">
+                <ul>
+                  <li>Built a <strong>multi-account Lambda automation</strong> enforcing <code>stop=true</code> tagging
+                    to shut down idle EC2 instances daily — reducing idle compute spend by <span
+                      class="mono">~40%/month</span> across 10+ AWS accounts</li>
+                  <li>Conduct <strong>monthly AWS billing reviews</strong> across 10+ accounts, producing per-service
+                    cost reports that flag abnormal spend spikes</li>
+                  <li>Automated EC2 and RDS shutdown for <strong>untagged resources</strong> via Lambda — enforcing
+                    compliance and eliminating costs from orphaned infrastructure</li>
+                </ul>
+              </div>
+            </div>
+            <div class="cat-block">
+              <div class="cat-header" onclick="this.parentElement.classList.toggle('open')">
+                <span class="cat-emoji"><svg role="img" viewBox="0 0 24 24" width="18" height="18" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                  </svg></span>
+                <span class="cat-title">Security & Governance</span>
+                <span class="cat-toggle">+</span>
+              </div>
+              <div class="cat-body">
+                <ul>
+                  <li>Built a <strong>Lambda auto-remediation function</strong> that detects and removes overly
+                    permissive security groups (0.0.0.0/0) — reducing manual audit effort by <span
+                      class="mono">~90%</span></li>
+                  <li>Managed <strong>AWS IAM Identity Center</strong> for 3+ project teams — created roles, groups, and
+                    least-privilege policies ensuring zero over-permissioned access</li>
+                  <li>Secured all application secrets across <strong>5 applications in AWS Secrets Manager</strong>,
+                    eliminating 100% of hardcoded credentials</li>
+                </ul>
+              </div>
+            </div>
+            <div class="cat-block">
+              <div class="cat-header" onclick="this.parentElement.classList.toggle('open')">
+                <span class="cat-emoji"><svg role="img" viewBox="0 0 24 24" width="18" height="18" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z" />
+                    <path d="M12 14V6" />
+                    <path d="M12 18h.01" />
+                    <path d="M4.93 4.93l1.41 1.41" />
+                    <path d="M17.66 17.66l1.41 1.41" />
+                    <path d="M2 12h2" />
+                    <path d="M20 12h2" />
+                    <path d="M4.93 19.07l1.41-1.41" />
+                    <path d="M17.66 6.34l1.41-1.41" />
+                  </svg></span>
+                <span class="cat-title">Automation & IaC</span>
+                <span class="cat-toggle">+</span>
+              </div>
+              <div class="cat-body">
+                <ul>
+                  <li>Used <strong>Terraform</strong> to manage Lambda runtime upgrades across multiple functions —
+                    reducing manual update effort by <span class="mono">~75%</span> per release cycle</li>
+                  <li>Reduced AWS access provisioning turnaround from days to <span class="mono">&lt;30 minutes</span>
+                    per engineer by standardizing IAM user creation workflows</li>
+                  <li>Hosted <strong>Frappe/FlexHR</strong> on EC2 as a fully configured HR tool for internal teams,
+                    handling end-to-end setup and domain routing</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="wip-bar">
+            <div class="wip-dot"></div>
+            <span class="wip-text">In Progress — Deploying microservices on AWS EKS via GitHub Actions · Integrating
+              Prometheus + Grafana for full observability</span>
+          </div>
+          <div class="stack-chips">
+            <span class="stack-chip">AWS ECS</span><span class="stack-chip">AWS EKS</span><span
+              class="stack-chip">Docker</span><span class="stack-chip">ECR</span><span
+              class="stack-chip">CodePipeline</span><span class="stack-chip">Lambda</span><span
+              class="stack-chip">Terraform</span><span class="stack-chip">CloudWatch</span><span
+              class="stack-chip">SNS</span><span class="stack-chip">Route 53</span><span class="stack-chip">IAM Identity
+              Center</span><span class="stack-chip">Secrets Manager</span><span class="stack-chip">GitHub
+              Actions</span><span class="stack-chip">Prometheus</span><span class="stack-chip">Grafana</span>
+          </div>
+        </div>
+
+        <!-- Role 2 -->
+        <div class="role-card reveal reveal-delay-1">
+          <div class="role-dot"
+            style="background:var(--gold);box-shadow:0 0 0 3px var(--surface-1),0 0 20px var(--gold)"></div>
+          <div class="role-header">
+            <div class="role-time-badges">
+              <span class="badge badge-primary">Jun 2024 — Dec 2024</span>
+              <span class="badge badge-foundation">Foundation</span>
+            </div>
+            <div class="role-title">Junior Cloud Engineer</div>
+            <div class="role-company"><a href="https://www.linkedin.com/company/yottaflexai" target="_blank" style="color:inherit;text-decoration:none">Yotta Tech Ports</a> · <span>Hyderabad, IN</span></div>
+          </div>
+          <div class="impact-chips">
+            <div class="impact-chip">
+              <div class="impact-chip-val">~80%</div>
+              <div class="impact-chip-label">Deploy Time<br />Saved</div>
+            </div>
+            <div class="impact-chip">
+              <div class="impact-chip-val">$3–5K</div>
+              <div class="impact-chip-label">Annual License<br />Savings</div>
+            </div>
+            <div class="impact-chip">
+              <div class="impact-chip-val">4 wks</div>
+              <div class="impact-chip-label">Solo Full-Stack<br />Build</div>
+            </div>
+            <div class="impact-chip">
+              <div class="impact-chip-val">RPO 7d</div>
+              <div class="impact-chip-label">Backup<br />Established</div>
+            </div>
+            <div class="impact-chip">
+              <div class="impact-chip-val">100%</div>
+              <div class="impact-chip-label">Secrets<br />Removed</div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div class="cat-block open">
+              <div class="cat-header" onclick="this.parentElement.classList.toggle('open')">
+                <span class="cat-emoji"><svg role="img" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="m23.6004 9.5927-.0337-.0862L20.3.9814a.851.851 0 0 0-.3362-.405.8748.8748 0 0 0-.9997.0539.8748.8748 0 0 0-.29.4399l-2.2055 6.748H7.5375l-2.2057-6.748a.8573.8573 0 0 0-.29-.4412.8748.8748 0 0 0-.9997-.0537.8585.8585 0 0 0-.3362.4049L.4332 9.5015l-.0325.0862a6.0657 6.0657 0 0 0 2.0119 7.0105l.0113.0087.03.0213 4.976 3.7264 2.462 1.8633 1.4995 1.1321a1.0085 1.0085 0 0 0 1.2197 0l1.4995-1.1321 2.4619-1.8633 5.006-3.7489.0125-.01a6.0682 6.0682 0 0 0 2.0094-7.003z" />
+                  </svg></span>
+                <span class="cat-title">GitLab Self-Hosting — Built From Zero</span>
+                <span class="cat-toggle">+</span>
+              </div>
+              <div class="cat-body">
+                <ul>
+                  <li>Designed and delivered a <strong>production-grade self-managed GitLab</strong> on AWS ECS using
+                    Docker — saving an estimated <span class="mono">~$3,000–$5,000/year</span> in SaaS licensing costs
+                  </li>
+                  <li>Engineered a full <strong>AWS CodePipeline</strong> reducing deployment effort from multi-step
+                    manual process to a <span class="mono">single approval click</span> — cutting deployment time by
+                    <span class="mono">~80%</span></li>
+                  <li>Provisioned complete AWS infrastructure from scratch in <span class="mono">under 4 weeks</span>:
+                    <strong>ECS, VPC, EFS, RDS, and ALB</strong> — with SSH and HTTPS fully working</li>
+                </ul>
+              </div>
+            </div>
+            <div class="cat-block open">
+              <div class="cat-header" onclick="this.parentElement.classList.toggle('open')">
+                <span class="cat-emoji"><svg role="img" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.6-.401-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187" />
+                  </svg></span>
+                <span class="cat-title">CI/CD Automation & Custom Scripts</span>
+                <span class="cat-toggle">+</span>
+              </div>
+              <div class="cat-body">
+                <ul>
+                  <li>Built a custom <strong>Dockerfile and buildspec.yml</strong> automating image build and ECR push —
+                    reducing configuration effort by <span class="mono">~65%</span></li>
+                  <li>Wrote a <strong><code>fetchsecrets.sh</code> script</strong> removing <span
+                      class="mono">100%</span> of hardcoded secrets from the pipeline</li>
+                  <li>Developed a <strong>custom webhook config file</strong> that fires automatically on repository
+                    creation — saving developers <span class="mono">5–10 minutes</span> of manual setup</li>
+                </ul>
+              </div>
+            </div>
+            <div class="cat-block">
+              <div class="cat-header" onclick="this.parentElement.classList.toggle('open')">
+                <span class="cat-emoji"><svg role="img" viewBox="0 0 24 24" width="18" height="18" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg></span>
+                <span class="cat-title">Observability, Backup & Recovery</span>
+                <span class="cat-toggle">+</span>
+              </div>
+              <div class="cat-body">
+                <ul>
+                  <li>Configured <strong>weekly AWS Backup on EFS</strong> protecting all GitLab repository data —
+                    establishing an RPO of <span class="mono">7 days</span></li>
+                  <li>Built a <strong>CloudWatch + EventBridge metrics dashboard</strong> with alerts across <span
+                      class="mono">10+ infra metrics</span>, providing real-time visibility into GitLab health</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="stack-chips">
+            <span class="stack-chip">AWS ECS</span><span class="stack-chip">Docker</span><span
+              class="stack-chip">CodePipeline</span><span class="stack-chip">GitLab Self-Hosted</span><span
+              class="stack-chip">ECR</span><span class="stack-chip">EFS</span><span class="stack-chip">RDS</span><span
+              class="stack-chip">VPC</span><span class="stack-chip">CloudWatch</span><span
+              class="stack-chip">EventBridge</span><span class="stack-chip">AWS Backup</span><span
+              class="stack-chip">Secrets Manager</span><span class="stack-chip">Bash</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS / BLOG -->
+  <section id="Projects">
+    <div class="section-inner">
+      <div style="margin-bottom:56px">
+        <div class="section-eyebrow reveal">Blogs</div>
+        <h2 class="section-title reveal reveal-delay-1">Built & <em>Published</em></h2>
+        <p class="section-sub reveal reveal-delay-2">Open-source infrastructure projects on GitHub and published technical articles on Medium, covering DevOps and cloud architecture.</p>
+      </div>
+      <div class="bento-grid">
+        <div class="bento-card reveal">
+          <div class="bento-img">
+            <img
+              src="assets/terraform cheatsheet photo.webp"
+              alt="Terraform" />
+            <span class="bento-badge badge-orange">Technical Breakdown</span>
+          </div>
+          <div class="bento-body">
+            <div class="bento-title">Terraform Basics: Modular AWS Infrastructure</div>
+            <p class="bento-desc">A production-ready collection of modular HCL patterns designed for high-availability
+              AWS environments, focusing on networking and ECS orchestration.</p>
+            <a class="bento-link bento-link-orange stretched-link" href="https://github.com/EeswarSunny/Terraform-basics"
+              target="_blank">
+              Explore Repository
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="bento-card reveal reveal-delay-1">
+          <div class="bento-img">
+            <img
+              src="assets/iam meduim photo.webp"
+              alt="IAM" />
+            <span class="bento-badge badge-gold">Medium Article</span>
+          </div>
+          <div class="bento-body">
+            <div class="bento-title">4 AWS IAM Truths for Cloud Security</div>
+            <p class="bento-desc">An exploration of the Principle of Least Privilege and why standard IAM configurations
+              often fail basic security audits in enterprise environments.</p>
+            <a class="bento-link bento-link-gold stretched-link" href="https://medium.com/aws-in-plain-english/4-aws-iam-truths-that-will-change-how-you-manage-cloud-security-️-7a0a393e2b59" target="_blank">
+              Read Article
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="bento-card reveal reveal-delay-2">
+          <div class="bento-img">
+            <img
+              src="assets/dokcer meduim photo.webp"
+              alt="Docker" />
+            <span class="bento-badge badge-cyan">Medium Article</span>
+          </div>
+          <div class="bento-body">
+            <div class="bento-title">Demystifying Docker: 5 Foundational Concepts</div>
+            <p class="bento-desc">Everything you need to know about container orchestration, from layers and storage to
+              networking and production best practices.</p>
+            <a class="bento-link bento-link-cyan stretched-link" href="https://medium.com/aws-in-plain-english/demystifying-docker-5-foundational-concepts-for-beginners-5e7e7cdf2aea" target="_blank">
+              Read Article
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="Contact">
+    <div class="section-inner">
+      <div style="margin-bottom:56px">
+        <div class="section-eyebrow reveal">Contact</div>
+        <h2 class="section-title reveal reveal-delay-1">Let's <em>Connect</em></h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-links reveal">
+          <a id="email-card" class="contact-link" href="mailto:polunandeeswar2002@gmail.com">
+            <div class="contact-icon" style="background:var(--primary-faint)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="16" x="2" y="4" rx="2" />
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+              </svg>
+            </div>
+            <div class="contact-text">
+              <h4>Email</h4>
+              <p>polunandeeswar2002@gmail.com</p>
+            </div>
+            <span class="contact-arrow">→</span>
+          </a>
+          <div class="contact-link" style="cursor:pointer; touch-action:manipulation;"
+            onclick="let d=this.dataset;let t=Date.now();if(t-(d.lt||0)>1500)d.taps=0;d.lt=t;let c=(parseInt(d.taps)||0)+1;d.taps=c;let p=this.querySelector('p');if(c>=4){p.textContent=atob('KzkxIDYzMDIzMDgxOTc=');p.style.color='';this.style.cursor='text';this.onclick=null;this.querySelector('.contact-arrow').style.display='none';}else{p.textContent='Auth: Tap '+(4-c)+' more times';p.style.color='var(--primary)';clearTimeout(d.to);d.to=setTimeout(()=>{if(this.onclick){d.taps=0;p.textContent='[Encrypted] Tap to decode';p.style.color='';}},1500);}">
+            <div class="contact-icon" style="background:var(--primary-faint)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.09h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17z" />
+              </svg>
+            </div>
+            <div class="contact-text">
+              <h4>Phone</h4>
+              <p>[Encrypted] Tap to decode</p>
+            </div>
+            <span class="contact-arrow">→</span>
+          </div>
+          <a class="contact-link" href="https://linkedin.com/in/polu-nandeeswar" target="_blank">
+            <div class="contact-icon" style="background:var(--primary-faint)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--primary)" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </div>
+            <div class="contact-text">
+              <h4>LinkedIn</h4>
+              <p>linkedin.com/in/polu-nandeeswar</p>
+            </div>
+            <span class="contact-arrow">→</span>
+          </a>
+          <a class="contact-link" href="https://github.com/EeswarSunny/Terraform-basics" target="_blank">
+            <div class="contact-icon" style="background:var(--primary-faint)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--primary)" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+              </svg>
+            </div>
+            <div class="contact-text">
+              <h4>GitHub</h4>
+              <p>EeswarSunny/Terraform-basics</p>
+            </div>
+            <span class="contact-arrow">→</span>
+          </a>
+          <a class="contact-link" href="https://medium.com/aws-in-plain-english/4-aws-iam-truths-that-will-change-how-you-manage-cloud-security-️-7a0a393e2b59" target="_blank">
+            <div class="contact-icon" style="background:var(--primary-faint)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--primary)" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M4.21 0A4.201 4.201 0 0 0 0 4.21v15.58A4.201 4.201 0 0 0 4.21 24h15.58A4.201 4.201 0 0 0 24 19.79v-1.093c-.137.013-.278.02-.422.02-2.577 0-4.027-2.146-4.09-4.832a7.592 7.592 0 0 1 .022-.708c.093-1.186.475-2.241 1.105-3.022a3.885 3.885 0 0 1 1.395-1.1c.468-.237 1.127-.367 1.664-.367h.023c.101 0 .202.004.303.01V4.211A4.201 4.201 0 0 0 19.79 0Zm.198 5.583h4.165l3.588 8.435 3.59-8.435h3.864v.146l-.019.004c-.705.16-1.063.397-1.063 1.254h-.003l.003 10.274c.06.676.424.885 1.063 1.03l.02.004v.145h-4.923v-.145l.019-.005c.639-.144.994-.353 1.054-1.03V7.267l-4.745 11.15h-.261L6.15 7.569v9.445c0 .857.358 1.094 1.063 1.253l.02.004v.147H4.405v-.147l.019-.004c.705-.16 1.065-.397 1.065-1.253V6.987c0-.857-.358-1.094-1.064-1.254l-.018-.004zm19.25 3.668c-1.086.023-1.733 1.323-1.813 3.124H24V9.298a1.378 1.378 0 0 0-.342-.047Zm-1.862 3.632c-.1 1.756.86 3.239 2.204 3.634v-3.634z" />
+              </svg>
+            </div>
+            <div class="contact-text">
+              <h4>Medium</h4>
+              <p>4 AWS IAM Truths for Cloud Security</p>
+            </div>
+            <span class="contact-arrow">→</span>
           </a>
         </div>
-      </div>
-      <div class="bento-card reveal reveal-delay-2">
-        <div class="bento-img">
-          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbXZLdnxUS-xds42xhW_XIeb4s4_G3oTsN4-3CvdRWDv2S27ELGy_qfggZzE2tA3UnMLxdSSVRklhFPjPO_5adcIPswvhFAnKccCYR1MfZ4LotPWP1s5HkXRTmCYNQcGfWkoZt2pcIrYV6zBOyW9jhZD7RE9Uq8rrDu6VFbKREAxItfBQJw6bOTKTjj-VSPIUv2QvUEaJsq0YHziBhyXqTQrvkMuZycf1VAUfXOUG0MIOPEdi3P3bzoybxb29hS8umrbVTkhUF-sE" alt="Docker"/>
-          <span class="bento-badge badge-cyan">Medium Article</span>
-        </div>
-        <div class="bento-body">
-          <div class="bento-title">Demystifying Docker: 5 Foundational Concepts</div>
-          <p class="bento-desc">Everything you need to know about container orchestration, from layers and storage to networking and production best practices.</p>
-          <a class="bento-link bento-link-cyan" href="#">
-            Read Article
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+        <div class="open-to-panel reveal reveal-delay-2">
+          <div class="section-eyebrow" style="margin-bottom:12px">Open To</div>
+          <h3>What I'm<br />looking for</h3>
+          <p>Based in Hyderabad, India · Open to remote & hybrid opportunities</p>
+          <ul class="role-list">
+            <li>
+              <div class="role-dot-small"></div>Senior DevOps Engineer
+            </li>
+            <li>
+              <div class="role-dot-small"></div>Cloud Infrastructure Engineer
+            </li>
+            <li>
+              <div class="role-dot-small"></div>Site Reliability Engineer (SRE)
+            </li>
+            <li>
+              <div class="role-dot-small"></div>MLOps (Progression)
+            </li>
+          </ul>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CONTACT -->
-<section id="Contact">
-  <div class="section-inner">
-    <div style="margin-bottom:56px">
-      <div class="section-eyebrow reveal">Get In Touch</div>
-      <h2 class="section-title reveal reveal-delay-1">Let's <em>Connect</em></h2>
-    </div>
-    <div class="contact-grid">
-      <div class="contact-links reveal">
-        <a class="contact-link" href="mailto:polunandeeswar2002@gmail.com">
-          <div class="contact-icon" style="background:rgba(0,229,255,0.08)">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          </div>
-          <div class="contact-text"><h4>Email</h4><p>polunandeeswar2002@gmail.com</p></div>
-          <span class="contact-arrow">→</span>
-        </a>
-        <div class="contact-link" style="cursor:pointer; touch-action:manipulation;" onclick="let d=this.dataset;let t=Date.now();if(t-(d.lt||0)>1500)d.taps=0;d.lt=t;let c=(parseInt(d.taps)||0)+1;d.taps=c;let p=this.querySelector('p');if(c>=4){p.textContent=atob('KzkxIDYzMDIzMDgxOTc=');p.style.color='';this.style.cursor='text';this.onclick=null;this.querySelector('.contact-arrow').style.display='none';}else{p.textContent='Auth: Tap '+(4-c)+' more times';p.style.color='var(--primary)';clearTimeout(d.to);d.to=setTimeout(()=>{if(this.onclick){d.taps=0;p.textContent='[Encrypted] Tap to decode';p.style.color='';}},1500);}">
-          <div class="contact-icon" style="background:rgba(255,143,111,0.08)">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.09h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17z"/></svg>
-          </div>
-          <div class="contact-text"><h4>Phone</h4><p>[Encrypted] Tap to decode</p></div>
-          <span class="contact-arrow">→</span>
-        </div>
-        <a class="contact-link" href="https://linkedin.com/in/polu-nandeeswar" target="_blank">
-          <div class="contact-icon" style="background:rgba(255,143,111,0.08)">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="#0A66C2" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </div>
-          <div class="contact-text"><h4>LinkedIn</h4><p>linkedin.com/in/polu-nandeeswar</p></div>
-          <span class="contact-arrow">→</span>
-        </a>
-        <a class="contact-link" href="https://github.com/EeswarSunny/Terraform-basics" target="_blank">
-          <div class="contact-icon" style="background:rgba(255,143,111,0.08)">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-          </div>
-          <div class="contact-text"><h4>GitHub</h4><p>EeswarSunny/Terraform-basics</p></div>
-          <span class="contact-arrow">→</span>
-        </a>
-        <a class="contact-link" href="#">
-          <div class="contact-icon" style="background:rgba(255,197,99,0.08)">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4.21 0A4.201 4.201 0 0 0 0 4.21v15.58A4.201 4.201 0 0 0 4.21 24h15.58A4.201 4.201 0 0 0 24 19.79v-1.093c-.137.013-.278.02-.422.02-2.577 0-4.027-2.146-4.09-4.832a7.592 7.592 0 0 1 .022-.708c.093-1.186.475-2.241 1.105-3.022a3.885 3.885 0 0 1 1.395-1.1c.468-.237 1.127-.367 1.664-.367h.023c.101 0 .202.004.303.01V4.211A4.201 4.201 0 0 0 19.79 0Zm.198 5.583h4.165l3.588 8.435 3.59-8.435h3.864v.146l-.019.004c-.705.16-1.063.397-1.063 1.254h-.003l.003 10.274c.06.676.424.885 1.063 1.03l.02.004v.145h-4.923v-.145l.019-.005c.639-.144.994-.353 1.054-1.03V7.267l-4.745 11.15h-.261L6.15 7.569v9.445c0 .857.358 1.094 1.063 1.253l.02.004v.147H4.405v-.147l.019-.004c.705-.16 1.065-.397 1.065-1.253V6.987c0-.857-.358-1.094-1.064-1.254l-.018-.004zm19.25 3.668c-1.086.023-1.733 1.323-1.813 3.124H24V9.298a1.378 1.378 0 0 0-.342-.047Zm-1.862 3.632c-.1 1.756.86 3.239 2.204 3.634v-3.634z"/></svg>
-          </div>
-          <div class="contact-text"><h4>Medium</h4><p>4 AWS IAM Truths for Cloud Security</p></div>
-          <span class="contact-arrow">→</span>
-        </a>
-      </div>
-      <div class="open-to-panel reveal reveal-delay-2">
-        <div class="section-eyebrow" style="margin-bottom:12px">Open To</div>
-        <h3>What I'm<br/>looking for</h3>
-        <p>Based in Hyderabad, India · Open to remote & hybrid opportunities</p>
-        <ul class="role-list">
-          <li><div class="role-dot-small"></div>Senior DevOps Engineer</li>
-          <li><div class="role-dot-small"></div>Cloud Infrastructure Engineer</li>
-          <li><div class="role-dot-small"></div>Site Reliability Engineer (SRE)</li>
-          <li><div class="role-dot-small"></div>MLOps (Progression)</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+  <footer>
+    <p>© 2026 Nandeeswar Polu · Built with passion for DevOps excellence</p>
+  </footer>
 
-<footer>
-  <p>© 2026 Nandeeswar Polu · Built with passion for DevOps excellence</p>
-</footer>
-
-<script>
-// ── Custom Cursor ──────────────────────────────────────────
-const cursor = document.getElementById('cursor');
-document.addEventListener('mousemove', e => { 
-  cursor.style.left = e.clientX + 'px'; 
-  cursor.style.top = e.clientY + 'px'; 
-});
-document.querySelectorAll('a, button, .cat-header, .impact-chip, .bento-card, .contact-link, .role-list li, .theme-toggle').forEach(el => {
-  el.addEventListener('mouseenter', () => { 
-    cursor.style.width = '32px'; 
-    cursor.style.height = '32px'; 
-    cursor.style.background = 'rgba(255,143,111,0.85)';
-  });
-  el.addEventListener('mouseleave', () => { 
-    cursor.style.width = '10px'; 
-    cursor.style.height = '10px'; 
-    cursor.style.background = 'var(--primary)';
-  });
-});
-
-// ── Theme Toggle ───────────────────────────────────────────
-const themeBtn = document.getElementById('theme-toggle');
-const htmlEl = document.documentElement;
-const iconDark = document.getElementById('theme-icon-dark');
-const iconLight = document.getElementById('theme-icon-light');
-
-if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-  htmlEl.classList.remove('dark');
-  htmlEl.classList.add('light');
-  iconDark.style.display = 'block';
-  iconLight.style.display = 'none';
-}
-
-themeBtn.addEventListener('click', () => {
-  htmlEl.classList.toggle('light');
-  htmlEl.classList.toggle('dark');
-  localStorage.setItem('theme', htmlEl.classList.contains('light') ? 'light' : 'dark');
-  
-  if (htmlEl.classList.contains('light')) {
-    iconDark.style.display = 'block';
-    iconLight.style.display = 'none';
-  } else {
-    iconDark.style.display = 'none';
-    iconLight.style.display = 'block';
-  }
-});
-
-// ── Nav scroll ────────────────────────────────────────────
-const nav = document.getElementById('navbar');
-window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); });
-
-// ── Scroll Reveal ─────────────────────────────────────────
-const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); } });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-// ── Particle Field Background ─────────────────────────────
-const canvas = document.getElementById('bg-canvas');
-const ctx = canvas.getContext('2d');
-let W, H, pts = [];
-const COUNT = 80;
-const REP = 110;
-let mouseX = -999, mouseY = -999;
-
-function initCanvas() {
-  W = canvas.width = window.innerWidth;
-  H = canvas.height = window.innerHeight;
-  pts = [];
-  for (let i = 0; i < COUNT; i++) {
-    pts.push({
-      x: Math.random() * W, y: Math.random() * H,
-      vx: (Math.random() - 0.5) * 0.4, vy: (Math.random() - 0.5) * 0.4,
-      r: Math.random() * 2 + 0.8, a: Math.random() * 0.4 + 0.1
+  <script>
+    // ── Custom Cursor ──────────────────────────────────────────
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
     });
-  }
-}
-window.addEventListener('resize', initCanvas);
-document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
-initCanvas();
+    document.querySelectorAll('a, button, .cat-header, .impact-chip, .bento-card, .contact-link, .role-list li, .theme-toggle').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.width = '16px';
+        cursor.style.height = '16px';
+        cursor.style.background = 'rgba(255,143,111,0.95)';
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.style.width = '10px';
+        cursor.style.height = '10px';
+        cursor.style.background = 'var(--primary)';
+      });
+    });
 
-function drawParticles() {
-  ctx.clearRect(0, 0, W, H);
-  
-  for (const p of pts) {
-    // repel
-    const dx = p.x - mouseX, dy = p.y - mouseY;
-    const d = Math.sqrt(dx * dx + dy * dy);
-    if (d < REP && d > 1) { 
-      const f = (1 - d / REP) * 0.8; 
-      p.vx += (dx / d) * f; 
-      p.vy += (dy / d) * f; 
+    // ── Theme Toggle ───────────────────────────────────────────
+    const themeBtn = document.getElementById('theme-toggle');
+    const htmlEl = document.documentElement;
+    const iconDark = document.getElementById('theme-icon-dark');
+    const iconLight = document.getElementById('theme-icon-light');
+
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      htmlEl.classList.remove('dark');
+      htmlEl.classList.add('light');
+      iconDark.style.display = 'block';
+      iconLight.style.display = 'none';
     }
-    p.vx *= 0.97; p.vy *= 0.97;
-    p.x += p.vx; p.y += p.vy;
-    
-    // wrap
-    if (p.x < 0) p.x = W; 
-    if (p.x > W) p.x = 0;
-    if (p.y < 0) p.y = H; 
-    if (p.y > H) p.y = 0;
-    
-    const prox = d < REP ? Math.max(0, 1 - d / REP) : 0;
-    const alpha = p.a + prox * 0.5;
-    const size = p.r + prox * 1.5;
-    
-    ctx.beginPath(); 
-    ctx.arc(p.x, p.y, size, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(255,143,111,${alpha})`; 
-    ctx.fill();
-  }
-  requestAnimationFrame(drawParticles);
-}
-drawParticles();
 
-// ── Counter animation ─────────────────────────────────────
-function animateCounter(el) {
-  const text = el.textContent;
-  const num = parseFloat(text.replace(/[^0-9.]/g, ''));
-  if (isNaN(num) || num === 0) return;
-  const suffix = text.replace(/[0-9.]/g, '');
-  const duration = 1200;
-  const start = performance.now();
-  function step(ts) {
-    const p = Math.min((ts - start) / duration, 1);
-    const ease = 1 - Math.pow(1 - p, 3);
-    el.textContent = (num < 10 ? (ease * num).toFixed(1).replace('.0','') : Math.round(ease * num)) + suffix;
-    if (p < 1) requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-}
-const metricObs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { animateCounter(e.target); metricObs.unobserve(e.target); } });
-}, { threshold: 0.5 });
-document.querySelectorAll('.metric-value').forEach(el => metricObs.observe(el));
-</script>
+    themeBtn.addEventListener('click', () => {
+      htmlEl.classList.toggle('light');
+      htmlEl.classList.toggle('dark');
+      localStorage.setItem('theme', htmlEl.classList.contains('light') ? 'light' : 'dark');
+
+      if (htmlEl.classList.contains('light')) {
+        iconDark.style.display = 'block';
+        iconLight.style.display = 'none';
+      } else {
+        iconDark.style.display = 'none';
+        iconLight.style.display = 'block';
+      }
+    });
+
+    // ── Nav scroll ────────────────────────────────────────────
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); });
+
+    // ── Scroll Reveal ─────────────────────────────────────────
+    // Hero elements use CSS @keyframes (see #Hero .reveal rules), so only observe other sections
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal:not(#Hero .reveal)').forEach(el => revealObserver.observe(el));
+
+    // ── Particle Field Background ─────────────────────────────
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, pts = [];
+    const COUNT = 80;
+    const REP = 110;
+    let mouseX = -999, mouseY = -999;
+
+    function initCanvas() {
+      W = canvas.width = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+      pts = [];
+      for (let i = 0; i < COUNT; i++) {
+        pts.push({
+          x: Math.random() * W, y: Math.random() * H,
+          vx: (Math.random() - 0.5) * 0.4, vy: (Math.random() - 0.5) * 0.4,
+          r: Math.random() * 2 + 0.8, a: Math.random() * 0.4 + 0.1
+        });
+      }
+    }
+    window.addEventListener('resize', initCanvas);
+    document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
+    initCanvas();
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, W, H);
+
+      for (const p of pts) {
+        // repel
+        const dx = p.x - mouseX, dy = p.y - mouseY;
+        const d = Math.sqrt(dx * dx + dy * dy);
+        if (d < REP && d > 1) {
+          const f = (1 - d / REP) * 0.8;
+          p.vx += (dx / d) * f;
+          p.vy += (dy / d) * f;
+        }
+        p.vx *= 0.97; p.vy *= 0.97;
+        p.x += p.vx; p.y += p.vy;
+
+        // wrap
+        if (p.x < 0) p.x = W;
+        if (p.x > W) p.x = 0;
+        if (p.y < 0) p.y = H;
+        if (p.y > H) p.y = 0;
+
+        const prox = d < REP ? Math.max(0, 1 - d / REP) : 0;
+        const alpha = p.a + prox * 0.5;
+        const size = p.r + prox * 1.5;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,143,111,${alpha})`;
+        ctx.fill();
+      }
+      requestAnimationFrame(drawParticles);
+    }
+    drawParticles();
+
+    // ── Counter animation ─────────────────────────────────────
+    function animateCounter(el) {
+      const text = el.textContent;
+      const num = parseFloat(text.replace(/[^0-9.]/g, ''));
+      if (isNaN(num) || num === 0) return;
+      const suffix = text.replace(/[0-9.]/g, '');
+      const duration = 1200;
+      const start = performance.now();
+      function step(ts) {
+        const p = Math.min((ts - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - p, 3);
+        el.textContent = (num < 10 ? (ease * num).toFixed(1).replace('.0', '') : Math.round(ease * num)) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    const metricObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { animateCounter(e.target); metricObs.unobserve(e.target); } });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.metric-value').forEach(el => metricObs.observe(el));
+
+    // ── Email Pulse Observer ──────────────────────────────────
+    const emailCard = document.getElementById('email-card');
+    const contactSection = document.getElementById('Contact');
+    if (emailCard && contactSection) {
+      const contactObs = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            emailCard.classList.add('pulse-highlight');
+            // Remove after animation finishes to allow re-triggering if needed
+            setTimeout(() => emailCard.classList.remove('pulse-highlight'), 2000);
+            contactObs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+      contactObs.observe(contactSection);
+    }
+  </script>
 </body>
+
 </html>
