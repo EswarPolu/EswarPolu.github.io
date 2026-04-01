@@ -1754,110 +1754,143 @@
       border-radius: 4px;
     }
 
-    /* ── Mobile Menu Overlay ── */
-    .mobile-menu-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background: rgba(10, 10, 10, 0.4);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      z-index: 9999;
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      display: flex;
-      justify-content: flex-end;
+    /* ── High-Specificity Mobile Menu Overlay ── */
+    #MobileNavOverlay {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100vh !important;
+      background: rgba(8, 8, 8, 0.45) !important;
+      backdrop-filter: blur(25px) !important;
+      -webkit-backdrop-filter: blur(25px) !important;
+      z-index: 99999 !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+      transition: opacity 0.4s ease !important;
+      display: flex !important;
+      justify-content: flex-end !important;
     }
 
-    .mobile-menu-overlay.active {
-      opacity: 1;
-      pointer-events: auto;
+    #MobileNavOverlay.active {
+      opacity: 1 !important;
+      pointer-events: auto !important;
     }
 
-    .mobile-menu-backdrop {
-      position: absolute;
-      inset: 0;
+    .m-menu-backdrop {
+      position: absolute !important;
+      inset: 0 !important;
+      z-index: 1 !important;
     }
 
-    .mobile-menu-content {
-      width: 85%;
-      max-width: 320px;
-      background: var(--surface);
-      height: 100%;
-      padding: 30px;
-      display: flex;
-      flex-direction: column;
-      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
-      transform: translateX(100%);
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      border-left: 1px solid var(--border);
+    .m-menu-content {
+      position: relative !important;
+      z-index: 2 !important;
+      width: 85% !important;
+      max-width: 320px !important;
+      background: var(--surface) !important;
+      height: 100% !important;
+      padding: 50px 30px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 40px !important;
+      box-shadow: -15px 0 40px rgba(0, 0, 0, 0.6) !important;
+      transform: translateX(100%) !important;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      border-left: 1px solid var(--border) !important;
+      overflow-y: auto !important;
     }
 
-    .mobile-menu-overlay.active .mobile-menu-content {
-      transform: translateX(0);
+    #MobileNavOverlay.active .m-menu-content {
+      transform: translateX(0) !important;
     }
 
-    .mobile-menu-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 40px;
+    .m-menu-header {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      margin-bottom: 10px !important;
     }
 
-    .menu-close-btn {
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      color: var(--text);
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
+    .m-logo-name {
+      font-size: 20px !important;
+      font-weight: 800 !important;
+      color: var(--text) !important;
+      margin: 0 !important;
+      letter-spacing: -0.02em !important;
     }
 
-    .mobile-menu-cta {
-      margin-bottom: 40px;
+    .m-logo-title {
+      font-size: 11px !important;
+      color: var(--primary) !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.1em !important;
+      margin-top: 4px !important;
     }
 
-    .mobile-nav-links {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      flex: 1;
+    .m-close-btn {
+      background: var(--surface-2) !important;
+      border: 1px solid var(--border) !important;
+      color: var(--text) !important;
+      width: 44px !important;
+      height: 44px !important;
+      border-radius: 14px !important;
+      font-size: 22px !important;
+      cursor: pointer !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
     }
 
-    .mobile-link {
-      text-decoration: none;
-      color: var(--text);
-      font-family: var(--font-display);
-      font-size: 20px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      transition: color 0.2s;
+    .m-menu-cta {
+      padding: 0 !important;
+      margin: 0 !important;
     }
 
-    .mobile-link span {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      color: var(--primary);
-      opacity: 0.6;
+    .m-nav-links {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 32px !important;
+      padding: 0 !important;
+      margin: 0 !important;
     }
 
-    .mobile-link:hover {
-      color: var(--primary);
+    .m-link {
+      text-decoration: none !important;
+      color: var(--text) !important;
+      font-family: var(--font-display) !important;
+      font-size: 24px !important;
+      font-weight: 700 !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 16px !important;
+      position: relative !important;
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
     }
 
-    .mobile-menu-footer {
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--text-dim);
+    .m-link span {
+      font-family: var(--font-mono) !important;
+      font-size: 13px !important;
+      color: var(--primary) !important;
+      opacity: 0.6 !important;
+      width: 24px !important;
+      display: inline-block !important;
+    }
+
+    .m-link:active {
+      color: var(--primary) !important;
+    }
+
+    .m-menu-footer {
+      margin-top: auto !important;
+      padding-top: 30px !important;
+      border-top: 1px solid var(--border) !important;
+      font-family: var(--font-mono) !important;
+      font-size: 11px !important;
+      color: var(--text-dim) !important;
     }
 
     /* ── Animated gradient border on hero card ── */
@@ -2819,44 +2852,21 @@
       }, { threshold: 0.3 });
       contactObs.observe(contactSection);
     }
-    // ── Mobile Menu Toggle ────────────────────────────────────
-    const menuToggle = document.getElementById('MenuToggle');
-    const mobileMenu = document.getElementById('MobileMenu');
-    const menuLinks = document.querySelectorAll('.mobile-link');
-    const closeMenuBtn = document.getElementById('CloseMenu');
-
-    function toggleMenu() {
-      mobileMenu.classList.toggle('active');
-      const isActive = mobileMenu.classList.contains('active');
-      document.body.style.overflow = isActive ? 'hidden' : '';
-    }
-
-    if (menuToggle && mobileMenu) {
-      menuToggle.addEventListener('click', toggleMenu);
-      if (closeMenuBtn) closeMenuBtn.addEventListener('click', toggleMenu);
-      
-      menuLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.remove('active');
-          document.body.style.overflow = '';
-        });
-      });
-    }
   </script>
 
-  <!-- Mobile Menu Overlay -->
-  <div id="MobileMenu" class="mobile-menu-overlay">
-    <div class="mobile-menu-backdrop" id="CloseMenuOverlay"></div>
-    <div class="mobile-menu-content">
-      <div class="mobile-menu-header">
-        <div class="mobile-logo-wrap">
-          <div class="nav-logo-name">Nandeeswar</div>
-          <div class="nav-logo-title">Cloud Engineer</div>
+  <!-- Mobile Menu Overlay (Refactored for High Specificity) -->
+  <div id="MobileNavOverlay">
+    <div class="m-menu-backdrop" id="MBackdrop"></div>
+    <div class="m-menu-content">
+      <div class="m-menu-header">
+        <div class="m-logo-wrap">
+          <div class="m-logo-name">Nandeeswar</div>
+          <div class="m-logo-title">Cloud Engineer</div>
         </div>
-        <button class="menu-close-btn" id="CloseMenu">✕</button>
+        <button class="m-close-btn" id="MCloseBtn">✕</button>
       </div>
       
-      <div class="mobile-menu-cta">
+      <div class="m-menu-cta">
         <a class="btn btn-primary" href="assets/resume.pdf" download="Polu_Nandeeswar_Resume.pdf" style="width:100%; justify-content:center;">
           <svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -2867,18 +2877,47 @@
         </a>
       </div>
 
-      <nav class="mobile-nav-links">
-        <a href="#Skills" class="mobile-link"><span>01</span> Skills Matrix</a>
-        <a href="#Experience" class="mobile-link"><span>02</span> Experience</a>
-        <a href="#Blogs" class="mobile-link"><span>03</span> Technical Blog</a>
-        <a href="#Contact" class="mobile-link"><span>04</span> Let's Connect</a>
+      <nav class="m-nav-links">
+        <a href="#Skills" class="m-link"><span>01</span> Skills Matrix</a>
+        <a href="#Experience" class="m-link"><span>02</span> Experience</a>
+        <a href="#Blogs" class="m-link"><span>03</span> Technical Blog</a>
+        <a href="#Contact" class="m-link"><span>04</span> Let's Connect</a>
       </nav>
 
-      <div class="mobile-menu-footer">
+      <div class="m-menu-footer">
         <p>© 2026 Nandeeswar Reddy Polu</p>
       </div>
     </div>
   </div>
+
+  <script>
+    (function() {
+      const toggle = document.getElementById('MenuToggle');
+      const overlay = document.getElementById('MobileNavOverlay');
+      const close = document.getElementById('MCloseBtn');
+      const backdrop = document.getElementById('MBackdrop');
+      const links = document.querySelectorAll('.m-link');
+
+      function toggleNav() {
+        if (!overlay) return;
+        const isActive = overlay.classList.toggle('active');
+        document.body.style.overflow = isActive ? 'hidden' : '';
+      }
+
+      if (toggle && overlay) {
+        toggle.addEventListener('click', toggleNav);
+        if (close) close.addEventListener('click', toggleNav);
+        if (backdrop) backdrop.addEventListener('click', toggleNav);
+        
+        links.forEach(l => {
+          l.addEventListener('click', () => {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+          });
+        });
+      }
+    })();
+  </script>
 </body>
 
 </html>
