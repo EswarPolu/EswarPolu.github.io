@@ -353,10 +353,6 @@
       white-space: nowrap;
     }
 
-    .btn-cv {
-      display: none;
-    }
-
     /* ── Hamburger Button ── */
     .hamburger-btn {
       display: none;
@@ -761,7 +757,6 @@
       align-self: stretch;
     }
 
-    /* Hero photo */
     /* Mobile photo — circled */
     .mobile-photo-wrap {
       display: none;
@@ -1446,8 +1441,8 @@
       border-color: rgba(255, 143, 111, 0.3);
     }
 
-    /* ── Projects / Blog ── */
-    #Projects {
+    /* ── Blogs ── */
+    #Blogs {
       padding: 120px 0;
       background: var(--surface);
     }
@@ -1534,13 +1529,6 @@
       backdrop-filter: blur(8px);
     }
 
-    .badge-gold {
-      background: rgba(0, 10, 15, 0.75);
-      color: #00e5ff;
-      border: 1px solid rgba(0, 229, 255, 0.35);
-      backdrop-filter: blur(8px);
-    }
-
     .badge-cyan {
       background: rgba(0, 10, 15, 0.75);
       color: #00e5ff;
@@ -1620,16 +1608,6 @@
 
     .bento-link-orange:hover {
       background: rgba(255, 143, 111, 0.15);
-    }
-
-    .bento-link-gold {
-      color: var(--cyan);
-      background: var(--cyan-faint);
-      border: 1px solid var(--cyan-subtle);
-    }
-
-    .bento-link-gold:hover {
-      background: rgba(0, 229, 255, 0.15);
     }
 
     .bento-link-cyan {
@@ -2365,8 +2343,7 @@
     }
 
     /* Focus for custom interactive elements */
-    .cat-header:focus-visible,
-    .accordion-header:focus-visible {
+    .cat-header:focus-visible {
       outline: 2px solid var(--primary);
       outline-offset: -2px;
     }
@@ -2455,7 +2432,7 @@
   <!-- Cursor -->
   <div id="cursor" aria-hidden="true"></div>
 
-  <!-- Animated dot-grid background -->
+  <!-- Particle field background -->
   <canvas id="bg-canvas" aria-hidden="true" role="presentation"></canvas>
 
   <!-- NAV -->
@@ -2467,7 +2444,7 @@
     <ul class="nav-links">
       <li><a href="#Skills">Skills</a></li>
       <li><a href="#Experience">Experience</a></li>
-      <li><a href="#Projects">Blogs</a></li>
+      <li><a href="#Blogs">Blogs</a></li>
       <li><a href="#Contact">Contact</a></li>
     </ul>
     <div class="nav-cta">
@@ -2488,7 +2465,7 @@
           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
         </svg>
       </button>
-      <a class="btn btn-secondary" href="assets/resume.pdf" download="Polu_Nandeeswar_Resume.pdf" aria-label="Download Resume">
+      <a class="btn btn-secondary" href="assets/ats%20pnr%20resume.pdf" download="Polu_Nandeeswar_Resume.pdf" aria-label="Download Resume">
         <svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
           <polyline points="7,10 12,15 17,10" />
@@ -2512,7 +2489,7 @@
   <!-- HERO -->
   <section id="Hero">
     <div class="hero-grid">
-      <!-- Left -->
+      <!-- Hero content -->
       <div>
         <div class="mobile-photo-wrap reveal">
           <img src="assets/profile-rectangle.jpg" alt="Nandeeswar Reddy Polu" />
@@ -3040,8 +3017,8 @@
     </div>
   </section>
 
-  <!-- PROJECTS / BLOG -->
-  <section id="Projects">
+  <!-- BLOGS -->
+  <section id="Blogs">
     <div class="section-inner">
       <div style="margin-bottom:56px">
         <div class="section-eyebrow reveal">Blogs</div>
@@ -3082,7 +3059,7 @@
               src="assets/iam meduim photo.webp"
               alt="IAM"
               loading="lazy" />
-            <span class="bento-badge badge-gold">Medium Article</span>
+            <span class="bento-badge badge-cyan">Medium Article</span>
           </div>
           <div class="bento-body">
             <div class="bento-title">4 AWS IAM Truths for Cloud Security</div>
@@ -3093,7 +3070,7 @@
               <span class="bento-meta-tag">Security</span>
               <span class="bento-meta-tag">Medium</span>
             </div>
-            <a class="bento-link bento-link-gold stretched-link" href="https://medium.com/aws-in-plain-english/4-aws-iam-truths-that-will-change-how-you-manage-cloud-security-️-7a0a393e2b59" target="_blank">
+            <a class="bento-link bento-link-cyan stretched-link" href="https://medium.com/aws-in-plain-english/4-aws-iam-truths-that-will-change-how-you-manage-cloud-security-️-7a0a393e2b59" target="_blank">
               Read Article
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <path d="M5 12h14M12 5l7 7-7 7" />
@@ -3231,10 +3208,12 @@
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <p>© 2026 Nandeeswar Polu · Built with passion for DevOps excellence</p>
   </footer>
 
+  <!-- MAIN SCRIPT -->
   <script>
     // ── Custom Cursor ──────────────────────────────────────────
     const cursor = document.getElementById('cursor');
@@ -3288,7 +3267,7 @@
 
     // ── Nav active link (scroll spy) ──────────────────────────
     const navLinks = document.querySelectorAll('.nav-links a');
-    const sectionIds = ['Hero', 'Skills', 'Experience', 'Projects', 'Contact'];
+    const sectionIds = ['Hero', 'Skills', 'Experience', 'Blogs', 'Contact'];
     const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
 
     let visibleSections = new Map();
@@ -3445,13 +3424,13 @@
     <nav class="m-nav-links" aria-label="Mobile navigation">
       <a href="#Skills" class="m-link">Skills</a>
       <a href="#Experience" class="m-link">Experience</a>
-      <a href="#Projects" class="m-link">Blog</a>
+      <a href="#Blogs" class="m-link">Blogs</a>
       <a href="#Contact" class="m-link">Contact</a>
     </nav>
 
     <!-- CTA row -->
     <div class="m-menu-cta-row">
-      <a href="assets/resume.pdf" download="Polu_Nandeeswar_Resume.pdf" class="m-cta-btn m-cta-secondary">
+      <a href="assets/ats%20pnr%20resume.pdf" download="Polu_Nandeeswar_Resume.pdf" class="m-cta-btn m-cta-secondary">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
           <polyline points="7,10 12,15 17,10" />
