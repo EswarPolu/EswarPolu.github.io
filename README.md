@@ -181,8 +181,8 @@ Personal portfolio website. All rights reserved.
 **Nandeeswar Reddy Polu**  
 - Email: polunandeeswar2002@gmail.com
 - LinkedIn: [linkedin.com/in/polu-nandeeswar](https://linkedin.com/in/polu-nandeeswar)
-- GitHub: [github.com/EeswarSunny](https://github.com/EeswarPolu)
-- Medium: [@nandueeswar](https://medium.com/@polusunny)
+- GitHub: [github.com/EeswarPolu](https://github.com/EeswarPolu)
+- Medium: [@polusunny](https://medium.com/@polusunny)
 
 ---
 
