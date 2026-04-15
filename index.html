@@ -2548,7 +2548,7 @@
         <!-- Metrics -->
         <div class="hero-metrics reveal reveal-delay-5">
           <div class="metric-item">
-            <div class="metric-value">2+</div>
+            <div class="metric-value" id="years-obsessed">2+</div>
             <div class="metric-label">Years Obsessed</div>
           </div>
           <div class="metric-div"></div>
@@ -2583,7 +2583,7 @@
           <h2 class="section-title reveal reveal-delay-1">Stack & <em>Tooling</em></h2>
           <p class="section-sub reveal reveal-delay-2">Production-verified tools across cloud infrastructure, IaC, CI/CD, orchestration, observability, and security.</p>
         </div>
-        <span class="skills-tag reveal">Last updated Q1 2026</span>
+        <span class="skills-tag reveal" id="skills-updated-tag">Last updated Q1 2026</span>
       </div>
       <div class="skills-table-wrap reveal reveal-delay-2">
         <table>
@@ -3130,8 +3130,7 @@
             </div>
             <span class="contact-arrow">→</span>
           </a>
-          <div class="contact-link" style="cursor:pointer; touch-action:manipulation;"
-            onclick="let d=this.dataset;let t=Date.now();if(t-(d.lt||0)>1500)d.taps=0;d.lt=t;let c=(parseInt(d.taps)||0)+1;d.taps=c;let p=this.querySelector('p');if(c>=4){p.textContent=atob('KzkxIDYzMDIzMDgxOTc=');p.style.color='';this.style.cursor='text';this.onclick=null;this.querySelector('.contact-arrow').style.display='none';}else{p.textContent='Auth: Tap '+(4-c)+' more times';p.style.color='var(--primary)';clearTimeout(d.to);d.to=setTimeout(()=>{if(this.onclick){d.taps=0;p.textContent='[Encrypted] Tap to decode';p.style.color='';}},1500);}">
+          <a class="contact-link" href="tel:+916302308197">
             <div class="contact-icon" style="background:var(--primary-faint)">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
@@ -3141,10 +3140,10 @@
             </div>
             <div class="contact-text">
               <h4>Phone</h4>
-              <p>[Encrypted] Tap to decode</p>
+              <p>+91 6302308197</p>
             </div>
             <span class="contact-arrow">→</span>
-          </div>
+          </a>
           <a class="contact-link" href="https://linkedin.com/in/polu-nandeeswar" target="_blank">
             <div class="contact-icon" style="background:var(--primary-faint)">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--primary)" xmlns="http://www.w3.org/2000/svg">
@@ -3210,7 +3209,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2026 Nandeeswar Polu · Built with passion for DevOps excellence</p>
+    <p>© <span id="footer-year"></span> Nandeeswar Polu · Built with passion for DevOps excellence</p>
   </footer>
 
   <!-- MAIN SCRIPT -->
@@ -3399,19 +3398,59 @@
     // ── Email Pulse Observer ──────────────────────────────────
     const emailCard = document.getElementById('email-card');
     const contactSection = document.getElementById('Contact');
+    function pulseEmail() {
+      if (!emailCard) return;
+      emailCard.classList.remove('pulse-highlight');
+      // Force reflow so the animation restarts
+      void emailCard.offsetWidth;
+      emailCard.classList.add('pulse-highlight');
+      setTimeout(() => emailCard.classList.remove('pulse-highlight'), 2000);
+    }
     if (emailCard && contactSection) {
       const contactObs = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            emailCard.classList.add('pulse-highlight');
-            // Remove after animation finishes to allow re-triggering if needed
-            setTimeout(() => emailCard.classList.remove('pulse-highlight'), 2000);
-            contactObs.unobserve(entry.target);
+            pulseEmail();
           }
         });
       }, { threshold: 0.3 });
       contactObs.observe(contactSection);
+
+      // Also trigger on nav link clicks to Contact
+      document.querySelectorAll('a[href="#Contact"]').forEach(link => {
+        link.addEventListener('click', () => {
+          setTimeout(pulseEmail, 400);
+        });
+      });
     }
+
+    // ── Dynamic Years Calculation ─────────────────────────────
+    (function() {
+      const BASE_YEAR = 2024;
+      const now = new Date();
+      const currentYear = now.getFullYear();
+      const years = currentYear - BASE_YEAR;
+      const yearLabel = years + '+';
+      const quarters = ['Q1', 'Q2', 'Q3', 'Q4'];
+      const quarter = quarters[Math.floor(now.getMonth() / 3)];
+
+      // Footer year
+      const footerYear = document.getElementById('footer-year');
+      if (footerYear) footerYear.textContent = currentYear;
+
+      // Hero "Years Obsessed" metric
+      const obsessedEl = document.getElementById('years-obsessed');
+      if (obsessedEl) obsessedEl.textContent = yearLabel;
+
+      // Skills table experience years
+      document.querySelectorAll('.td-years').forEach(el => {
+        el.textContent = yearLabel;
+      });
+
+      // Skills "Last updated" tag
+      const skillsTag = document.getElementById('skills-updated-tag');
+      if (skillsTag) skillsTag.textContent = 'Last updated ' + quarter + ' ' + currentYear;
+    })();
   </script>
 
   <!-- Mobile Menu Backdrop -->
