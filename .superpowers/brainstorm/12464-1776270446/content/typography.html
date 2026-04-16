@@ -1,0 +1,98 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&family=Outfit:wght@100;200;300;400;500;600&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Instrument+Sans:wght@400;500;600;700&family=Bebas+Neue&family=Inter+Tight:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+
+<h2>Which typography pairing feels right?</h2>
+<p class="subtitle">Typography IS the design in cinematic monochrome. Each option creates a fundamentally different personality. Shown on black to match the direction.</p>
+
+<div class="cards">
+
+  <!-- Option A: Outfit (ultra-light) + JetBrains Mono -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#000;padding:40px 32px;min-height:320px;display:flex;flex-direction:column;justify-content:space-between;">
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:400;color:rgba(240,240,250,0.35);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;">Cloud & DevOps Engineer</div>
+        <div style="font-family:'Outfit',sans-serif;font-size:48px;font-weight:200;color:#f0f0fa;letter-spacing:-1px;line-height:1.0;">NANDEESWAR</div>
+        <div style="font-family:'Outfit',sans-serif;font-size:48px;font-weight:100;color:rgba(240,240,250,0.5);letter-spacing:-1px;line-height:1.0;">REDDY POLU</div>
+      </div>
+      <div style="margin-top:24px;">
+        <div style="font-family:'Outfit',sans-serif;font-size:15px;font-weight:300;color:rgba(240,240,250,0.6);line-height:1.6;">Specializing in container orchestration and GitOps-driven deployment pipelines.</div>
+        <div style="margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(240,240,250,0.3);letter-spacing:1px;">2hr deploy &rarr; 12min pipeline</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A: Outfit + JetBrains Mono</h3>
+      <p><strong>Display:</strong> Outfit (weight 100-200) — geometric, whisper-light, modern. Similar to Stripe's weight-300 philosophy but even lighter.</p>
+      <p><strong>Code/Labels:</strong> JetBrains Mono — the developer's monospace. Technical credibility.</p>
+      <p style="font-size:12px;color:#888;margin-top:8px;"><em>Feel: Elegant + technical. The light weight says "I don't need to shout."</em></p>
+    </div>
+  </div>
+
+  <!-- Option B: Syne (bold display) + DM Sans -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#000;padding:40px 32px;min-height:320px;display:flex;flex-direction:column;justify-content:space-between;">
+      <div>
+        <div style="font-family:'DM Sans',sans-serif;font-size:10px;font-weight:500;color:rgba(240,240,250,0.35);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;">Cloud & DevOps Engineer</div>
+        <div style="font-family:'Syne',sans-serif;font-size:44px;font-weight:800;color:#f0f0fa;letter-spacing:-1.5px;line-height:1.0;text-transform:uppercase;">Nandeeswar</div>
+        <div style="font-family:'Syne',sans-serif;font-size:44px;font-weight:400;color:rgba(240,240,250,0.5);letter-spacing:-1.5px;line-height:1.0;text-transform:uppercase;">Reddy Polu</div>
+      </div>
+      <div style="margin-top:24px;">
+        <div style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:300;color:rgba(240,240,250,0.6);line-height:1.6;">Specializing in container orchestration and GitOps-driven deployment pipelines.</div>
+        <div style="margin-top:16px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;color:rgba(240,240,250,0.3);letter-spacing:1.5px;text-transform:uppercase;">2hr deploy &rarr; 12min pipeline</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B: Syne + DM Sans</h3>
+      <p><strong>Display:</strong> Syne (weight 800) — bold, geometric, distinctive character shapes. Aggressive and memorable.</p>
+      <p><strong>Body/Labels:</strong> DM Sans — clean, neutral, excellent readability. Lets Syne be the star.</p>
+      <p style="font-size:12px;color:#888;margin-top:8px;"><em>Feel: Bold + commanding. Heavy display weight demands attention, like a mission title.</em></p>
+    </div>
+  </div>
+
+  <!-- Option C: Inter Tight (compressed) + JetBrains Mono -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#000;padding:40px 32px;min-height:320px;display:flex;flex-direction:column;justify-content:space-between;">
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:400;color:rgba(240,240,250,0.35);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;">Cloud & DevOps Engineer</div>
+        <div style="font-family:'Inter Tight',sans-serif;font-size:52px;font-weight:200;color:#f0f0fa;letter-spacing:-2.5px;line-height:0.95;text-transform:uppercase;">Nandeeswar</div>
+        <div style="font-family:'Inter Tight',sans-serif;font-size:52px;font-weight:100;color:rgba(240,240,250,0.4);letter-spacing:-2.5px;line-height:0.95;text-transform:uppercase;">Reddy Polu</div>
+      </div>
+      <div style="margin-top:24px;">
+        <div style="font-family:'Inter Tight',sans-serif;font-size:15px;font-weight:300;color:rgba(240,240,250,0.6);line-height:1.6;">Specializing in container orchestration and GitOps-driven deployment pipelines.</div>
+        <div style="margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(240,240,250,0.3);letter-spacing:1px;">2hr deploy &rarr; 12min pipeline</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C: Inter Tight + JetBrains Mono</h3>
+      <p><strong>Display:</strong> Inter Tight (weight 100-200) — Vercel-inspired extreme negative tracking. Compressed, engineered, like minified code.</p>
+      <p><strong>Code/Labels:</strong> JetBrains Mono — same developer credibility pairing.</p>
+      <p style="font-size:12px;color:#888;margin-top:8px;"><em>Feel: Compressed + engineered. Text that looks like it was optimized for production. Vercel energy.</em></p>
+    </div>
+  </div>
+
+  <!-- Option D: Bebas Neue (condensed) + Instrument Sans -->
+  <div class="card" data-choice="d" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#000;padding:40px 32px;min-height:320px;display:flex;flex-direction:column;justify-content:space-between;">
+      <div>
+        <div style="font-family:'Instrument Sans',sans-serif;font-size:10px;font-weight:500;color:rgba(240,240,250,0.35);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;">Cloud & DevOps Engineer</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:64px;font-weight:400;color:#f0f0fa;letter-spacing:2px;line-height:0.9;">NANDEESWAR</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:64px;font-weight:400;color:rgba(240,240,250,0.4);letter-spacing:2px;line-height:0.9;">REDDY POLU</div>
+      </div>
+      <div style="margin-top:24px;">
+        <div style="font-family:'Instrument Sans',sans-serif;font-size:15px;font-weight:400;color:rgba(240,240,250,0.6);line-height:1.6;">Specializing in container orchestration and GitOps-driven deployment pipelines.</div>
+        <div style="margin-top:16px;font-family:'Instrument Sans',sans-serif;font-size:11px;font-weight:500;color:rgba(240,240,250,0.3);letter-spacing:2px;text-transform:uppercase;">2hr deploy &rarr; 12min pipeline</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>D: Bebas Neue + Instrument Sans</h3>
+      <p><strong>Display:</strong> Bebas Neue — tall, condensed, iconic. Think movie posters, SpaceX mission patches. Maximum vertical impact.</p>
+      <p><strong>Body:</strong> Instrument Sans — your current body font, familiar and reliable.</p>
+      <p style="font-size:12px;color:#888;margin-top:8px;"><em>Feel: Monumental + cinematic. The tallest, loudest option. Pure movie-poster energy.</em></p>
+    </div>
+  </div>
+
+</div>
+
+<div class="section" style="margin-top:24px;padding:16px;border-radius:8px;background:rgba(255,255,255,0.03);">
+  <p style="font-size:13px;color:#888;">You can also mix — e.g., "D's display font with A's monospace labels." The display font sets the personality; the body font handles readability.</p>
+</div>

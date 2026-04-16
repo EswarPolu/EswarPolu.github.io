@@ -1,0 +1,96 @@
+<h2>What overall design direction speaks to you?</h2>
+<p class="subtitle">Each direction takes a fundamentally different architectural approach — not just colors, but how your story is told. Click to select.</p>
+
+<div class="cards">
+
+  <!-- Direction A: Infrastructure Blueprint -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: #0a0a0f; padding: 32px; min-height: 280px; position: relative; overflow: hidden;">
+      <!-- Grid pattern -->
+      <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(16,185,129,0.06) 1px, transparent 1px),linear-gradient(90deg,rgba(16,185,129,0.06) 1px, transparent 1px);background-size:40px 40px;"></div>
+      <!-- Terminal-style hero -->
+      <div style="position:relative;z-index:1;">
+        <div style="font-family:'Courier New',monospace;font-size:11px;color:rgba(16,185,129,0.5);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">$ whoami</div>
+        <div style="font-family:system-ui;font-size:28px;font-weight:200;color:#e4e4e7;letter-spacing:-1px;line-height:1.1;">Nandeeswar<br>Reddy Polu</div>
+        <div style="margin-top:12px;font-family:'Courier New',monospace;font-size:11px;color:#10b981;">cloud.architect <span style="color:rgba(255,255,255,0.2)">|</span> infra.engineer</div>
+        <div style="margin-top:24px;display:flex;gap:8px;">
+          <span style="background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);color:#10b981;padding:4px 10px;border-radius:4px;font-size:10px;font-family:monospace;">AWS</span>
+          <span style="background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);color:#10b981;padding:4px 10px;border-radius:4px;font-size:10px;font-family:monospace;">Terraform</span>
+          <span style="background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);color:#10b981;padding:4px 10px;border-radius:4px;font-size:10px;font-family:monospace;">K8s</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A: Infrastructure Blueprint</h3>
+      <p><strong>Inspired by:</strong> Vercel + Supabase + terminal aesthetics</p>
+      <p>Void-black canvas with emerald green accent. Grid-pattern backgrounds that evoke infrastructure diagrams. Terminal-style type for labels. Monospace code feel throughout. Your experience rendered as a system architecture — pipelines, nodes, connections.</p>
+      <p style="font-size:12px;color:#888;margin-top:8px;"><em>Tone: Technical, precise, engineering-first. Like reading beautiful infrastructure documentation.</em></p>
+    </div>
+  </div>
+
+  <!-- Direction B: Cinematic Monochrome -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: #000000; padding: 32px; min-height: 280px; position: relative; overflow: hidden;">
+      <!-- Gradient overlay -->
+      <div style="position:absolute;inset:0;background:linear-gradient(135deg, rgba(255,255,255,0.03) 0%, transparent 50%, rgba(255,255,255,0.02) 100%);"></div>
+      <!-- SpaceX-inspired hero -->
+      <div style="position:relative;z-index:1;">
+        <div style="font-family:system-ui;font-size:10px;font-weight:700;color:rgba(240,240,250,0.4);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;">DevOps Engineer</div>
+        <div style="font-family:system-ui;font-size:36px;font-weight:300;color:#f0f0fa;letter-spacing:-0.5px;line-height:1.05;">NANDEESWAR<br><span style="font-weight:100;color:rgba(240,240,250,0.6);">REDDY POLU</span></div>
+        <div style="margin-top:32px;display:flex;gap:16px;align-items:center;">
+          <div style="background:rgba(240,240,250,0.08);border:1px solid rgba(240,240,250,0.2);padding:10px 24px;border-radius:32px;color:#f0f0fa;font-size:12px;font-weight:400;letter-spacing:1px;text-transform:uppercase;">View Work</div>
+          <div style="color:rgba(240,240,250,0.4);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;">2+ Years</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B: Cinematic Monochrome</h3>
+      <p><strong>Inspired by:</strong> SpaceX + Tesla + Stripe weight-300</p>
+      <p>Pure black and spectral white. Ultra-light font weights. Uppercase labels with wide tracking. Full-viewport sections that feel like mission briefings. Ghost buttons. No decorative elements — just bold typography and vast negative space. Each section is a "scene."</p>
+      <p style="font-size:12px;color:#888;margin-top:8px;"><em>Tone: Commanding, cinematic, premium. Like a SpaceX launch page meets a luxury brand.</em></p>
+    </div>
+  </div>
+
+  <!-- Direction C: Editorial Precision -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: #fafafa; padding: 32px; min-height: 280px; position: relative; overflow: hidden;">
+      <!-- Subtle grid -->
+      <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),linear-gradient(90deg,rgba(0,0,0,0.03) 1px, transparent 1px);background-size:48px 48px;"></div>
+      <!-- Clean editorial hero -->
+      <div style="position:relative;z-index:1;">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:24px;">
+          <span style="font-family:system-ui;font-size:11px;font-weight:500;color:#666;letter-spacing:0.5px;">Portfolio / 2024</span>
+          <span style="font-family:system-ui;font-size:11px;color:#999;">Hyderabad, IN</span>
+        </div>
+        <div style="font-family:Georgia,'Times New Roman',serif;font-size:32px;font-weight:400;color:#171717;letter-spacing:-0.5px;line-height:1.15;">Cloud &amp; DevOps<br>Engineer</div>
+        <div style="margin-top:8px;font-family:system-ui;font-size:14px;color:#666;font-weight:300;">Nandeeswar Reddy Polu</div>
+        <div style="margin-top:24px;height:1px;background:#e5e5e5;"></div>
+        <div style="margin-top:16px;display:flex;gap:24px;">
+          <div>
+            <div style="font-family:system-ui;font-size:24px;font-weight:300;color:#171717;">5</div>
+            <div style="font-family:system-ui;font-size:10px;color:#999;text-transform:uppercase;letter-spacing:0.5px;">Live Apps</div>
+          </div>
+          <div>
+            <div style="font-family:system-ui;font-size:24px;font-weight:300;color:#171717;">99.9%</div>
+            <div style="font-family:system-ui;font-size:10px;color:#999;text-transform:uppercase;letter-spacing:0.5px;">Uptime</div>
+          </div>
+          <div>
+            <div style="font-family:system-ui;font-size:24px;font-weight:300;color:#171717;">60%</div>
+            <div style="font-family:system-ui;font-size:10px;color:#999;text-transform:uppercase;letter-spacing:0.5px;">Cost Cut</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C: Editorial Precision</h3>
+      <p><strong>Inspired by:</strong> Stripe + Vercel + magazine layouts</p>
+      <p>Light canvas, dark navy text, serif headlines mixed with sans-serif body. Shadow-as-border technique from Vercel. Metrics displayed like editorial data visualizations. Clean horizontal rules. A portfolio that reads like a beautifully typeset magazine feature on a top engineer. Dark mode available as toggle.</p>
+      <p style="font-size:12px;color:#888;margin-top:8px;"><em>Tone: Refined, authoritative, editorial. Like a Bloomberg profile meets a Stripe product page.</em></p>
+    </div>
+  </div>
+
+</div>
+
+<div class="section" style="margin-top:24px;padding:16px;border-radius:8px;background:rgba(255,255,255,0.03);">
+  <p style="font-size:13px;color:#888;">All three directions keep your real content (experience, skills, projects, contact). The difference is <strong>how your story is structured and felt</strong>. You can also mix elements — e.g., "A's dark theme with C's editorial typography." Tell me what resonates.</p>
+</div>
