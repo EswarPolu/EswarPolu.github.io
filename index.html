@@ -133,6 +133,12 @@
       padding: 0;
     }
 
+    html,
+    body {
+      overflow-x: hidden;
+      overscroll-behavior-x: none;
+    }
+
     html {
       scroll-behavior: smooth;
     }
@@ -141,7 +147,6 @@
       font-family: var(--font-display);
       background: var(--surface);
       color: var(--text);
-      overflow-x: hidden;
       cursor: none; /* Custom cursor - overridden in prefers-reduced-motion */
       transition: background 0.3s, color 0.3s;
     }
@@ -255,7 +260,8 @@
     nav {
       position: fixed;
       top: 0;
-      width: 100%;
+      left: 0;
+      right: 0;
       z-index: 100;
       padding: 18px 48px;
       display: flex;
@@ -263,11 +269,12 @@
       justify-content: space-between;
       background: transparent;
       border-bottom: 1px solid transparent;
-      transition: all 0.4s;
+      transition: background 0.4s, border-bottom-color 0.4s, box-shadow 0.4s, backdrop-filter 0.4s;
     }
 
     nav.scrolled {
       background: var(--nav-bg-scrolled);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
       backdrop-filter: blur(24px) saturate(180%);
       border-bottom-color: var(--border);
       box-shadow: var(--shadow);
@@ -1926,6 +1933,10 @@
       .open-to-panel ul li {
         font-size: 13px;
       }
+
+      footer {
+        padding: 32px 24px;
+      }
     }
 
     /* ── Mobile Nav Responsive ── */
@@ -2062,9 +2073,8 @@
       display: flex;
       flex-direction: column;
       padding: 0;
-      width: 100%;
       height: auto;
-      overflow: visible;
+      overflow: hidden;
 
       /* Hide scrollbar completely */
       -ms-overflow-style: none;  /* IE and Edge */

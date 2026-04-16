@@ -19,6 +19,7 @@ Production-grade, single-page portfolio website showcasing DevOps and Cloud Engi
 - Interactive particle background with mouse repulsion
 - Custom cursor with blend mode
 - Scroll-based reveal animations with staggered delays
+- Zero horizontal scroll on mobile (`overscroll-behavior-x` + targeted transitions)
 - SEO + GEO optimized for search engines and AI citation engines
 - JSON-LD structured data (@graph with 5 schema types)
 
@@ -158,7 +159,14 @@ open index.html       # macOS
 | Initial analysis | 80.3 (B+) | Baseline |
 | Accessibility + buttons + accordions | 95.2 (A+) | +14.9 |
 | Font pairing + green accent | 95.7 (A+) | +0.5 |
-| SEO/GEO + color overhaul + favicons + FAQ | **97.5 (A+)** | **+1.8** |
+| SEO/GEO + color overhaul + favicons + FAQ | 97.5 (A+) | +1.8 |
+| Mobile horizontal scroll fix + final polish | **97.5 (A+)** | **Complete** |
+
+---
+
+## Roadmap
+
+- **Projects section** — coming soon. A dedicated section showcasing DevOps/Cloud infrastructure projects with architecture diagrams, live demos, and GitHub links.
 
 ---
 
@@ -173,5 +181,5 @@ open index.html       # macOS
 ---
 
 **Last Updated**: April 16, 2026  
-**Version**: 3.0 (A+ Grade — SEO/GEO Optimized)  
+**Version**: 3.0 (A+ Grade — Complete)  
 **Status**: Production

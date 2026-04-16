@@ -3,7 +3,7 @@
 **Site**: Nandeeswar Reddy Polu - DevOps/Cloud Engineer Portfolio  
 **URL**: [eswarpolu.github.io](https://eswarpolu.github.io)  
 **Last Updated**: April 16, 2026  
-**Status**: Production — deployed on GitHub Pages
+**Status**: Complete — deployed on GitHub Pages
 
 ---
 
@@ -166,6 +166,7 @@ Inspired by NVIDIA and Google's dark-mode approach — one vivid accent color wi
 - All contact boxes visible without cutoff
 - Touch-friendly button sizing throughout
 - Reduced particle count for battery life
+- Zero horizontal scroll (`overscroll-behavior-x: none` + targeted nav transitions)
 
 ---
 
@@ -217,9 +218,11 @@ Inspired by NVIDIA and Google's dark-mode approach — one vivid accent color wi
 | Apr 10 | Priority 3: lazy loading, particles, tags | 95.7 (A+) | +0.0* |
 | Apr 16 | SEO/GEO: JSON-LD @graph, robots.txt, sitemap, meta tags | 96.5 (A+) | +0.8 |
 | Apr 16 | Color overhaul: single-accent system, ghost secondary buttons | 97.0 (A+) | +0.5 |
-| **Apr 16** | **Circular favicons, FAQ section, dynamic years, heading fixes** | **97.5 (A+)** | **+0.5** |
+| Apr 16 | Circular favicons, FAQ section, dynamic years, heading fixes | 97.5 (A+) | +0.5 |
+| **Apr 16** | **Fix mobile horizontal scroll, nav transitions, final polish** | **97.5 (A+)** | **+0.0** |
 
-*Priority 3 maintained grade with improved performance metrics.
+*Priority 3 maintained grade with improved performance metrics.  
+*Final polish fixed mobile UX without score change.
 
 ---
 
@@ -235,7 +238,7 @@ Inspired by NVIDIA and Google's dark-mode approach — one vivid accent color wi
 
 **Design** (7.5 → 9.5): Single-accent color system, Manrope font pairing, CSS spacing variables, theme-adaptive button text, pipeline card, impact metric chips
 
-**Mobile** (7.0 → 9.5): 15+ bug fixes, slide-down overlay menu with backdrop blur, responsive contact grid, body scroll lock, all elements accessible
+**Mobile** (7.0 → 9.5): 15+ bug fixes, slide-down overlay menu with backdrop blur, responsive contact grid, body scroll lock, horizontal scroll fix, all elements accessible
 
 **Code Quality** (7.0 → 9.0): Semantic HTML (`<main>`, `<article>`), external link security, heading hierarchy, dynamic content computation, structured data
 
@@ -243,7 +246,7 @@ Inspired by NVIDIA and Google's dark-mode approach — one vivid accent color wi
 
 ## Areas for Future Enhancement
 
-1. Add sitemap for multi-page scenarios if site expands
+1. **Projects section** — dedicated section showcasing DevOps/Cloud projects with live demos and architecture diagrams
 2. Experiment with diagonal section dividers or decorative SVG elements
 3. Add micro-interactions on hover states for project cards
 4. Consider variable font loading for performance
