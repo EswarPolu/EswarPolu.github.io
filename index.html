@@ -10,19 +10,30 @@
   <meta name="description" content="DevOps & Cloud Engineer specializing in AWS, Terraform, Docker, Kubernetes, and CI/CD pipelines. 3+ years of experience building scalable cloud infrastructure.">
   <meta name="keywords" content="DevOps, Cloud Engineer, AWS, Terraform, Docker, Kubernetes, CI/CD, Infrastructure as Code">
   <meta name="author" content="Nandeeswar Reddy Polu">
+  <link rel="canonical" href="https://eswarpolu.github.io/">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="theme-color" content="#080808" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 
   <!-- Open Graph / Social Media -->
   <meta property="og:title" content="Nandeeswar Polu - DevOps Engineer">
   <meta property="og:description" content="DevOps & Cloud Engineer specializing in AWS, Terraform, Docker, Kubernetes, and CI/CD pipelines">
-  <meta property="og:image" content="https://eeswarpolu.github.io/assets/profile-rectangle.jpg">
-  <meta property="og:url" content="https://eeswarpolu.github.io">
+  <meta property="og:image" content="https://eswarpolu.github.io/assets/profile-rectangle.jpg">
+  <meta property="og:url" content="https://eswarpolu.github.io">
   <meta property="og:type" content="website">
+  <meta property="og:image:width" content="1023">
+  <meta property="og:image:height" content="1458">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Nandeeswar Reddy Polu - Portfolio">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Nandeeswar Polu - DevOps Engineer">
   <meta name="twitter:description" content="DevOps & Cloud Engineer specializing in AWS, Terraform, Docker, Kubernetes, and CI/CD pipelines">
-  <meta name="twitter:image" content="https://eeswarpolu.github.io/assets/profile-rectangle.jpg">
+  <meta name="twitter:image" content="https://eswarpolu.github.io/assets/profile-rectangle.jpg">
 
   <!-- Performance: Preconnect to font provider -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,6 +43,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;600;700&display=swap"
     rel="stylesheet" />
+  <link rel="preload" as="image" href="assets/profile-rectangle.jpg">
   <style>
     :root {
       --primary: #ff8f6f;
@@ -39,11 +51,11 @@
       --primary-faint: rgba(255, 143, 111, 0.08); /* Dark mode faint overlay */
       --primary-subtle: rgba(255, 143, 111, 0.2); /* Dark mode subtle border */
       --primary-glow: rgba(255, 143, 111, 0.25);
-      --cyan: #00e5ff;
-      --cyan-dim: #00bcd4;
-      --cyan-faint: rgba(0, 229, 255, 0.08);
-      --cyan-subtle: rgba(0, 229, 255, 0.2);
-      --cyan-glow: rgba(0, 229, 255, 0.2);
+      --cyan: rgba(255, 255, 255, 0.85);
+      --cyan-dim: rgba(255, 255, 255, 0.7);
+      --cyan-faint: rgba(255, 255, 255, 0.04);
+      --cyan-subtle: rgba(255, 255, 255, 0.15);
+      --cyan-glow: rgba(255, 255, 255, 0.06);
       --green: #10b981; /* Emerald green accent */
       --green-dim: #059669;
       --green-faint: rgba(16, 185, 129, 0.08);
@@ -102,11 +114,11 @@
       --primary-faint: rgba(230, 74, 25, 0.06); /* Lighter tint for light mode */
       --primary-subtle: rgba(230, 74, 25, 0.15); 
       --primary-glow: rgba(230, 74, 25, 0.12);
-      --cyan: #00838f; /* Deeper cyan for contrast */
-      --cyan-dim: #006064;
-      --cyan-faint: rgba(0, 131, 143, 0.06);
-      --cyan-subtle: rgba(0, 131, 143, 0.15);
-      --cyan-glow: rgba(0, 131, 143, 0.12);
+      --cyan: rgba(0, 0, 0, 0.7);
+      --cyan-dim: rgba(0, 0, 0, 0.55);
+      --cyan-faint: rgba(0, 0, 0, 0.03);
+      --cyan-subtle: rgba(0, 0, 0, 0.12);
+      --cyan-glow: rgba(0, 0, 0, 0.05);
       --gold: #f4511e; /* Swapped to vibrant orange tint for visibility */
       --gold-faint: rgba(244, 81, 30, 0.06);
       --shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Softer shadows in light mode */
@@ -432,7 +444,7 @@
     /* PRIMARY: High emphasis - Main CTAs (orange, bold, glowing) */
     .btn-primary {
       background: var(--primary);
-      color: #2a0a00;
+      color: var(--surface);
       box-shadow: 0 4px 16px var(--primary-glow);
     }
 
@@ -442,22 +454,17 @@
       box-shadow: 0 8px 28px rgba(255, 107, 66, 0.35);
     }
 
-    /* SECONDARY: Medium emphasis - Important actions (cyan, solid) */
+    /* SECONDARY: Medium emphasis - Ghost/outline style */
     .btn-secondary {
-      background: var(--cyan);
-      color: #001f24;
-      box-shadow: 0 4px 16px var(--cyan-glow);
-    }
-
-    :root.light .btn-secondary {
-      background: var(--cyan);
-      color: #ffffff;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
     }
 
     .btn-secondary:hover {
-      background: var(--cyan-dim);
+      background: var(--surface-2);
+      border-color: var(--text-muted);
       transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(0, 229, 255, 0.3);
     }
 
     /* TERTIARY: Low emphasis - Ghost/outline style */
@@ -521,15 +528,15 @@
     @keyframes pulse-cyan {
       0% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.7);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
       }
       70% {
         transform: scale(1);
-        box-shadow: 0 0 0 12px rgba(0, 229, 255, 0);
+        box-shadow: 0 0 0 12px rgba(255, 255, 255, 0);
       }
       100% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(0, 229, 255, 0);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
       }
     }
 
@@ -573,6 +580,18 @@
       margin-bottom: 32px;
     }
 
+    .hero-about {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
     .hero-actions {
       display: flex;
       gap: 14px;
@@ -596,7 +615,7 @@
 
     .hero-btn-primary {
       background: var(--primary);
-      color: #1a0500;
+      color: var(--surface);
       box-shadow: 0 0 40px var(--primary-glow);
     }
 
@@ -607,19 +626,14 @@
     }
 
     .hero-btn-secondary {
-      background: var(--cyan);
-      color: #001f24;
-      box-shadow: 0 0 30px var(--cyan-glow);
-    }
-
-    :root.light .hero-btn-secondary {
-      background: var(--cyan);
-      color: #ffffff;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
     }
 
     .hero-btn-secondary:hover {
-      background: var(--cyan-dim);
-      box-shadow: 0 0 50px rgba(0, 229, 255, 0.3);
+      background: var(--surface-2);
+      border-color: var(--text-muted);
       transform: translateY(-2px);
     }
 
@@ -783,7 +797,7 @@
       position: relative;
       padding: 3px;
       border-radius: 22px;
-      background: linear-gradient(135deg, #ff8f6f, #00e5ff);
+      background: linear-gradient(135deg, #ff8f6f, rgba(255,255,255,0.3));
       box-shadow:
         0 0 30px rgba(255,143,111,0.25),
         0 20px 50px rgba(0,0,0,0.4);
@@ -794,7 +808,7 @@
     .hero-photo-wrap:hover {
       box-shadow:
         0 0 50px rgba(255,143,111,0.25),
-        0 0 20px rgba(0,229,255,0.2),
+        0 0 20px rgba(255,255,255,0.1),
         0 24px 60px rgba(0,0,0,0.5);
     }
 
@@ -1384,7 +1398,7 @@
       font-family: var(--font-mono);
       font-size: 13px;
       color: var(--cyan);
-      background: rgba(0, 229, 255, 0.06);
+      background: var(--cyan-faint);
       padding: 2px 8px;
       border-radius: 4px;
     }
@@ -1396,8 +1410,8 @@
       gap: 12px;
       margin-top: 24px;
       padding: 12px 18px;
-      background: rgba(0, 229, 255, 0.03);
-      border: 1px dashed rgba(0, 229, 255, 0.2);
+      background: var(--cyan-faint);
+      border: 1px dashed var(--cyan-subtle);
       border-radius: 10px;
     }
 
@@ -1530,9 +1544,9 @@
     }
 
     .badge-cyan {
-      background: rgba(0, 10, 15, 0.75);
-      color: #00e5ff;
-      border: 1px solid rgba(0, 229, 255, 0.35);
+      background: rgba(0, 0, 0, 0.6);
+      color: var(--text);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(8px);
     }
 
@@ -1617,7 +1631,8 @@
     }
 
     .bento-link-cyan:hover {
-      background: rgba(0, 229, 255, 0.15);
+      background: var(--cyan-faint);
+      border-color: var(--text-muted);
     }
 
 
@@ -1668,13 +1683,13 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, rgba(0, 229, 255, 0.04), transparent);
+      background: linear-gradient(90deg, var(--cyan-faint), transparent);
       opacity: 0;
       transition: opacity 0.3s;
     }
 
     .contact-link:hover {
-      border-color: rgba(0, 229, 255, 0.25);
+      border-color: var(--cyan-subtle);
       transform: translateX(4px);
     }
 
@@ -1698,7 +1713,8 @@
       transform: scale(1.1) rotate(-5deg);
     }
 
-    .contact-text h4 {
+    .contact-text strong {
+      display: block;
       font-family: var(--font-display);
       font-size: 15px;
       font-weight: 700;
@@ -1774,8 +1790,8 @@
     }
 
     .role-list li:hover {
-      background: rgba(0, 229, 255, 0.04);
-      border-color: rgba(0, 229, 255, 0.2);
+      background: var(--cyan-faint);
+      border-color: var(--cyan-subtle);
       transform: translateX(4px);
     }
 
@@ -1890,7 +1906,7 @@
         height: 40px;
       }
 
-      .contact-text h4 {
+      .contact-text strong {
         font-size: 14px;
       }
 
@@ -1994,7 +2010,7 @@
         height: 36px;
       }
 
-      .contact-text h4 {
+      .contact-text strong {
         font-size: 13px;
       }
 
@@ -2192,19 +2208,14 @@
     }
 
     .m-cta-secondary {
-      background: var(--cyan);
-      color: #001f24;
-      border: 1px solid var(--cyan-subtle);
-      box-shadow: 0 4px 20px var(--cyan-glow);
-    }
-
-    :root.light .m-cta-secondary {
-      color: #ffffff;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
     }
 
     .m-cta-secondary:hover {
-      background: var(--cyan-dim);
-      box-shadow: 0 6px 28px var(--cyan-glow);
+      background: var(--surface-2);
+      border-color: var(--text-muted);
       transform: translateY(-1px);
     }
 
@@ -2222,7 +2233,7 @@
 
     .m-cta-primary {
       background: var(--primary);
-      color: #1a0500;
+      color: var(--surface);
       border: none;
       box-shadow: 0 4px 20px var(--primary-glow);
     }
@@ -2393,33 +2404,162 @@
     }
   </style>
 
-  <!-- JSON-LD Structured Data for SEO -->
+  <!-- JSON-LD Structured Data for SEO & GEO -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Nandeeswar Reddy Polu",
-    "jobTitle": "DevOps Engineer",
-    "url": "https://eeswarpolu.github.io",
-    "sameAs": [
-      "https://linkedin.com/in/nandeeswar-reddy-polu",
-      "https://github.com/EeswarSunny",
-      "https://medium.com/@nandueeswar"
-    ],
-    "knowsAbout": [
-      "AWS",
-      "Terraform",
-      "Docker",
-      "Kubernetes",
-      "CI/CD",
-      "DevOps",
-      "Cloud Architecture",
-      "Infrastructure as Code",
-      "GitHub Actions",
-      "Jenkins"
-    ],
-    "email": "polunandeeswar2002@gmail.com",
-    "description": "DevOps & Cloud Engineer with 3+ years of experience building scalable cloud infrastructure and automating deployment pipelines"
+    "@graph": [
+      {
+        "@type": "ProfilePage",
+        "@id": "https://eswarpolu.github.io/#profilepage",
+        "name": "Nandeeswar Reddy Polu - DevOps & Cloud Engineer Portfolio",
+        "url": "https://eswarpolu.github.io/",
+        "description": "Portfolio of Nandeeswar Reddy Polu, a DevOps and Cloud Engineer specializing in AWS, Terraform, Docker, Kubernetes, and CI/CD pipeline automation.",
+        "mainEntity": {"@id": "https://eswarpolu.github.io/#person"},
+        "dateModified": "2026-04-16",
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://eswarpolu.github.io/#person",
+        "name": "Nandeeswar Reddy Polu",
+        "givenName": "Nandeeswar Reddy",
+        "familyName": "Polu",
+        "jobTitle": "Cloud & DevOps Engineer",
+        "url": "https://eswarpolu.github.io",
+        "image": "https://eswarpolu.github.io/assets/profile-rectangle.jpg",
+        "email": "polunandeeswar2002@gmail.com",
+        "telephone": "+916302308197",
+        "description": "Nandeeswar Reddy Polu is a DevOps and Cloud Engineer with 2+ years of experience building scalable cloud infrastructure on AWS. He specializes in container orchestration (ECS, EKS), GitOps-driven deployment pipelines using Terraform, and FinOps cost optimization that has saved approximately 60% in SaaS licensing costs.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Hyderabad",
+          "addressCountry": "IN"
+        },
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Yotta Tech Ports",
+          "url": "https://www.linkedin.com/company/yottaflexai"
+        },
+        "sameAs": [
+          "https://linkedin.com/in/polu-nandeeswar",
+          "https://github.com/EeswarSunny",
+          "https://medium.com/@nandueeswar"
+        ],
+        "knowsAbout": [
+          "Amazon Web Services (AWS)",
+          "Terraform",
+          "Docker",
+          "Kubernetes",
+          "CI/CD Pipeline Automation",
+          "DevOps",
+          "Cloud Architecture",
+          "Infrastructure as Code",
+          "GitHub Actions",
+          "Jenkins",
+          "AWS ECS",
+          "AWS EKS",
+          "Prometheus",
+          "Grafana",
+          "FinOps",
+          "Site Reliability Engineering"
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://eswarpolu.github.io/#articles",
+        "name": "Technical Articles and Projects by Nandeeswar Reddy Polu",
+        "numberOfItems": 3,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "SoftwareSourceCode",
+              "name": "Terraform Basics: Modular AWS Infrastructure",
+              "description": "A production-ready collection of modular HCL patterns designed for high-availability AWS environments, focusing on networking and ECS orchestration.",
+              "url": "https://github.com/EeswarSunny/Terraform-basics",
+              "author": {"@id": "https://eswarpolu.github.io/#person"},
+              "programmingLanguage": "HCL (Terraform)"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "Article",
+              "name": "4 AWS IAM Truths That Will Change How You Manage Cloud Security",
+              "description": "An exploration of the Principle of Least Privilege and why standard IAM configurations often fail basic security audits in enterprise environments.",
+              "url": "https://medium.com/aws-in-plain-english/4-aws-iam-truths-that-will-change-how-you-manage-cloud-security-%EF%B8%8F-7a0a393e2b59",
+              "author": {"@id": "https://eswarpolu.github.io/#person"},
+              "publisher": {"@type": "Organization", "name": "AWS in Plain English"}
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "Article",
+              "name": "Demystifying Docker: 5 Foundational Concepts for Beginners",
+              "description": "Everything you need to know about container orchestration, from layers and storage to networking and production best practices.",
+              "url": "https://medium.com/aws-in-plain-english/demystifying-docker-5-foundational-concepts-for-beginners-5e7e7cdf2aea",
+              "author": {"@id": "https://eswarpolu.github.io/#person"},
+              "publisher": {"@type": "Organization", "name": "AWS in Plain English"}
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://eswarpolu.github.io/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://eswarpolu.github.io/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://eswarpolu.github.io/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What does Nandeeswar Reddy Polu specialize in?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nandeeswar specializes in AWS cloud infrastructure, container orchestration (ECS, EKS), CI/CD pipeline automation using GitHub Actions and CodePipeline, Infrastructure as Code with Terraform, and FinOps cost optimization. He has managed production workloads for 5 applications supporting 20+ engineers."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What tools and technologies does Nandeeswar use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Core stack: AWS (EC2, ECS, EKS, VPC, S3, Lambda, RDS, Route 53, CloudWatch), Terraform, Docker, Kubernetes, Helm, GitHub Actions, GitLab CI, Jenkins, Prometheus, Grafana, and HashiCorp Vault. He works across cloud platform, IaC, CI/CD, orchestration, observability, and security domains."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What measurable results has Nandeeswar achieved?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Key metrics: 80% reduction in deployment time through CI/CD automation, approximately 60% annual savings in SaaS licensing by self-hosting tools, approximately 40% monthly reduction in idle compute costs via Lambda automation, MTTR under 20 minutes across all production incidents, and 100% elimination of hardcoded credentials through AWS Secrets Manager."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Nandeeswar open to new opportunities?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Nandeeswar is based in Hyderabad, India and is open to remote and hybrid roles. He is looking for positions as a Senior DevOps Engineer, Cloud Infrastructure Engineer, Site Reliability Engineer (SRE), or MLOps Engineer."
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
 </head>
@@ -2427,7 +2567,7 @@
 <body>
 
   <!-- Skip to main content (accessibility) -->
-  <a href="#Hero" class="skip-link">Skip to main content</a>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Cursor -->
   <div id="cursor" aria-hidden="true"></div>
@@ -2445,6 +2585,7 @@
       <li><a href="#Skills">Skills</a></li>
       <li><a href="#Experience">Experience</a></li>
       <li><a href="#Blogs">Blogs</a></li>
+      <li><a href="#FAQ">FAQ</a></li>
       <li><a href="#Contact">Contact</a></li>
     </ul>
     <div class="nav-cta">
@@ -2486,13 +2627,15 @@
     </div>
   </nav>
 
+  <main id="main-content">
+
   <!-- HERO -->
   <section id="Hero">
     <div class="hero-grid">
       <!-- Hero content -->
       <div>
         <div class="mobile-photo-wrap reveal">
-          <img src="assets/profile-rectangle.jpg" alt="Nandeeswar Reddy Polu" />
+          <img src="assets/profile-rectangle.jpg" alt="Nandeeswar Reddy Polu" width="1023" height="1458" />
         </div>
         <div class="hero-badge reveal">
           <span class="hero-badge-dot"></span>
@@ -2505,6 +2648,14 @@
         </h1>
         <p class="hero-sub reveal reveal-delay-2">
           Specializing in container orchestration (AWS ECS, EKS) and GitOps-driven deployment pipelines using Terraform.
+        </p>
+        <p class="hero-about reveal reveal-delay-2">
+          Nandeeswar Reddy Polu is a DevOps and Cloud Engineer based in Hyderabad, India,
+          with 2+ years of hands-on experience managing production AWS infrastructure.
+          He serves as the sole DevOps owner for 5 live production applications at Yotta Tech Ports,
+          supporting 3 development teams and 20+ engineers. His work has reduced deployment
+          times by 80%, cut SaaS licensing costs by approximately 60%, and maintained
+          MTTR under 20 minutes across all production incidents.
         </p>
         <div class="hero-actions reveal reveal-delay-3">
           <a class="hero-btn-primary" href="#Contact">
@@ -2568,7 +2719,8 @@
         <div class="hero-photo-frame">
           <img
             src="assets/profile-rectangle.jpg"
-            alt="Nandeeswar Reddy Polu" />
+            alt="Nandeeswar Reddy Polu"
+            width="1023" height="1458" />
         </div>
       </div>
     </div>
@@ -2719,7 +2871,7 @@
         <h2 class="section-title reveal reveal-delay-1">Where I've <em>Shipped</em> Real Impact</h2>
         <p class="section-sub reveal reveal-delay-2"
           style="font-family:var(--font-mono);font-size:13px;line-height:1.7">
-          <span style="color:var(--cyan)">2 years. 5 live production systems. 3 dev teams. Zero dedicated infra
+          <span style="color:var(--text-muted)"><span id="exp-years">2</span> years. 5 live production systems. 3 dev teams. Zero dedicated infra
             team.</span><br />
           Every number here is something I built, broke, fixed, and automated myself.
         </p>
@@ -2738,7 +2890,7 @@
               </span>
             </div>
             <div class="role-title">Cloud & DevOps Engineer</div>
-            <div class="role-company"><a href="https://www.linkedin.com/company/yottaflexai" target="_blank" style="color:inherit;text-decoration:none">Yotta Tech Ports</a> · <span>Hyderabad, IN</span></div>
+            <div class="role-company"><a href="https://www.linkedin.com/company/yottaflexai" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none">Yotta Tech Ports</a> · <span>Hyderabad, IN</span></div>
           </div>
           <div class="impact-chips">
             <div class="impact-chip">
@@ -2915,7 +3067,7 @@
               <span class="badge badge-foundation">Foundation</span>
             </div>
             <div class="role-title">Junior Cloud Engineer</div>
-            <div class="role-company"><a href="https://www.linkedin.com/company/yottaflexai" target="_blank" style="color:inherit;text-decoration:none">Yotta Tech Ports</a> · <span>Hyderabad, IN</span></div>
+            <div class="role-company"><a href="https://www.linkedin.com/company/yottaflexai" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none">Yotta Tech Ports</a> · <span>Hyderabad, IN</span></div>
           </div>
           <div class="impact-chips">
             <div class="impact-chip">
@@ -3026,11 +3178,12 @@
         <p class="section-sub reveal reveal-delay-2">Open-source infrastructure projects on GitHub and published technical articles on Medium, covering DevOps and cloud architecture.</p>
       </div>
       <div class="bento-grid">
-        <div class="bento-card reveal">
+        <article class="bento-card reveal">
           <div class="bento-img">
             <img
               src="assets/terraform cheatsheet photo.webp"
-              alt="Terraform"
+              alt="Terraform Basics: Modular AWS Infrastructure project"
+              width="720" height="439"
               loading="lazy" />
             <span class="bento-badge badge-orange">Technical Breakdown</span>
           </div>
@@ -3045,19 +3198,20 @@
               <span class="bento-meta-tag">VPC</span>
             </div>
             <a class="bento-link bento-link-orange stretched-link" href="https://github.com/EeswarSunny/Terraform-basics"
-              target="_blank">
+              target="_blank" rel="noopener noreferrer">
               Explore Repository
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </a>
           </div>
-        </div>
-        <div class="bento-card reveal reveal-delay-1">
+        </article>
+        <article class="bento-card reveal reveal-delay-1">
           <div class="bento-img">
             <img
               src="assets/iam meduim photo.webp"
-              alt="IAM"
+              alt="4 AWS IAM Truths for Cloud Security article"
+              width="720" height="402"
               loading="lazy" />
             <span class="bento-badge badge-cyan">Medium Article</span>
           </div>
@@ -3070,19 +3224,20 @@
               <span class="bento-meta-tag">Security</span>
               <span class="bento-meta-tag">Medium</span>
             </div>
-            <a class="bento-link bento-link-cyan stretched-link" href="https://medium.com/aws-in-plain-english/4-aws-iam-truths-that-will-change-how-you-manage-cloud-security-️-7a0a393e2b59" target="_blank">
+            <a class="bento-link bento-link-cyan stretched-link" href="https://medium.com/aws-in-plain-english/4-aws-iam-truths-that-will-change-how-you-manage-cloud-security-️-7a0a393e2b59" target="_blank" rel="noopener noreferrer">
               Read Article
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </a>
           </div>
-        </div>
-        <div class="bento-card reveal reveal-delay-2">
+        </article>
+        <article class="bento-card reveal reveal-delay-2">
           <div class="bento-img">
             <img
               src="assets/dokcer meduim photo.webp"
-              alt="Docker"
+              alt="Demystifying Docker: 5 Foundational Concepts article"
+              width="720" height="402"
               loading="lazy" />
             <span class="bento-badge badge-cyan">Medium Article</span>
           </div>
@@ -3095,12 +3250,60 @@
               <span class="bento-meta-tag">Containers</span>
               <span class="bento-meta-tag">Medium</span>
             </div>
-            <a class="bento-link bento-link-cyan stretched-link" href="https://medium.com/aws-in-plain-english/demystifying-docker-5-foundational-concepts-for-beginners-5e7e7cdf2aea" target="_blank">
+            <a class="bento-link bento-link-cyan stretched-link" href="https://medium.com/aws-in-plain-english/demystifying-docker-5-foundational-concepts-for-beginners-5e7e7cdf2aea" target="_blank" rel="noopener noreferrer">
               Read Article
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="FAQ">
+    <div class="section-inner">
+      <div style="margin-bottom:56px">
+        <div class="section-eyebrow reveal">FAQ</div>
+        <h2 class="section-title reveal reveal-delay-1">Frequently <em>Asked</em></h2>
+      </div>
+      <div class="faq-list">
+        <div class="cat-block open reveal">
+          <div class="cat-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="cat-title">What does Nandeeswar Reddy Polu specialize in?</span>
+            <span class="cat-toggle">+</span>
+          </div>
+          <div class="cat-body">
+            <p>Nandeeswar specializes in AWS cloud infrastructure, container orchestration (ECS, EKS), CI/CD pipeline automation using GitHub Actions and CodePipeline, Infrastructure as Code with Terraform, and FinOps cost optimization. He has managed production workloads for 5 applications supporting 20+ engineers.</p>
+          </div>
+        </div>
+        <div class="cat-block reveal reveal-delay-1">
+          <div class="cat-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="cat-title">What tools and technologies does Nandeeswar use?</span>
+            <span class="cat-toggle">+</span>
+          </div>
+          <div class="cat-body">
+            <p>Core stack: AWS (EC2, ECS, EKS, VPC, S3, Lambda, RDS, Route 53, CloudWatch), Terraform, Docker, Kubernetes, Helm, GitHub Actions, GitLab CI, Jenkins, Prometheus, Grafana, and HashiCorp Vault. He works across cloud platform, IaC, CI/CD, orchestration, observability, and security domains.</p>
+          </div>
+        </div>
+        <div class="cat-block reveal reveal-delay-2">
+          <div class="cat-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="cat-title">What measurable results has Nandeeswar achieved?</span>
+            <span class="cat-toggle">+</span>
+          </div>
+          <div class="cat-body">
+            <p>Key metrics: 80% reduction in deployment time through CI/CD automation, approximately 60% annual savings in SaaS licensing by self-hosting tools, approximately 40% monthly reduction in idle compute costs via Lambda automation, MTTR under 20 minutes across all production incidents, and 100% elimination of hardcoded credentials through AWS Secrets Manager.</p>
+          </div>
+        </div>
+        <div class="cat-block reveal reveal-delay-3">
+          <div class="cat-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="cat-title">Is Nandeeswar open to new opportunities?</span>
+            <span class="cat-toggle">+</span>
+          </div>
+          <div class="cat-body">
+            <p>Yes. Nandeeswar is based in Hyderabad, India and is open to remote and hybrid roles. He is looking for positions as a Senior DevOps Engineer, Cloud Infrastructure Engineer, Site Reliability Engineer (SRE), or MLOps Engineer.</p>
           </div>
         </div>
       </div>
@@ -3125,7 +3328,7 @@
               </svg>
             </div>
             <div class="contact-text">
-              <h4>Email</h4>
+              <strong>Email</strong>
               <p>polunandeeswar2002@gmail.com</p>
             </div>
             <span class="contact-arrow">→</span>
@@ -3139,12 +3342,12 @@
               </svg>
             </div>
             <div class="contact-text">
-              <h4>Phone</h4>
+              <strong>Phone</strong>
               <p>+91 6302308197</p>
             </div>
             <span class="contact-arrow">→</span>
           </a>
-          <a class="contact-link" href="https://linkedin.com/in/polu-nandeeswar" target="_blank">
+          <a class="contact-link" href="https://linkedin.com/in/polu-nandeeswar" target="_blank" rel="noopener noreferrer">
             <div class="contact-icon" style="background:var(--primary-faint)">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--primary)" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -3152,12 +3355,12 @@
               </svg>
             </div>
             <div class="contact-text">
-              <h4>LinkedIn</h4>
+              <strong>LinkedIn</strong>
               <p>linkedin.com/in/polu-nandeeswar</p>
             </div>
             <span class="contact-arrow">→</span>
           </a>
-          <a class="contact-link" href="https://github.com/EeswarSunny/Terraform-basics" target="_blank">
+          <a class="contact-link" href="https://github.com/EeswarSunny/Terraform-basics" target="_blank" rel="noopener noreferrer">
             <div class="contact-icon" style="background:var(--primary-faint)">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--primary)" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -3165,12 +3368,12 @@
               </svg>
             </div>
             <div class="contact-text">
-              <h4>GitHub</h4>
+              <strong>GitHub</strong>
               <p>EeswarSunny/Terraform-basics</p>
             </div>
             <span class="contact-arrow">→</span>
           </a>
-          <a class="contact-link" href="https://medium.com/aws-in-plain-english/4-aws-iam-truths-that-will-change-how-you-manage-cloud-security-️-7a0a393e2b59" target="_blank">
+          <a class="contact-link" href="https://medium.com/aws-in-plain-english/4-aws-iam-truths-that-will-change-how-you-manage-cloud-security-️-7a0a393e2b59" target="_blank" rel="noopener noreferrer">
             <div class="contact-icon" style="background:var(--primary-faint)">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--primary)" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -3178,7 +3381,7 @@
               </svg>
             </div>
             <div class="contact-text">
-              <h4>Medium</h4>
+              <strong>Medium</strong>
               <p>4 AWS IAM Truths for Cloud Security</p>
             </div>
             <span class="contact-arrow">→</span>
@@ -3206,6 +3409,8 @@
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- FOOTER -->
   <footer>
@@ -3266,7 +3471,7 @@
 
     // ── Nav active link (scroll spy) ──────────────────────────
     const navLinks = document.querySelectorAll('.nav-links a');
-    const sectionIds = ['Hero', 'Skills', 'Experience', 'Blogs', 'Contact'];
+    const sectionIds = ['Hero', 'Skills', 'Experience', 'Blogs', 'FAQ', 'Contact'];
     const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
 
     let visibleSections = new Map();
@@ -3447,6 +3652,10 @@
         el.textContent = yearLabel;
       });
 
+      // Experience section intro years
+      const expYearsEl = document.getElementById('exp-years');
+      if (expYearsEl) expYearsEl.textContent = years;
+
       // Skills "Last updated" tag
       const skillsTag = document.getElementById('skills-updated-tag');
       if (skillsTag) skillsTag.textContent = 'Last updated ' + quarter + ' ' + currentYear;
@@ -3464,6 +3673,7 @@
       <a href="#Skills" class="m-link">Skills</a>
       <a href="#Experience" class="m-link">Experience</a>
       <a href="#Blogs" class="m-link">Blogs</a>
+      <a href="#FAQ" class="m-link">FAQ</a>
       <a href="#Contact" class="m-link">Contact</a>
     </nav>
 
